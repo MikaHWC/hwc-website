@@ -1,6 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/partners", "destination": "/partners.html" }
+  "routes": [
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/partners", "dest": "/partners.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
