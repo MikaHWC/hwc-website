@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — How We Convert</title>
+<meta name="description" content="A decade in performance marketing. Michael Gayet, founder of How We Convert, on a mission to help ecommerce brands take control of their paid social.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0F172A; --ink-soft: #1E293B; --bg: #FAFAFA; --card: #FFFFFF;
+  --muted: #64748B; --muted-light: #94A3B8; --border: #E2E8F0; --border-soft: #F1F5F9;
+  --accent: #2563EB; --accent-dark: #1D4ED8; --accent-light: #EFF6FF;
+  --accent-border: #BFDBFE; --accent-on-dark: #60A5FA;
+}
+body { font-family: 'Geist', -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+section { padding: 80px 32px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.btn-primary { display: inline-block; padding: 13px 22px; background: var(--accent); color: #fff; border-radius: 8px; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-ghost { display: inline-block; padding: 13px 22px; background: transparent; color: var(--ink); border: 1px solid var(--border); border-radius: 8px; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-ghost:hover { border-color: var(--muted); }
+
+/* ── HERO ── */
+.about-hero { padding: 96px 32px 56px; }
+.about-hero .container { max-width: 1100px; margin: 0 auto; }
+.about-hero h1 { font-size: 60px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; max-width: 880px; }
+.about-hero h1 span { color: var(--accent); }
+.about-hero p { font-size: 20px; color: var(--muted); line-height: 1.6; max-width: 680px; }
+
+/* ── BIO BLOCK ── */
+.bio { padding: 32px 32px 96px; }
+.bio .container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+.bio-photo { position: sticky; top: 80px; }
+.bio-photo-wrap { aspect-ratio: 3/4; border-radius: 14px; overflow: hidden; background: var(--border-soft); border: 1px solid var(--border); margin-bottom: 12px; }
+.bio-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%) contrast(1.02); }
+.bio-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--border-soft); min-height: 320px; }
+.bio-photo-placeholder span { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--muted-light); letter-spacing: 1px; }
+.bio-photo-caption { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted-light); }
+.bio-content .eyebrow { margin-bottom: 14px; }
+.bio-content p { font-size: 17px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 20px; }
+.bio-content p.lead { font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.6; }
+.bio-content strong { color: var(--ink); font-weight: 500; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
+
+/* ── PRINCIPLES ── */
+.principles { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.principles h2 { font-size: 38px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 48px; max-width: 680px; }
+.principles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.principle-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; }
+.principle-num { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--accent); margin-bottom: 14px; }
+.principle-title { font-size: 20px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 12px; }
+.principle-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── PATH ── */
+.path { padding: 96px 32px; }
+.path h2 { font-size: 38px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 48px; max-width: 680px; }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 40px; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot { position: absolute; left: -32px; top: 4px; width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+.timeline-year { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.timeline-title { font-size: 22px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 8px; }
+.timeline-desc { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 640px; }
+
+/* ── FINAL CTA ── */
+.final-cta { background: var(--ink); padding: 96px 32px; text-align: center; }
+.final-cta h2 { font-size: 48px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; color: #F8FAFC; margin-bottom: 18px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.final-cta h2 span { color: var(--accent-on-dark); }
+.final-cta p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.btn-cta-primary { display: inline-block; padding: 15px 28px; background: var(--accent); color: #fff; border-radius: 9px; font-family: 'Geist', sans-serif; font-size: 16px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+.btn-cta-primary:hover { background: var(--accent-dark); }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08); padding: 64px 32px 40px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-logo-mark { width: 28px; height: 28px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-weight: 600; }
+.footer-logo-word { font-size: 14px; font-weight: 500; color: #F8FAFC; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 280px; }
+.footer-col-title { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: #F8FAFC; }
+.footer-newsletter p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 14px; }
+.footer-form { display: flex; gap: 8px; }
+.footer-input { flex: 1; min-width: 0; background: rgba(255,255,255,0.06); color: #F8FAFC; border: 1px solid rgba(255,255,255,0.12); border-radius: 7px; padding: 10px 12px; font-family: 'Geist', sans-serif; font-size: 13px; outline: none; }
+.footer-input::placeholder { color: rgba(255,255,255,0.3); }
+.footer-input:focus { border-color: rgba(96,165,250,0.5); }
+.footer-subscribe { padding: 10px 14px; background: var(--accent); color: #fff; border: none; border-radius: 7px; font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-block; }
+.footer-subscribe:hover { background: var(--accent-dark); }
+.footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-built { font-family: 'Geist Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 1px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .about-hero h1 { font-size: 44px; }
+  .bio .container { grid-template-columns: 1fr; gap: 48px; }
+  .bio-photo { position: static; max-width: 320px; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .final-cta h2 { font-size: 36px; }
+}
+@media (max-width: 640px) {
+  section, .about-hero, .bio { padding-left: 20px; padding-right: 20px; }
+  .about-hero h1 { font-size: 34px; }
+  .about-hero p { font-size: 16px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-form { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<script src="/nav.js"></script>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <div class="eyebrow">About · Michael Gayet</div>
+    <h1>A decade in performance marketing. <span>On a mission to stop the waste.</span></h1>
+    <p>I'm a social media optimist who believes paid social can be ethical, sustainable, and genuinely useful — for business owners, agencies, and the people on the other end of the ads.</p>
+  </div>
+</section>
+
+<!-- BIO BLOCK -->
+<section class="bio">
+  <div class="container">
+    <div class="bio-photo">
+      <div class="bio-photo-wrap">
+        <!-- Replace src with your actual photo path e.g. src="/assets/michael.jpg" -->
+        <div class="bio-photo-placeholder">
+          <span>Photo coming soon</span>
+        </div>
+      </div>
+      <div class="bio-photo-caption">Michael Gayet · Founder</div>
+    </div>
+    <div class="bio-content">
+      <div class="eyebrow">The short version</div>
+      <p class="lead">I'm a social media optimist with over a decade immersed in performance marketing.</p>
+      <p>My mission is simple: help businesses stop wasting money and take control of their paid social. I believe the industry works best when it's ethical and sustainable for everyone involved — business owners, agencies, and customers alike.</p>
+      <p>Through How We Convert, I champion a culture of <strong>"radical honesty"</strong> and empowerment. I'm passionate about leveraging AI and creative strategies not just for profit, but to create positive impacts and genuine human connections.</p>
+      <p>I'm here to help you stop guessing and start growing.</p>
+      <div class="btn-row">
+        <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+        <a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles">
+  <div class="container">
+    <div class="eyebrow">What I believe</div>
+    <h2>Four principles that shape how I work.</h2>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="principle-num">01</div>
+        <div class="principle-title">Radical honesty</div>
+        <div class="principle-desc">If your account doesn't need my help, I'll tell you. If a channel isn't working, I'll say so. No fluff, no vanity metrics, no pretending.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">02</div>
+        <div class="principle-title">Own your system</div>
+        <div class="principle-desc">The goal isn't for you to rely on me forever. It's to build a paid social operation you can run yourself, with AI as your co-pilot.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Ethical by default</div>
+        <div class="principle-desc">Paid social works best when it genuinely serves the buyer. I don't work with founders who want to squeeze performance out of something people don't actually need.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">04</div>
+        <div class="principle-title">AI and human judgement</div>
+        <div class="principle-desc">AI handles the grunt work so the human — me, you — can focus on strategy, taste, and the judgement calls that actually move the needle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section class="path">
+  <div class="container">
+    <div class="eyebrow">The path here</div>
+    <h2>A decade of paid social, compressed into one conviction.</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">10+ years</div>
+        <div class="timeline-title">Deep in performance marketing</div>
+        <div class="timeline-desc">Building, running and optimising paid social accounts across a wide range of categories and scales — from early-stage ecommerce brands to seven-figure accounts.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Then</div>
+        <div class="timeline-title">Agency-side experience</div>
+        <div class="timeline-desc">Saw firsthand how much budget disappears into retainers instead of fuelling actual ad spend and growth. And how rarely clients understood what was happening with their money.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Now</div>
+        <div class="timeline-title">How We Convert — independent</div>
+        <div class="timeline-desc">Solo operator backed by AI. I bring agency-level judgement to founders who want to bring paid social in-house — without the agency overhead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Stop guessing. <span>Start growing.</span></h2>
+  <p>Twenty-minute intro call. No pitch. I look at your account with you and tell you honestly whether I can help or not.</p>
+  <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-cta-primary">Book an intro call</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-mark">hwc</div>
+          <div class="footer-logo-word">how we convert</div>
+        </div>
+        <p class="footer-tagline">Paid social, owned by you. Performance marketing without the agency markup.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/partners">Partner program</a></li>
+          <li><a href="https://learn.howweconvert.com.au">Blog</a></li>
+          <li><a href="https://learn.howweconvert.com.au/courses">Courses</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Tools</div>
+        <ul class="footer-links">
+          <li><a href="https://app.howweconvert.com.au">Ad Generator</a></li>
+          <li><a href="https://learn.howweconvert.com.au/#/portal">Members login</a></li>
+          <li><a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener">Book a call</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <div class="footer-col-title">Thumbstop — Monthly newsletter</div>
+        <p>One email, once a month. Real numbers, what's working in paid social, no fluff.</p>
+        <script async data-uid="a4cc819e70" src="https://how-we-convert.kit.com/a4cc819e70/index.js"></script>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 How We Convert · Sydney, Australia</div>
+      <div class="footer-built">Built with radical honesty.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
