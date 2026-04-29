@@ -24,11 +24,13 @@
     --accent-light: #60A5FA;
     --accent-bg: #EFF6FF;
     --accent-border: #BFDBFE;
+    --font-sans: 'Geist', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Geist Mono', 'SF Mono', Menlo, monospace;
   }
 
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Geist', -apple-system, sans-serif;
+    font-family: var(--font-sans);
     background: var(--bg);
     color: var(--ink);
     line-height: 1.6;
@@ -38,6 +40,7 @@
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; cursor: pointer; }
   img { max-width: 100%; display: block; }
+  .mono { font-family: var(--font-mono); }
 
   /* ===== NAV ===== */
   .nav {
@@ -88,7 +91,7 @@
   .nav-gen { color: var(--accent-dark); background: var(--accent-bg); }
   .nav-gen:hover { color: var(--accent-dark); }
   .nav-gen-pill {
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 9px; letter-spacing: 1px;
     text-transform: uppercase;
     padding: 1px 5px;
@@ -100,11 +103,7 @@
     margin-left: auto;
     display: flex; align-items: center; gap: 14px;
   }
-  .nav-members {
-    font-size: 14px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
+  .nav-members { font-size: 14px; color: var(--muted); white-space: nowrap; }
   .nav-members:hover { color: var(--ink); }
   .nav-cta {
     padding: 10px 18px;
@@ -160,25 +159,13 @@
     font-size: 24px;
     color: var(--ink);
   }
-  .mobile-menu .nav-link {
-    padding: 14px 16px;
-    font-size: 16px;
-    border-radius: 8px;
-  }
-  .mobile-menu .nav-cta {
-    margin-top: 20px;
-    padding: 14px 18px;
-    text-align: center;
-    font-size: 15px;
-  }
-  .mobile-menu .nav-members {
-    padding: 14px 16px;
-    font-size: 15px;
-  }
+  .mobile-menu .nav-link { padding: 14px 16px; font-size: 16px; border-radius: 8px; }
+  .mobile-menu .nav-cta { margin-top: 20px; padding: 14px 18px; text-align: center; font-size: 15px; }
+  .mobile-menu .nav-members { padding: 14px 16px; font-size: 15px; }
 
   /* ===== HERO ===== */
   .hero {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 56px 20px 48px;
     text-align: center;
@@ -186,17 +173,17 @@
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
+    gap: 8px;
+    padding: 5px 12px;
     background: var(--accent-bg);
     color: var(--accent-dark);
     border-radius: 20px;
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .eyebrow::before {
     content: '';
@@ -208,30 +195,32 @@
     font-size: 36px;
     font-weight: 500;
     letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 18px;
+    line-height: 1.05;
+    margin-bottom: 22px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
   .hero h1 .accent { color: var(--accent); }
   .hero-sub {
-    font-size: 17px;
-    color: var(--muted);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
     max-width: 600px;
-    margin: 0 auto 28px;
-    line-height: 1.55;
+    margin: 0 auto 18px;
   }
   .hero-desc {
     font-size: 15px;
     color: var(--muted);
+    line-height: 1.6;
     max-width: 600px;
     margin: 0 auto 32px;
-    line-height: 1.7;
   }
   .btn-primary {
     display: inline-block;
-    padding: 14px 26px;
+    padding: 13px 24px;
     background: var(--accent);
     color: #fff;
     border: none;
@@ -239,197 +228,233 @@
     font-size: 15px; font-weight: 500;
   }
   .btn-primary:hover { background: var(--accent-dark); }
-  .btn-secondary {
-    display: inline-block;
-    padding: 14px 26px;
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-size: 15px; font-weight: 500;
-  }
-  .btn-secondary:hover { border-color: var(--muted); }
 
-  /* ===== SECTION ===== */
-  .section {
+  /* Proof strip */
+  .proof-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 56px 20px;
+    margin: 48px auto 0;
   }
-  .section-tag {
-    font-family: 'Geist Mono', monospace;
+  .proof-cell {
+    padding: 28px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .proof-cell:first-child { border-top: none; }
+  .proof-icon {
+    width: 24px; height: 24px;
+    color: var(--accent);
+    margin: 0 auto 14px;
+    display: block;
+  }
+  .proof-num {
+    font-family: var(--font-mono);
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .proof-label {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .problem-inner { max-width: 820px; margin: 0 auto; }
+  .problem-icon {
+    width: 56px; height: 56px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+  }
+  .problem-tag {
+    font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--muted);
-    text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
+  }
+  .problem h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+  .problem p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .how {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+  }
+  .how-header { margin-bottom: 36px; }
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
   }
   .section-title {
     font-size: 30px;
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 36px;
   }
-
-  /* ===== STATS ===== */
-  .stats {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .stat-card {
+  .how-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .how-step {
     padding: 28px 24px;
-    text-align: center;
+    border-top: 1px solid var(--border);
   }
-  .stat-icon {
-    width: 28px; height: 28px;
-    margin: 0 auto 14px;
+  .how-step:first-child { border-top: none; }
+  .how-step-num {
+    font-size: 56px;
+    font-weight: 300;
+    letter-spacing: -0.04em;
     color: var(--accent);
-    display: block;
+    line-height: 0.9;
+    font-feature-settings: "tnum" 1;
+    margin-bottom: 16px;
   }
-  .stat-value {
-    font-family: 'Geist Mono', monospace;
-    font-size: 38px; font-weight: 500;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  /* ===== ALGORITHM SECTION ===== */
-  .algo {
-    background: var(--ink);
-    color: #fff;
-    padding: 56px 20px;
-  }
-  .algo-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .algo-tag {
-    font-family: 'Geist Mono', monospace;
+  .how-step-tag {
+    font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 14px;
-    text-align: center;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
-  .algo h2 {
-    font-size: 30px;
+  .how-step-title {
+    font-size: 19px;
     font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    color: #fff;
-    margin: 0 auto 24px;
-    max-width: 720px;
-    text-align: center;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-bottom: 12px;
   }
-  .algo h2 .blue { color: var(--accent-light); }
-  .algo p {
-    font-size: 16px;
-    color: rgba(255,255,255,0.75);
+  .how-step-desc {
+    font-size: 14px;
+    color: var(--muted);
     line-height: 1.7;
-    max-width: 640px;
-    margin: 0 auto 18px;
-    text-align: center;
   }
 
   /* ===== ACCELERATE ===== */
-  .accelerate {
+  .accelerate-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .accelerate-header { margin-bottom: 32px; }
+  .accelerate-card {
     background: var(--ink);
     color: #fff;
-    border-radius: 18px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .accelerate-left {
     padding: 32px 24px;
-    max-width: 600px;
-    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
   }
-  .accelerate-eyebrow {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 14px;
-  }
-  .accelerate h3 {
+  .accelerate-title {
     font-size: 22px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #fff;
+    color: #F8FAFC;
     margin-bottom: 18px;
+  }
+  .accelerate-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
   }
   .accelerate-price {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .accelerate-price-num {
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 56px;
     font-weight: 500;
     letter-spacing: -0.03em;
     color: var(--accent-light);
     line-height: 1;
   }
-  .accelerate-price-meta {
-    font-family: 'Geist Mono', monospace;
+  .accelerate-period {
+    font-family: var(--font-mono);
     font-size: 11px;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    padding-bottom: 8px;
+    color: rgba(255,255,255,0.5);
   }
   .accelerate-total {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    color: rgba(255,255,255,0.5);
+    font-family: var(--font-mono);
+    font-size: 10px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 18px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 8px;
   }
   .accelerate-desc {
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
     line-height: 1.6;
-    margin-bottom: 22px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .accelerate-outcome-block {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
   .accelerate-outcome-label {
-    font-family: 'Geist Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
     margin-bottom: 8px;
   }
   .accelerate-outcome {
-    font-size: 15px;
-    color: #fff;
+    font-size: 14px;
+    color: #F8FAFC;
     line-height: 1.5;
     margin-bottom: 22px;
   }
   .accelerate-cta {
     display: block;
     width: 100%;
-    padding: 14px;
+    padding: 14px 22px;
     background: var(--accent);
     color: #fff;
     border: none;
@@ -440,343 +465,1011 @@
   .accelerate-cta:hover { background: var(--accent-dark); }
   .accelerate-secure {
     text-align: center;
-    margin-top: 14px;
-    font-family: 'Geist Mono', monospace;
+    margin-top: 10px;
+    font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
   }
+  .accelerate-right {
+    padding: 32px 24px;
+  }
+  .accelerate-includes-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 14px;
+  }
+  .accelerate-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .accelerate-list li {
+    padding: 12px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+  }
+  .accelerate-list li:first-child { border-top: none; padding-top: 0; }
+  .accelerate-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
 
   /* ===== AI CREATIVE ===== */
   .ai-section {
-    padding: 56px 20px;
-  }
-  .ai-card {
     background: var(--ink);
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 18px;
-    padding: 32px 24px;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 80px 20px;
   }
-  .ai-eyebrow {
-    font-family: 'Geist Mono', monospace;
+  .ai-inner { max-width: 1200px; margin: 0 auto; }
+  .ai-header { margin-bottom: 36px; }
+  .ai-tag {
+    font-family: var(--font-mono);
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 18px;
+  }
+  .ai-section h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: #F8FAFC;
+    margin-bottom: 22px;
+  }
+  .ai-section h2 .blue { color: var(--accent-light); }
+  .ai-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .ai-paragraphs p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+  }
+  .ai-flywheel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0;
+  }
+  .ai-flywheel-svg {
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+  }
+  .ai-flywheel-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+  }
+  .ai-tools-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 18px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .ai-tools {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  .ai-tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    aspect-ratio: 1 / 0.95;
+  }
+  .ai-tool-glyph {
+    width: 32px; height: 32px;
+    color: rgba(255,255,255,0.85);
+  }
+  .ai-tool-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .ai-addon {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .ai-addon-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--accent-light);
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
-  .ai-card h3 {
+  .ai-addon-title {
     font-size: 22px;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: #fff;
+    color: #F8FAFC;
     margin-bottom: 18px;
   }
-  .ai-card p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-    margin-bottom: 22px;
-  }
-  .ai-price {
+  .ai-addon-price {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     gap: 10px;
-    margin-bottom: 22px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 18px;
   }
-  .ai-price-num {
-    font-family: 'Geist Mono', monospace;
+  .ai-addon-num {
+    font-family: var(--font-mono);
     font-size: 44px;
     font-weight: 500;
     letter-spacing: -0.03em;
     color: var(--accent-light);
     line-height: 1;
   }
-  .ai-price-meta {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    color: rgba(255,255,255,0.6);
+  .ai-addon-period {
+    font-family: var(--font-mono);
+    font-size: 12px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding-bottom: 6px;
+    color: rgba(255,255,255,0.55);
   }
-  .ai-cta {
+  .ai-addon-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+  .ai-addon-cta {
     display: block;
     width: 100%;
-    padding: 14px;
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.15);
+    padding: 14px 22px;
+    background: var(--accent-light);
+    color: var(--ink);
+    border: none;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
   }
-  .ai-cta:hover { background: rgba(255,255,255,0.12); }
-
-  /* ===== HOW IT WORKS ===== */
-  .steps {
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .step {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 22px;
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-  }
-  .step-num {
-    font-family: 'Geist Mono', monospace;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    flex-shrink: 0;
-    width: 38px;
-  }
-  .step-body { flex: 1; min-width: 0; }
-  .step-tag {
-    font-family: 'Geist Mono', monospace;
+  .ai-addon-cta:hover { filter: brightness(0.95); }
+  .ai-addon-secure {
+    margin-top: 12px;
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .step-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-  .step-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  /* ===== TESTIMONIALS ===== */
-  .testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .testimonial {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 26px 22px;
-  }
-  .testimonial-quote {
-    font-size: 15px;
-    color: var(--ink);
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .testimonial-photo {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--border);
-  }
-  .testimonial-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.3;
-  }
-  .testimonial-role {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* ===== START HERE ===== */
-  .resources {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .resource-card {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px 22px;
-    transition: border-color 0.15s;
-  }
-  .resource-card:hover { border-color: var(--muted); }
-  .resource-card.dark {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #fff;
-  }
-  .resource-tag {
-    font-family: 'Geist Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-  .resource-card.dark .resource-tag { color: rgba(255,255,255,0.55); }
-  .resource-title {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .resource-card.dark .resource-title { color: #fff; }
-  .resource-body {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.55;
-    margin-bottom: 14px;
-  }
-  .resource-card.dark .resource-body { color: rgba(255,255,255,0.7); }
-  .resource-cta {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .resource-card.dark .resource-cta { color: var(--accent-light); }
-
-  /* ===== FINAL CTA ===== */
-  .final {
-    background: var(--ink);
-    color: #fff;
-    padding: 64px 20px;
-    text-align: center;
-  }
-  .final h2 {
-    font-size: 30px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    color: #fff;
-    margin: 0 auto 14px;
-    max-width: 600px;
-  }
-  .final p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.7);
-    margin: 0 auto 28px;
-    max-width: 500px;
-    line-height: 1.6;
-  }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.7);
-    padding: 48px 20px 24px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 32px;
-  }
-  .footer-brand { display: flex; flex-direction: column; align-items: center; }
-  .footer-brand .logo-mark { background: var(--accent); }
-  .footer-brand .logo-word { color: #fff; }
-  .footer-brand p {
-    margin-top: 16px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-    max-width: 320px;
-  }
-  .footer-resources { display: flex; flex-direction: column; align-items: center; }
-  .footer h4 {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 16px;
-  }
-  .footer-links { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-  .footer-links a {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-  }
-  .footer-links a:hover { color: #fff; }
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 32px auto 0;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.4);
     text-align: center;
   }
-  .footer-bottom-links { display: flex; gap: 24px; }
-  .footer-bottom-links a { color: rgba(255,255,255,0.4); }
+
+  /* ===== FIT LIST ===== */
+  .fit {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .fit-header { margin-bottom: 32px; }
+  .fit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .fit-item {
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .fit-item:last-child { border-bottom: 1px solid var(--border); }
+  .fit-check {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    color: var(--accent);
+    margin-top: 1px;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials-section {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 20px;
+  }
+  .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+  .testimonials-header { margin-bottom: 36px; max-width: 720px; }
+  .testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .testimonial {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .testimonial-quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .testimonial-photo {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: var(--border-soft);
+  }
+  .testimonial-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .testimonial-role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ===== ABOUT MICHAEL ===== */
+  .about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .about-photo-wrap {
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--border-soft);
+    max-width: 320px;
+    margin: 0 auto 32px;
+  }
+  .about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) contrast(1.02);
+  }
+  .about h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .about h2 .accent { color: var(--accent); }
+  .about p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .about strong { color: var(--ink); font-weight: 500; }
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 11px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+  .about-link:hover { border-color: var(--muted); }
+
+  /* ===== RESOURCES ===== */
+  .resources {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .resources-header { margin-bottom: 36px; max-width: 720px; }
+  .resources-header p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 22px;
+    background: var(--card);
+    border: 1px solid rgba(15,23,42,0.12);
+    border-radius: 14px;
+    color: var(--ink);
+  }
+  .resource-card.dark { background: var(--ink); color: #F8FAFC; border-color: rgba(255,255,255,0.18); }
+  .resource-card.blue { background: var(--accent-dark); color: #F8FAFC; border-color: rgba(255,255,255,0.18); }
+  .resource-card.light-blue { background: var(--accent-light); color: var(--ink); border-color: rgba(15,23,42,0.12); }
+  .resource-card:hover { transform: translateY(-2px); transition: transform 0.15s; }
+  .resource-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(15,23,42,0.08);
+    display: flex; align-items: center; justify-content: center;
+    color: inherit;
+  }
+  .resource-card.dark .resource-icon,
+  .resource-card.blue .resource-icon { background: rgba(255,255,255,0.18); }
+  .resource-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .resource-card.dark .resource-tag,
+  .resource-card.blue .resource-tag { color: rgba(255,255,255,0.65); }
+  .resource-card.light-blue .resource-tag { color: rgba(15,23,42,0.6); }
+  .resource-title {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .resource-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .resource-card.dark .resource-body,
+  .resource-card.blue .resource-body { color: rgba(255,255,255,0.8); }
+  .resource-card.light-blue .resource-body { color: rgba(15,23,42,0.7); }
+  .resource-cta {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(15,23,42,0.12);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .resource-card.dark .resource-cta,
+  .resource-card.blue .resource-cta { border-top-color: rgba(255,255,255,0.18); }
+
+  /* ===== FAQ ===== */
+  .faq {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 20px;
+  }
+  .faq-inner { max-width: 1200px; margin: 0 auto; }
+  .faq-header { margin-bottom: 32px; }
+  .faq-list { }
+  .faq-item { border-top: 1px solid var(--border); }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 22px 0;
+    gap: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .faq-toggle {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 200ms, background 200ms, color 200ms;
+    background: transparent;
+  }
+  .faq-item.open .faq-toggle {
+    transform: rotate(45deg);
+    background: var(--ink);
+    color: #fff;
+  }
+  .faq-answer {
+    display: none;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-bottom: 22px;
+    white-space: pre-line;
+  }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ===== FINAL CTA ===== */
+  .final {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    text-align: center;
+  }
+  .final h2 {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final h2 .accent { color: var(--accent); }
+  .final p {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 600px;
+    margin: 0 auto 28px;
+  }
+  .final .btn-primary { padding: 15px 26px; font-size: 16px; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 56px 20px 28px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .logo-mark { background: var(--accent); }
+  .footer-brand .logo-word { color: #F8FAFC; }
+  .footer-brand p {
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 320px;
+  }
+  .footer-resources h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .footer-bottom .copyright { color: rgba(255,255,255,0.4); }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { color: rgba(255,255,255,0.5); }
   .footer-bottom-links a:hover { color: #fff; }
 
-  /* ===== DESKTOP ===== */
+
+  /* ===== HERO VISUAL (iPhone mockup) ===== */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy { width: 100%; }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .iphone {
+    position: relative;
+    width: 280px;
+    height: 560px;
+    background: #0B1220;
+    border-radius: 44px;
+    padding: 10px;
+    box-shadow: 0 40px 80px -20px rgba(15,23,42,0.35), 0 0 0 1px rgba(15,23,42,0.1);
+    flex-shrink: 0;
+  }
+  .iphone-notch {
+    position: absolute;
+    top: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 110px; height: 26px;
+    background: #0B1220;
+    border-radius: 20px;
+    z-index: 2;
+  }
+  .iphone-screen {
+    position: relative;
+    width: 100%; height: 100%;
+    background: #F8FAFC;
+    border-radius: 34px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+  }
+  /* Gmail status + toolbar */
+  .gmail-top {
+    background: #F6F8FC;
+    padding: 32px 14px 8px;
+    border-bottom: 1px solid #E8EAED;
+  }
+  .gmail-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 8px;
+    padding-top: 2px;
+  }
+  .gmail-status-icons { display: flex; align-items: center; gap: 4px; }
+  .gmail-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #5F6368;
+  }
+  .gmail-overflow { display: flex; gap: 2px; }
+  .gmail-overflow span {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: #5F6368;
+  }
+  /* Sender row */
+  .gmail-sender {
+    padding: 10px 14px 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid #F1F3F4;
+  }
+  .gmail-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .gmail-sender-info { flex: 1; min-width: 0; }
+  .gmail-sender-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .gmail-sender-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: #202124;
+  }
+  .gmail-time {
+    font-size: 8px;
+    color: #5F6368;
+    white-space: nowrap;
+  }
+  .gmail-to {
+    font-size: 8.5px;
+    color: #5F6368;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  /* Email body */
+  .gmail-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .gmail-subject {
+    padding: 10px 14px 6px;
+  }
+  .gmail-subject-line {
+    font-size: 12px;
+    font-weight: 600;
+    color: #202124;
+    line-height: 1.3;
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+  .gmail-subject-meta {
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5F6368;
+  }
+  .gmail-greeting {
+    padding: 2px 14px 6px;
+    font-size: 10px;
+    color: #202124;
+    line-height: 1.5;
+  }
+  .gmail-stats-card {
+    margin: 2px 14px 4px;
+    background: #fff;
+    border: 1px solid #E8EAED;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .gmail-stats-card.accent {
+    background: var(--accent);
+    color: #fff;
+    margin-top: 4px;
+  }
+  .gmail-stat-label {
+    font-family: var(--font-mono);
+    font-size: 6.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #5F6368;
+    margin-bottom: 2px;
+  }
+  .gmail-stats-card.accent .gmail-stat-label { color: rgba(255,255,255,0.75); }
+  .gmail-stat-value {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #202124;
+    line-height: 1;
+  }
+  .gmail-stats-card.accent .gmail-stat-value { color: #fff; }
+  .gmail-stat-delta {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+  .gmail-stat-delta.up { color: #059669; }
+  .gmail-stat-delta.flat { color: #5F6368; }
+  .gmail-stats-card.accent .gmail-stat-delta { color: rgba(255,255,255,0.85); }
+  .gmail-stat-divider { border-left: 1px solid #E8EAED; padding-left: 10px; }
+  .gmail-stats-card.accent .gmail-stat-divider { border-left-color: rgba(255,255,255,0.2); }
+  .gmail-insights {
+    padding: 4px 14px 10px;
+    font-size: 8.5px;
+    color: #202124;
+    line-height: 1.4;
+  }
+  .gmail-insight-section { margin-top: 8px; }
+  .gmail-insight-section:first-child { margin-top: 0; }
+  .gmail-insight-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .gmail-insight-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+  }
+  .gmail-insight-dot.green { background: #059669; }
+  .gmail-insight-dot.red { background: #DC2626; }
+  .gmail-insight-dot.blue { background: var(--accent); }
+  .gmail-insight-label {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5F6368;
+    font-weight: 600;
+  }
+  .gmail-insight-bullet {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 2px;
+    align-items: flex-start;
+    padding-left: 9px;
+  }
+  .gmail-insight-bullet .dash {
+    color: #5F6368;
+    line-height: 1.4;
+    font-size: 7px;
+    padding-top: 1px;
+  }
+  /* Gmail bottom bar */
+  .gmail-bottom {
+    border-top: 1px solid #E8EAED;
+    background: #fff;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    gap: 6px;
+    align-items: center;
+  }
+  .gmail-action-circle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid #DADCE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gmail-action-pill {
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid #DADCE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 9px;
+    color: #202124;
+    font-weight: 500;
+  }
+
+  /* ============== DESKTOP ============== */
   @media (min-width: 768px) {
     .nav-inner { padding: 16px 32px; gap: 32px; }
-    .hero { padding: 88px 32px 72px; }
-    .hero h1 { font-size: 56px; }
-    .hero-sub { font-size: 19px; }
-    .section { padding: 80px 32px; }
-    .section-title { font-size: 40px; max-width: 800px; }
-    .stats { grid-template-columns: repeat(3, 1fr); }
-    .algo { padding: 80px 32px; }
-    .algo h2 { font-size: 40px; }
-    .accelerate, .ai-card { padding: 44px 40px; max-width: 720px; }
-    .accelerate h3, .ai-card h3 { font-size: 28px; }
-    .accelerate-price-num { font-size: 72px; }
-    .ai-price-num { font-size: 56px; }
-    .ai-section { padding: 80px 32px; }
-    .step { padding: 24px 28px; gap: 24px; }
-    .step-num { font-size: 26px; width: 48px; }
-    .step-title { font-size: 17px; }
-    .testimonials { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
-    .testimonial { padding: 32px 28px; }
-    .resources { grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .footer { padding: 64px 32px 28px; }
-    .footer-bottom { flex-direction: row; justify-content: center; gap: 32px; }
-    .final { padding: 100px 32px; }
-    .final h2 { font-size: 40px; }
+
+.hero { padding: 80px 32px 64px; text-align: left; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .hero-copy { min-width: 0; text-align: center; }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+    .hero h1 { font-size: 56px; line-height: 1.05; margin-bottom: 24px; }
+    .hero-sub { font-size: 20px; margin-bottom: 20px; }
+    .hero-desc { font-size: 16px; }
+    .proof-strip { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+    .proof-cell { border-top: none; border-left: 1px solid var(--border); padding: 28px 32px; text-align: left; }
+    .proof-cell:first-child { border-left: none; }
+    .proof-icon { margin: 0 0 16px 0; }
+
+    .problem { padding: 120px 32px; }
+    .problem-icon { width: 64px; height: 64px; margin-bottom: 28px; }
+    .problem-tag { margin-bottom: 20px; }
+    .problem h2 { font-size: 42px; margin-bottom: 22px; }
+    .problem p { font-size: 18px; }
+
+    .how { padding: 96px 32px 48px; }
+    .how-header { margin-bottom: 56px; max-width: 820px; }
+    .section-title { font-size: 36px; }
+    .how-step {
+      display: grid;
+      grid-template-columns: 180px 1fr 1.2fr;
+      gap: 40px;
+      padding: 44px 48px;
+      align-items: start;
+    }
+    .how-step-num { font-size: 88px; margin-bottom: 0; }
+    .how-step-title { font-size: 22px; }
+    .how-step-desc { font-size: 15px; }
+
+    .accelerate-section { padding: 48px 32px 96px; }
+    .accelerate-header { margin-bottom: 40px; max-width: 820px; }
+    .accelerate-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      border-radius: 16px;
+    }
+    .accelerate-left {
+      padding: 44px 44px 40px;
+      border-bottom: none;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .accelerate-price { font-size: 64px; }
+    .accelerate-right { padding: 44px 44px 40px; }
+
+    .ai-section { padding: 96px 32px; margin-top: 0; }
+    .ai-header { margin-bottom: 40px; }
+    .ai-section h2 { font-size: 36px; }
+    .ai-top {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .ai-paragraphs p { font-size: 16px; }
+    .ai-flywheel { margin: 0; }
+    .ai-flywheel-svg { max-width: 420px; }
+    .ai-tools-section {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .ai-tools-label { padding-top: 0; border-top: none; }
+    .ai-tools { grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .ai-addon {
+      display: grid;
+      grid-template-columns: 1.5fr auto;
+      gap: 40px;
+      align-items: center;
+      padding: 36px 40px;
+      margin-top: 56px;
+    }
+    .ai-addon-title { font-size: 24px; }
+    .ai-addon-num { font-size: 48px; }
+    .ai-addon-cta { width: auto; padding: 14px 22px; white-space: nowrap; }
+    .ai-addon-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+
+    .fit { padding: 96px 32px; }
+    .fit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .fit-header { margin-bottom: 0; }
+    .fit-header .section-title { font-size: 36px; }
+    .fit-item { font-size: 17px; padding: 20px 0; }
+
+    .testimonials-section { padding: 96px 32px; }
+    .testimonials-header { margin-bottom: 56px; }
+    .testimonials-header .section-title { font-size: 36px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial { padding: 28px 28px 26px; }
+
+    .about { padding: 96px 32px; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-photo-wrap { max-width: none; margin: 0; }
+    .about h2 { font-size: 36px; margin-bottom: 28px; }
+    .about p { font-size: 17px; }
+
+    .resources { padding: 96px 32px; }
+    .resources-header { margin-bottom: 48px; }
+    .resources-header .section-title { font-size: 36px; }
+    .resources-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .resource-card { padding: 28px 28px 26px; }
+    .resource-title { font-size: 19px; }
+
+    .faq { padding: 96px 32px; }
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .faq-header { margin-bottom: 0; position: sticky; top: 100px; }
+    .faq-header .section-title { font-size: 36px; }
+    .faq-question { font-size: 18px; padding: 22px 0; }
+    .faq-toggle { width: 28px; height: 28px; font-size: 16px; }
+
+    .final { padding: 120px 32px; }
+    .final h2 { font-size: 56px; margin-bottom: 22px; }
+    .final p { font-size: 19px; margin-bottom: 36px; }
+    .final .btn-primary { padding: 16px 28px; font-size: 17px; }
+
+    .footer { padding: 72px 32px 40px; }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: start;
+      text-align: left;
+      padding-bottom: 48px;
+    }
+    .footer-brand { display: block; }
+    .footer-resources { display: block; }
+    .footer-links { align-items: flex-start; }
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 24px;
+    }
   }
+
   @media (max-width: 767px) {
     .nav-links, .nav-right { display: none; }
     .hamburger { display: flex; }
@@ -823,191 +1516,583 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow">Paid social, in house, Australia</div>
-  <h1>Take control of your paid social in <span class="accent">90 days.</span></h1>
-  <p class="hero-sub">From outsourced and uncertain to in-house, profitable, and built for the AI era.</p>
-  <p class="hero-desc">AI has changed paid social forever. Winners aren't paying agencies more, they're running campaigns in-house with the right systems, tools, and an expert copilot. I help build that system in 90 days, then hand over the keys.</p>
-  <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
-</section>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Paid social, in house · Australia</div>
+      <h1>Take control of your paid social in <span class="accent">90 days.</span></h1>
+      <p class="hero-sub">From outsourced and uncertain to in-house, profitable, and built for the AI era.</p>
+      <p class="hero-desc">AI has changed paid social forever. The businesses winning right now aren't the ones paying agencies more, they're the ones running campaigns in-house with the right systems, the right tools, and an expert copilot. I'll help you build that system in 90 days, then hand you the keys.</p>
+      <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+    </div>
 
-<!-- STATS -->
-<section class="section">
-  <div class="section-tag">The outcome</div>
-  <h2 class="section-title">What 90 days of focused work delivers.</h2>
-  <div class="stats">
-    <div class="stat-card">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      <div class="stat-value">+30%</div>
-      <div class="stat-label">MER improvement by month 3</div>
+    <div class="hero-visual">
+      <div class="iphone">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <!-- Gmail status + toolbar -->
+          <div class="gmail-top">
+            <div class="gmail-status">
+              <span>10:02</span>
+              <div class="gmail-status-icons">
+                <svg width="12" height="8" viewBox="0 0 12 8"><g fill="#202124"><rect x="0" y="6" width="2" height="2" rx="0.4"/><rect x="3" y="4" width="2" height="4" rx="0.4"/><rect x="6" y="2" width="2" height="6" rx="0.4"/><rect x="9" y="0" width="2" height="8" rx="0.4" opacity="0.35"/></g></svg>
+                <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M6 9l1.8-2.25a2.5 2.5 0 0 0-3.6 0L6 9z" fill="#202124"/><path d="M2.5 5.2a5.5 5.5 0 0 1 7 0" stroke="#202124" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M0.6 3.3a8.5 8.5 0 0 1 10.8 0" stroke="#202124" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+                <svg width="17" height="8" viewBox="0 0 17 8"><rect x="0.5" y="0.5" width="14" height="7" rx="1.5" stroke="#202124" fill="none"/><rect x="2" y="2" width="6" height="4" rx="0.4" fill="#202124"/><rect x="15" y="2.5" width="1.2" height="3" rx="0.3" fill="#202124"/></svg>
+              </div>
+            </div>
+            <div class="gmail-toolbar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#5F6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="#5F6368"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="4" rx="1" stroke="#5F6368" stroke-width="1.6"/><path d="M4 8v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8" stroke="#5F6368" stroke-width="1.6"/><path d="M10 13h4" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M7 7l1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="1.5" stroke="#5F6368" stroke-width="1.6"/><path d="M3 8l9 6 9-6" stroke="#5F6368" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <div class="gmail-overflow"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <!-- Sender row -->
+          <div class="gmail-sender">
+            <div class="gmail-avatar">h</div>
+            <div class="gmail-sender-info">
+              <div class="gmail-sender-row">
+                <span class="gmail-sender-name">Michael · HWC</span>
+                <span class="gmail-time">9:45 am</span>
+              </div>
+              <div class="gmail-to">
+                <span>to Lea</span>
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#5F6368" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email body -->
+          <div class="gmail-body">
+            <div class="gmail-subject">
+              <div class="gmail-subject-line">HWC Weekly Report · W14</div>
+              <div class="gmail-subject-meta">L'Epicerie · 18–24 Nov</div>
+            </div>
+
+            <div class="gmail-greeting">Hi Lea — MER is up to <strong>3.42×</strong> this week.</div>
+
+            <!-- Revenue + Spend -->
+            <div class="gmail-stats-card">
+              <div>
+                <div class="gmail-stat-label">Revenue</div>
+                <div class="gmail-stat-value">$6,321</div>
+                <div class="gmail-stat-delta up">+14% WoW</div>
+              </div>
+              <div class="gmail-stat-divider">
+                <div class="gmail-stat-label">Spend</div>
+                <div class="gmail-stat-value">$1,847</div>
+                <div class="gmail-stat-delta flat">+2% WoW</div>
+              </div>
+            </div>
+
+            <!-- New Customers + CAC (accent) -->
+            <div class="gmail-stats-card accent">
+              <div>
+                <div class="gmail-stat-label">New customers</div>
+                <div class="gmail-stat-value">87</div>
+                <div class="gmail-stat-delta">+21% WoW</div>
+              </div>
+              <div class="gmail-stat-divider">
+                <div class="gmail-stat-label">CAC</div>
+                <div class="gmail-stat-value">$21.20</div>
+                <div class="gmail-stat-delta">−9% WoW</div>
+              </div>
+            </div>
+
+            <!-- Insights -->
+            <div class="gmail-insights">
+              <div class="gmail-insight-section">
+                <div class="gmail-insight-header">
+                  <span class="gmail-insight-dot green"></span>
+                  <span class="gmail-insight-label">What's working</span>
+                </div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>UGC angle #3 hitting 4.1× MER, highest of any angle this quarter.</span></div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>Retargeting cart abandoners driving record revenue at $12 CAC.</span></div>
+              </div>
+              <div class="gmail-insight-section">
+                <div class="gmail-insight-header">
+                  <span class="gmail-insight-dot red"></span>
+                  <span class="gmail-insight-label">What's not</span>
+                </div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>Cold prospecting CPA up 18%. Creative fatigue on the Nov batch.</span></div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>Post-purchase upsell flow down 11% WoW, offer needs a refresh.</span></div>
+              </div>
+              <div class="gmail-insight-section">
+                <div class="gmail-insight-header">
+                  <span class="gmail-insight-dot blue"></span>
+                  <span class="gmail-insight-label">Next steps</span>
+                </div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>Ship 3 new UGC angles Tuesday, refresh cold prospecting pool.</span></div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>Rework upsell offer; launch v2 before weekend spend ramp.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom action bar -->
+          <div class="gmail-bottom">
+            <div class="gmail-action-circle">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 17l-5-5 5-5M20 18v-3a6 6 0 0 0-6-6H5" stroke="#5F6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="gmail-action-pill">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M7 17l-5-5 5-5M13 17l-5-5 5-5M20 18v-3a6 6 0 0 0-6-6h-1" stroke="#5F6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reply all
+            </div>
+            <div class="gmail-action-pill">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M15 17l5-5-5-5M4 18v-3a6 6 0 0 1 6-6h10" stroke="#5F6368" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Forward
+            </div>
+            <div class="gmail-action-circle">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5F6368" stroke-width="1.8"/><circle cx="9" cy="10" r="1" fill="#5F6368"/><circle cx="15" cy="10" r="1" fill="#5F6368"/><path d="M8.5 14.5a4 4 0 0 0 7 0" stroke="#5F6368" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="stat-card">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
-      <div class="stat-value">+50%</div>
-      <div class="stat-label">revenue scale by month 6</div>
+  </div>
+
+  <div class="proof-strip">
+    <div class="proof-cell">
+      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      <div class="proof-num">+30%</div>
+      <div class="proof-label">MER improvement by month 3</div>
     </div>
-    <div class="stat-card">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <div class="stat-value">$5–10k</div>
-      <div class="stat-label">typical monthly ad spend</div>
+    <div class="proof-cell">
+      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+      <div class="proof-num">+50%</div>
+      <div class="proof-label">revenue scale by month 6</div>
+    </div>
+    <div class="proof-cell">
+      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <div class="proof-num">$5–10k</div>
+      <div class="proof-label">typical monthly ad spend</div>
     </div>
   </div>
 </section>
 
-
-<!-- ACCELERATE -->
-<section class="section">
-  <div class="section-tag">The Accelerate Program</div>
-  <h2 class="section-title">Ready to start? Here's the deal.</h2>
-  <div class="accelerate">
-    <div class="accelerate-eyebrow">Main program</div>
-    <h3>Accelerate Program</h3>
-    <div class="accelerate-price">
-      <div class="accelerate-price-num">$950</div>
-      <div class="accelerate-price-meta">/mo · 3 months</div>
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="problem-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L10.83 5.17"/>
+        <path d="M14 11a5 5 0 0 0-7.07 0L4.81 13.12a5 5 0 0 0 7.07 7.07l1.29-1.29"/>
+        <path d="M3 3l18 18"/>
+      </svg>
     </div>
-    <div class="accelerate-total">Total: $2,850 over 3 months</div>
-    <p class="accelerate-desc">For businesses ready to bring paid social in-house and build the system from the ground up, in 90 days.</p>
-    <div class="accelerate-outcome-label">Outcome</div>
-    <p class="accelerate-outcome">+30% MER by month 3, documented system you fully own.</p>
-    <button class="accelerate-cta" onclick="startCheckout('accelerate')">Subscribe — $950/mo</button>
-    <div class="accelerate-secure">Secure checkout via Stripe</div>
+    <div class="problem-tag">The old model is broken</div>
+    <h2>High agency fees eat the budget that should fuel your growth.</h2>
+    <p>Low ad spend means low signal. With AI tools and a guide, in-house is now the smarter third option.</p>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section">
-  <div class="section-tag">How it works</div>
-  <h2 class="section-title">Three months. One system. Yours to keep.</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-body">
-        <div class="step-tag">Onboarding · Week 1</div>
-        <div class="step-title">Audit and media plan</div>
-        <div class="step-desc">Account audit, goals, custom 90 day media plan.</div>
+<section class="how">
+  <div class="how-header">
+    <div class="section-tag">How it works</div>
+    <h2 class="section-title">Three months. One system. Yours to keep.</h2>
+  </div>
+  <div class="how-card">
+    <div class="how-step">
+      <div class="how-step-num">01</div>
+      <div>
+        <div class="how-step-tag">Onboarding · Week 1</div>
+        <div class="how-step-title">Audit and media plan</div>
       </div>
+      <div class="how-step-desc">Every client starts from a different place. Some already have CAPI in place and strong tracking. Others are starting from scratch. I audit your account and you leave the first week with a media plan and a clear list of tasks to start building your system.</div>
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-body">
-        <div class="step-tag">Foundation · Weeks 2 to 4</div>
-        <div class="step-title">Creative Flywheel rebuild</div>
-        <div class="step-desc">New campaign structure, tracking, creative pipeline.</div>
+    <div class="how-step">
+      <div class="how-step-num">02</div>
+      <div>
+        <div class="how-step-tag">Foundation · Weeks 2 to 4</div>
+        <div class="how-step-title">Creative Flywheel rebuild</div>
       </div>
+      <div class="how-step-desc">We rebuild your campaign structure using the Creative Flywheel framework. Fix tracking gaps if they exist. Set up weekly reporting automation. You start seeing cleaner data immediately and making decisions from it.</div>
     </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-body">
-        <div class="step-tag">Optimisation · Weeks 5 to 10</div>
-        <div class="step-title">Scale what works</div>
-        <div class="step-desc">Weekly reviews, AI creative volume, MER ramp.</div>
+    <div class="how-step">
+      <div class="how-step-num">03</div>
+      <div>
+        <div class="how-step-tag">Optimisation · Months 2 to 3</div>
+        <div class="how-step-title">Weekly MER reports</div>
       </div>
+      <div class="how-step-desc">Monthly calls to review results and strategy, then we keep optimising together. Every Monday you get a MER report with what's working, what's not, and what we're testing next.</div>
     </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-body">
-        <div class="step-tag">Handover · Weeks 11 to 12</div>
-        <div class="step-title">Yours to run</div>
-        <div class="step-desc">Documented playbook, you own the system.</div>
+    <div class="how-step">
+      <div class="how-step-num">04</div>
+      <div>
+        <div class="how-step-tag">Scale · Month 3+</div>
+        <div class="how-step-title">You own the system</div>
       </div>
+      <div class="how-step-desc">Your MER is stable and growing. You own the system, the data, and the decisions. Run it yourself from here on, most clients do, or stay in touch for ongoing sparring if you want a copilot.</div>
     </div>
   </div>
 </section>
 
-<!-- CREATIVE / ALGORITHM -->
-<section class="algo">
-  <div class="algo-inner">
-    <div class="algo-tag">Creative is the new targeting</div>
-    <h2>You can't feed the algorithm with <span class="blue">two polished videos</span> any more.</h2>
-    <p>Meta and TikTok have taken targeting off your hands. Your job now is to feed their algorithms a constant stream of creative so they can find your buyers for you. Diversity and volume are the new levers.</p>
-    <p>Which is why paying $4K for a single old school video shoot makes less sense than ever, and why brands building creative systems in-house are pulling away.</p>
+<!-- ACCELERATE -->
+<section class="accelerate-section">
+  <div class="accelerate-header">
+    <div class="section-tag">The Accelerate Program</div>
+    <h2 class="section-title">Ready to start? Here's the deal.</h2>
+  </div>
+  <div class="accelerate-card">
+    <div class="accelerate-left">
+      <div>
+        <div class="accelerate-title">Accelerate Program</div>
+        <div class="accelerate-price-row">
+          <div class="accelerate-price">$950</div>
+          <div class="accelerate-period">/mo · 3 months</div>
+        </div>
+        <div class="accelerate-total">Total: $2,850 over 3 months</div>
+      </div>
+      <div class="accelerate-desc">For businesses ready to bring paid social in-house and build the system from the ground up, in 90 days.</div>
+      <div class="accelerate-outcome-block">
+        <div class="accelerate-outcome-label">Outcome</div>
+        <div class="accelerate-outcome">+30% MER by month 3, documented system you fully own.</div>
+        <button class="accelerate-cta" onclick="startCheckout('accelerate')">Subscribe — $950/mo</button>
+        <div class="accelerate-secure">Secure checkout via Stripe</div>
+      </div>
+    </div>
+    <div class="accelerate-right">
+      <div class="accelerate-includes-label">What's included</div>
+      <ul class="accelerate-list">
+        <li>Full account audit and Creative Flywheel implementation</li>
+        <li>Custom course modules, basics through to the most advanced systems</li>
+        <li>Weekly strategic email reporting with AI task tracker</li>
+        <li>Full MER / CAC / ROAS dashboard</li>
+        <li>CAPI and tracking setup if not already in place</li>
+        <li>Monthly 1:1 strategy calls</li>
+        <li>Direct email access to me for urgent questions</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- AI CREATIVE -->
 <section class="ai-section">
-  <div class="section-tag">Optional add on</div>
-  <h2 class="section-title">Need creative production? I've got you covered.</h2>
-  <div class="ai-card">
-    <div class="ai-eyebrow">Optional add on</div>
-    <h3>AI Creative Production</h3>
-    <div class="ai-price">
-      <div class="ai-price-num">$850</div>
-      <div class="ai-price-meta">/month</div>
+  <div class="ai-inner">
+    <div class="ai-top">
+      <div class="ai-header">
+        <div class="ai-tag">Creative is the new targeting</div>
+        <h2>You can't feed the algorithm with <span class="blue">two polished videos</span> any more.</h2>
+        <div class="ai-paragraphs">
+          <p>Meta and TikTok have taken targeting off your hands. Your job now is to feed their algorithms a constant stream of creative so they can find your buyers for you. Diversity and volume are the new levers.</p>
+          <p>Which is why paying $4K for a single old school video shoot no longer makes sense. You need several fresh concepts every month, testing angles, hooks and formats for every persona. Only AI production is fast and cheap enough to keep up.</p>
+          <p>The HWC creative team builds AI creatives for ecommerce and lead gen campaigns with a strategic mindset, personas, emotional purchase drivers, hook testing. Built to perform, not just to fill the feed.</p>
+        </div>
+      </div>
+      <div class="ai-flywheel">
+        <svg class="ai-flywheel-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Slice 01: top-right (Spy competitors) -->
+          <path d="M 200 30 A 170 170 0 0 1 347.22 115 L 256.29 167.50 A 65 65 0 0 0 200 135 Z" fill="#1E3A8A" stroke="#0F172A" stroke-width="2"/>
+          <!-- Slice 02: right (Research personas) -->
+          <path d="M 347.22 115 A 170 170 0 0 1 347.22 285 L 256.29 232.50 A 65 65 0 0 0 256.29 167.50 Z" fill="#1E40AF" stroke="#0F172A" stroke-width="2"/>
+          <!-- Slice 03: bottom-right (Generate hooks) -->
+          <path d="M 347.22 285 A 170 170 0 0 1 200 370 L 200 265 A 65 65 0 0 0 256.29 232.50 Z" fill="#2563EB" stroke="#0F172A" stroke-width="2"/>
+          <!-- Slice 04: bottom-left (Force spend) -->
+          <path d="M 200 370 A 170 170 0 0 1 52.78 285 L 143.71 232.50 A 65 65 0 0 0 200 265 Z" fill="#3B82F6" stroke="#0F172A" stroke-width="2"/>
+          <!-- Slice 05: left (Analyse results) -->
+          <path d="M 52.78 285 A 170 170 0 0 1 52.78 115 L 143.71 167.50 A 65 65 0 0 0 143.71 232.50 Z" fill="#60A5FA" stroke="#0F172A" stroke-width="2"/>
+          <!-- Slice 06: top-left (Diversify winners) -->
+          <path d="M 52.78 115 A 170 170 0 0 1 200 30 L 200 135 A 65 65 0 0 0 143.71 167.50 Z" fill="#93C5FD" stroke="#0F172A" stroke-width="2"/>
+
+          <!-- Labels at slice midpoints (radius 117 from centre 200,200) -->
+          <!-- 01: (258.5, 98.7) -->
+          <g transform="translate(258.5, 98.7)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#fff" opacity="0.8" y="-16">01</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="2">Spy</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="18">competitors</text>
+          </g>
+          <!-- 02: (317, 200) -->
+          <g transform="translate(317, 200)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#fff" opacity="0.8" y="-16">02</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="2">Research</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="18">personas</text>
+          </g>
+          <!-- 03: (258.5, 301.3) -->
+          <g transform="translate(258.5, 301.3)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#fff" opacity="0.8" y="-16">03</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="2">Generate</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="18">hooks</text>
+          </g>
+          <!-- 04: (141.5, 301.3) -->
+          <g transform="translate(141.5, 301.3)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#fff" opacity="0.8" y="-16">04</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="2">Force</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#fff" y="18">spend</text>
+          </g>
+          <!-- 05: (83, 200) -->
+          <g transform="translate(83, 200)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#0B1F4D" opacity="0.8" y="-16">05</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#0B1F4D" y="2">Analyse</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#0B1F4D" y="18">results</text>
+          </g>
+          <!-- 06: (141.5, 98.7) -->
+          <g transform="translate(141.5, 98.7)">
+            <text text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" font-weight="500" fill="#0B1F4D" opacity="0.8" y="-16">06</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#0B1F4D" y="2">Diversify</text>
+            <text text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="#0B1F4D" y="18">winners</text>
+          </g>
+
+          <!-- Centre circle -->
+          <circle cx="200" cy="200" r="64" fill="#0F172A" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="200" y="195" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,0.85)">CREATIVE</text>
+          <text x="200" y="213" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#60A5FA">FLYWHEEL</text>
+        </svg>
+        <div class="ai-flywheel-label">The Creative Flywheel · 6 step process</div>
+      </div>
     </div>
-    <p>Three new ad creatives per month, built using the AI stack and directed by me. Indistinguishable from traditional production at a fraction of agency cost.</p>
-    <button class="ai-cta" onclick="startCheckout('ai')">Add to my program</button>
+
+    <div class="ai-tools-section">
+      <div class="ai-tools-label">The creative stack</div>
+      <div class="ai-tools">
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="20" y1="6" x2="20" y2="34"/><line x1="6" y1="20" x2="34" y2="20"/><line x1="10" y1="10" x2="30" y2="30"/><line x1="30" y1="10" x2="10" y2="30"/></g></svg>
+          <div class="ai-tool-name">Claude</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M20 4l13.86 8v16L20 36 6.14 28V12L20 4z" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="4" fill="currentColor"/></svg>
+          <div class="ai-tool-name">ChatGPT</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M8 28h24l-4 4H12l-4-4z" fill="currentColor"/><path d="M14 26l6-14 6 14H14z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          <div class="ai-tool-name">Midjourney</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/><path d="M16 14l10 6-10 6V14z" fill="currentColor"/></svg>
+          <div class="ai-tool-name">Runway</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="currentColor"/></svg>
+          <div class="ai-tool-name">Veo 3</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M10 10v20M10 20l12-10M10 20l12 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="30" cy="20" r="2" fill="currentColor"/></svg>
+          <div class="ai-tool-name">Kling</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M8 10h24v16H22l-6 6v-6H8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="20" cy="18" r="3" fill="currentColor"/></svg>
+          <div class="ai-tool-name">HeyGen</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><g fill="currentColor"><rect x="8" y="16" width="3" height="8" rx="1"/><rect x="14" y="12" width="3" height="16" rx="1"/><rect x="20" y="8" width="3" height="24" rx="1"/><rect x="26" y="12" width="3" height="16" rx="1"/><rect x="32" y="16" width="3" height="8" rx="1"/></g></svg>
+          <div class="ai-tool-name">ElevenLabs</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="4" fill="currentColor"/><circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.4"/><circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
+          <div class="ai-tool-name">Flux</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M8 14c0 10 8 18 18 18 2 0 4-.3 6-1-8 0-14-6-14-14 0-2 .3-4 1-6-6 1-11 6-11 12z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+          <div class="ai-tool-name">Nano Banana</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M20 4c2 8-6 10-6 18a6 6 0 0 0 12 0c0-4-3-6-3-10 4 2 5 6 5 10a10 10 0 0 1-20 0c0-10 10-10 12-18z" fill="currentColor"/></svg>
+          <div class="ai-tool-name">Seedance</div>
+        </div>
+        <div class="ai-tool">
+          <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M22 4L8 22h8l-2 14 14-18h-8l2-14z" fill="currentColor"/></svg>
+          <div class="ai-tool-name">Pika</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-addon">
+      <div>
+        <div class="ai-addon-tag">Optional add on</div>
+        <div class="ai-addon-title">AI Creative Production</div>
+        <div class="ai-addon-price">
+          <div class="ai-addon-num">$850</div>
+          <div class="ai-addon-period">/ month</div>
+        </div>
+        <div class="ai-addon-desc">Three new ad creatives per month, built using the stack above and directed by me. Indistinguishable from traditional production at a fraction of agency cost. Because creative is 70% of paid social performance, and running out of fresh creative kills campaigns faster than anything else.</div>
+      </div>
+      <div class="ai-addon-actions">
+        <button class="ai-addon-cta" onclick="startCheckout('ai')">Add to my program</button>
+        <div class="ai-addon-secure">Secure checkout via Stripe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT LIST -->
+<section class="fit">
+  <div class="fit-inner">
+    <div class="fit-header">
+      <div class="section-tag">A fit if</div>
+      <h2 class="section-title">This works if you're…</h2>
+    </div>
+    <ul class="fit-list">
+      <li class="fit-item">
+        <svg class="fit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You spend (or are ready to spend) between $5k and $10k a month on paid social
+      </li>
+      <li class="fit-item">
+        <svg class="fit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You run an ecommerce business or have a clear lead generation funnel
+      </li>
+      <li class="fit-item">
+        <svg class="fit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You've been burned by cheap freelancers or priced out by agencies
+      </li>
+      <li class="fit-item">
+        <svg class="fit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You want to understand what's happening in your account, not just outsource and hope
+      </li>
+      <li class="fit-item">
+        <svg class="fit-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        You're ready to take paid social in-house, with expert help
+      </li>
+    </ul>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section">
-  <div class="section-tag">What clients say</div>
-  <h2 class="section-title">The kind of partnership our clients actually describe.</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <p class="testimonial-quote">"Michael at HWC has been a great partner in helping us structure and refine our Meta Ads strategy for both Lepicerie Agency ecommerce stores. His direct input, tutorials, and tools have helped us gain clarity and confidence in how we approach paid media."</p>
-      <div class="testimonial-author">
-        <img src="testimonial-charles.jpg" alt="Charles" class="testimonial-photo" loading="lazy">
-        <div>
-          <div class="testimonial-name">Charles</div>
-          <div class="testimonial-role">Lepicerie Agency</div>
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <div class="section-tag">Client results</div>
+      <h2 class="section-title">The kind of partnership our clients actually describe.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-quote">"Michael at HWC has been a great partner in helping us structure and refine our Meta Ads strategy for both Lepicerie Agency ecommerce stores. His direct input, tutorials, and tools have helped us gain clarity and confidence in how we approach paid media."</div>
+        <div class="testimonial-author">
+          <img src="testimonial-charles.jpg" alt="Charles Hurtebize" class="testimonial-photo" loading="lazy">
+          <div>
+            <div class="testimonial-name">Charles Hurtebize</div>
+            <div class="testimonial-role">Director, L'Épicerie Agency</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-quote">"HWC has been an incredible help for LE.SHOP. The platform makes it easy to see which creatives work, how to optimise campaigns, and how to improve conversions in a measurable way. Michael brings smart strategic insight, guiding us on long term goals and how to get the most out of Meta's tools."</p>
-      <div class="testimonial-author">
-        <img src="testimonial-lea.jpg" alt="Lea" class="testimonial-photo" loading="lazy">
-        <div>
-          <div class="testimonial-name">Lea</div>
-          <div class="testimonial-role">LE.SHOP</div>
+      <div class="testimonial">
+        <div class="testimonial-quote">"HWC has been an incredible help for LE.SHOP. The platform makes it easy to see which creatives work, how to optimise campaigns, and how to improve conversions in a measurable way. Michael brings smart strategic insight, guiding us on long term goals and how to get the most out of Meta's tools."</div>
+        <div class="testimonial-author">
+          <img src="testimonial-lea.jpg" alt="Lea Altpeter" class="testimonial-photo" loading="lazy">
+          <div>
+            <div class="testimonial-name">Lea Altpeter</div>
+            <div class="testimonial-role">Digital & Wholesale Marketing, Le.Shop</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-quote">"Working with Michael transformed how we think about paid social. The systems and frameworks are clear, repeatable, and we now run campaigns in-house with confidence."</p>
-      <div class="testimonial-author">
-        <img src="testimonial-lauren.jpg" alt="Lauren" class="testimonial-photo" loading="lazy">
-        <div>
-          <div class="testimonial-name">Lauren</div>
-          <div class="testimonial-role">Ecommerce Brand</div>
+      <div class="testimonial">
+        <div class="testimonial-quote">"Working with Michael gave us clarity on how paid social should actually work for our business. His focus was on helping us understand Meta, building solid foundations, and setting us up well for the future, rather than just doing it for us."</div>
+        <div class="testimonial-author">
+          <img src="testimonial-lauren.jpg" alt="Lauren Dixon" class="testimonial-photo" loading="lazy">
+          <div>
+            <div class="testimonial-name">Lauren Dixon</div>
+            <div class="testimonial-role">Digital Manager, Gramicci</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- START HERE -->
-<section class="section" id="resources">
-  <div class="section-tag">Start here</div>
-  <h2 class="section-title">Free resources to get you moving.</h2>
-  <div class="resources">
-    <a href="https://how-we-convert.ghost.io/pre-flight-checklist/" target="_blank" rel="noopener" class="resource-card">
-      <div class="resource-tag">Resource 01</div>
-      <div class="resource-title">Pre-Flight Checklist</div>
-      <div class="resource-body">23 things most businesses get wrong before a single ad runs.</div>
+<!-- RESOURCES -->
+<section class="resources" id="resources">
+  <div class="resources-header">
+    <div class="section-tag">Start here</div>
+    <h2 class="section-title">Free resources to get you moving.</h2>
+    <p>Start learning before we even talk. Three resources, no cost.</p>
+  </div>
+  <div class="resources-grid">
+    <a href="https://how-we-convert.ghost.io/pre-flight-checklist/" target="_blank" rel="noopener" class="resource-card blue">
+      <div class="resource-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div>
+        <div class="resource-tag">Resource 01</div>
+        <div class="resource-title">Pre-Flight Checklist</div>
+        <div class="resource-body">23 things most businesses get wrong before a single ad runs. Use it before you spend another dollar on paid social.</div>
+      </div>
       <div class="resource-cta">Get the checklist →</div>
     </a>
-    <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="resource-card dark">
-      <div class="resource-tag">Resource 02</div>
-      <div class="resource-title">Ad Idea Generator</div>
-      <div class="resource-body">The free AI powered tool I built to help you generate strategic ad ideas in minutes.</div>
+    <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="resource-card light-blue">
+      <div class="resource-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z"/></svg>
+      </div>
+      <div>
+        <div class="resource-tag">Resource 02</div>
+        <div class="resource-title">Ad Idea Generator</div>
+        <div class="resource-body">The free AI powered tool I built to help you generate strategic ad ideas in minutes. Built on my Creative Flywheel framework.</div>
+      </div>
       <div class="resource-cta">Try the generator →</div>
     </a>
     <a href="https://how-we-convert.ghost.io" target="_blank" rel="noopener" class="resource-card">
-      <div class="resource-tag">Resource 03</div>
-      <div class="resource-title">Insights</div>
-      <div class="resource-body">A monthly newsletter sharing what's actually working right now in paid social and AI creative.</div>
+      <div class="resource-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div>
+        <div class="resource-tag">Resource 03</div>
+        <div class="resource-title">Insights</div>
+        <div class="resource-body">A monthly newsletter sharing the latest insights and blog posts on paid social, AI creative, and what's actually working right now. Anonymised learnings from real client work.</div>
+      </div>
       <div class="resource-cta">Read the insights →</div>
     </a>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-tag">Questions</div>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>What's the minimum ad spend to work together?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">$5,000 a month across your paid social channels. Below that, the algorithm doesn't have enough data to optimise properly, and you're better off with a free course or self learning until you scale. If you're not there yet but ready to get there, we can still talk.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Do you run my ads for me?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">Through HWC, no. The program teaches you how to run them properly, with me as your strategic partner. You own the skill, not a dependency.
+
+That said, I also take on a small number of freelance account management clients separately. If that's what you're looking for, message me directly and we can discuss.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Which platforms do you work with?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">Meta (Facebook + Instagram), LinkedIn, and TikTok. The strategic frameworks apply across all three. I'll advise on your channel mix based on your audience and objectives.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Do you do Google Ads?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">Not yet, coming soon.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>What happens after three months?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">Your MER is stable and growing, and you own the system. Most clients take it over from there and run it themselves. If you want a copilot, I'm available ad hoc, no retainer, no lock ins.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>How do I get started?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">Book an intro call. We'll look at your account together, I'll be honest about whether I can help, and we'll take it from there.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="final">
-  <h2>Ready to take control?</h2>
-  <p>Book an intro call. Tell me where your account is, and I'll tell you whether the program fits.</p>
+  <h2>Ready to take paid social <span class="accent">in-house?</span></h2>
+  <p>Twenty minute intro call. No pitch. I look at your account with you and tell you honestly whether I can help or not.</p>
   <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
 </section>
 
@@ -1021,20 +2106,20 @@
       </a>
       <p>Paid social consultancy for Australian businesses ready to take it in house.</p>
     </div>
-    <div>
+    <div class="footer-resources">
       <h4>Resources</h4>
-      <div class="footer-links">
-        <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a>
-        <a href="https://how-we-convert.ghost.io/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a>
-        <a href="https://how-we-convert.ghost.io" target="_blank" rel="noopener">Insights</a>
-        <a href="/partners">Partner Program</a>
-        <a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/howweconvert/" target="_blank" rel="noopener">Instagram</a>
-      </div>
+      <ul class="footer-links">
+        <li><a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a></li>
+        <li><a href="https://how-we-convert.ghost.io/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a></li>
+        <li><a href="https://how-we-convert.ghost.io" target="_blank" rel="noopener">Insights</a></li>
+        <li><a href="/partners">Partner Program</a></li>
+        <li><a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/howweconvert/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2026 How We Convert</div>
+    <div class="copyright">© 2026 How We Convert</div>
     <div class="footer-bottom-links">
       <a href="/terms">Terms</a>
       <a href="/privacy">Privacy</a>
