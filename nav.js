@@ -37,11 +37,11 @@
         '<a class="hwc-nav-link hwc-nav-gen" href="https://app.howweconvert.com.au" target="_blank" rel="noopener">' +
           'Ad Generator <span class="hwc-nav-gen-pill">Free</span>' +
         '</a>' +
-        '<a class="hwc-nav-link' + active('/') + '" href="https://learn.howweconvert.com.au">Insights</a>' +
-        '<a class="hwc-nav-link' + active('/about') + '" href="https://www.howweconvert.com.au/about">About</a>' +
+        '<a class="hwc-nav-link" href="https://how-we-convert.ghost.io" target="_blank" rel="noopener">Insights</a>' +
+        '<a class="hwc-nav-link' + active('/about') + '" href="/about">About</a>' +
       '</nav>' +
       '<div id="hwc-nav-right">' +
-        '<a id="hwc-members-link" href="https://learn.howweconvert.com.au/#/portal">Members login</a>' +
+        '<a id="hwc-members-link" href="https://how-we-convert.ghost.io/#/portal" target="_blank" rel="noopener">Members login</a>' +
         '<a id="hwc-cta-btn" href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener">Book an intro call</a>' +
       '</div>' +
     '</div>';
