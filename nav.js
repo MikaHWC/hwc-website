@@ -41,7 +41,7 @@
         '<a class="hwc-nav-link' + active('/about') + '" href="/about">About</a>' +
       '</nav>' +
       '<div id="hwc-nav-right">' +
-        '<a id="hwc-members-link" href="https://how-we-convert.ghost.io/#/portal" target="_blank" rel="noopener">Members login</a>' +
+        '<a id="hwc-members-link" href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener">Members login</a>' +
         '<a id="hwc-cta-btn" href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener">Book an intro call</a>' +
       '</div>' +
     '</div>';
