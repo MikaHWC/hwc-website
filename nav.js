@@ -38,6 +38,7 @@
           'Ad Generator <span class="hwc-nav-gen-pill">Free</span>' +
         '</a>' +
         '<a class="hwc-nav-link" href="https://how-we-convert.ghost.io" target="_blank" rel="noopener">Insights</a>' +
+        '<a class="hwc-nav-link" href="/thumbstop">ThumbStop</a>' +
         '<a class="hwc-nav-link' + active('/about') + '" href="/about">About</a>' +
       '</nav>' +
       '<div id="hwc-nav-right">' +
