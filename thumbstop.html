@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThumbStop — by How We Convert</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  PLACEHOLDERS TO FILL IN:
+  data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3iKOrUUXtToo6txR+1ADIovarUcXtT4o6sxx0ARxxe1TpH7VIkdTpHQBEsdSLHUypUipQBCsdPEftUwSnBKAIRHS7KnC0u2gCvsoKVY20FKAKpjpDHVrZTSlAFRo6jaOrpSmMlAFF46heOtBo6ieOgDNeL2qvJH7VpvHUEkdAGTLF7VVlj9q15Y6qyx0AZEsdFXJY6KALcMdW4o6Ik6VaiSgAjjqxHHTo09qnRKAGolTKlORKlVaAGKtSKtOC08CgBgWnbacBSgUAN20bajvLmK0j3yk88KoGSfpWQ+qalO3+j20UMfYv8xP9KANvFGKwPO8QBwRPbOvcGKrcOpXaHF3Z5H96I/0NAGptpCtJbzw3C7onDY6joR9RUmKAIitNK1MRSEUAV2SomSrRWmMtAFJ0qCSOr7JULpQBnSx1VljrUkT2qrKlAGVNH1oq1LHRQBaiSrUSU2JKsxrQA6NKmRaEWpVFAAq1IBQop4FACAU7FFLQAlVtSvEs4Qxw0j8Ivqf8BVlmCqWYgADJJ7CuKS9bVJ3vznY5IhH91AePz6n60AakUzzTF5Ms57npj2q9FGGwdtUrQAAbv/11rW+OOKAEEG3ucmkZSoq2TxUEpB7UAU7m33jzIXMEw+7IvUfX1HtSaNq/2q5l068RYL+EbmQfdkT++nt6jtVo1zfjaGaK1i1ixGL6xbzIyP4h/Eh9iMigDr8UYqDTrqK+sLe9gOYp41kT6EZqxQAwimkVJikIoAgZaidassKY60AU5FqtIlX3Wq8i0AZ0qUVYlSigCaJasxrTI1qdBQA9BUiikUU8CgBQKUUUtABRRRQBj+NLhrbwpqUyHDC3ZQfrx/Wub8PshtolQDbsGK3fiGP+KG1pjnEdnJIcDPCjcf5V4t4S8T6n4pkgsdIu10rTolKz3Mbq92+DgBBgrGD/AHuTjmgD2u3Qry2cduK0LeWMcZwa8k8R+BPNg8+zhWRl5eS6mknmb3Lu3B+mK4bXNY8TeFdJuJdN1m7UxcGKbLhM8AruzwDjPt09wD6ZeZF3FmGAKwtV8W+HtOn+z3mpQrORnyIlaWX/AL4QFh+VeN+I7H4s6Nb6PPqvjezvbbV7pLJora08sxmRSVbdjnGD6c461JZabpWjBJdQ1SfS4Hf7wZ98rdSW2gk/VqAPVbXxv4WupxbLrEUE7HCx3cb27MfbzAufwq9rrCTSpRxhl/DFcCbTSr+FbMXCapYzphVmberA9Bg8g+nAPpXIeENM8WadJqUmm6nJc6do+pPayWMtww8+MKScZO0MN68HGSO3cA9m+F0xk8IxQnn7NNLCD7ByR+hFdTXJfCqSCbwuZ7Z98Utw7qcY4IXt2+ldbQAUlLRQA0imMKkppFAELCoJFq0wqJxQBRlWippFooAkjFToKjjFTKKAHLTxSCloAWiiigAooooAzvEsCXfh7UbN5o4Rc2skPmSNhVLKVBJ/GvEvBGgHwn4l09LuGKH+17CK3HlkGOO7iH3M9965IPcqe5r0v4x2t9c+CZX06d4ZoLiKXK/xLuAI/Ws25i067tBa6nbRXNtJEsbxkZGR6Y7ggEEcggEUAL4m0Sz1TTfsOo3lztMisvlR/MMZ4HXrnriuK+KGi6TbaVo3hnToWiv9WuYrW2jd97iCNg80pXsAgIJ7kgV1rW3iTasGl65rC246G9Fu5Uem9kLt9Tk+9UtEs9N0/Vr3Vb29FxfZWOW9uG6rn7iE9FB9MfSgDqPH+jXGu+CJbTTmSLUITHdae7/dS4iYPHn2JXafZjWRpV3pnjPTopItN0+O+UiS+0u/iCzwS4wQRg55yA44I6GusuNY0u10tru5vIoLdF3PLK4RUHqSelcnrFjpOrRx6naSWl/ZSfO0ixpMuD1I9PfBFAB4hXStGt0aa0tk1Jxss7G1+a5uHHRVHBC+pPyqOSRUfgfSbu10d9P1EI1zO8txeSKciSaVizEZ7DIUeyitHQtH020jZ9La0gEw+d7e1SNmHuw5P4mtR9tnCWTB2jIJ/WgDntOmbwlrvhrwto8DNp11LOszO5JVseYcfn39K9IrlYtPV5tFt5HknntZmmSVzlgoBySffcBXVUAFFFFABSEUtFAEbCo3FTGo2FAFaQUU+QUUAOQVMoqNKlWgBwpaQdKWgAooooAKKKKAKuq2i3+m3FmxAEsZUE9j2P54rzN5ZtOnFtdZM6Ocgjpnt9PevVq8i+PFrfWMZ1qCfCSJ5advLcAH8iBQAavrzK/lXV59ns0TfK+cFhj7q/49q89+LM2peIkt7fw/FHDDAoAjKhySf9nkZ6dfWsjxHNc+KYLBLfUBa3ClIxGRkKzYH8yK0PCOl+KPBeraq/j6HXNZ0dlU6ZdaDa7/ACTn5xJGvzA9PmOR+lAFHQV+Ius2cOgtp90tvBIAbkW4GABnOWBHGTzXo+gWWveG9OksYG81eZZZZCCWOOv8uldNZ6l4Ts4Alna+I79yrt5UdrOzPycdgoPHHI4wTWJ4j0HUPH2kXWhT+Gp/CtlOEzfT3qvf4UrnbHGSqZAxln7520AZ+j+I1j1VPLbyxJL5U0OcLu7ken9Qa7i41i0n2W8Uyuzgk/N0HFec6j4b8I+BNTsrHTreRRLESpuJnlMjKMbmZjnce9U/hk0l7rcjvllnuNiKvIXBx/8AroA990pY5C92Bl2Cpk9gB0H4mr9MijjijEcSKiLwFUYAp9ABRRRQAUUUUAIaY1PNNagCBxRTnooAVKkFRrUgoAfRSUtABRRRQAUUUUAFYvjbQovEnhm80mTAaZP3TEZ2uPun/PrW1RQB+f8ArGs6n4M8ZtaXaSRNaXSmVNvKsp/Uda+mLDxk2qaNDqmjoLr92DKgOcH1yOhrhP2o/Bg1vW7/AFSwjU3dsqtIgHLrsB3e5GPxrzz4U+MNS0GzltIXaMqjbomXA7jv79vagD3618a+Jpv9Fh0mRJAMqWO5T7E9q6nSL3Vf7OW61iaG2wpZo1I+WuK8FeIYYNNF3JfwSSOoHznCxsecD6DArN8XeMLOSyktI7sXDSRMCRJyTuHbsOtAHEfGfxbda3r4trZSI7aVlyCNpIBBYE+xP+cV6D+znpMi3yXNwjiOFW8vcOshHP4AV5Zovh658R65Dp9hHI8ImJa5dcqq53bvr1H5GvpvwlYQaStjb264ijwme54xk+9AHaUUUUAFFFFABRRRQAlNan0w0ARvRQ9FAAlSCokqUUAPopBS0AFFFFABRRSEgAknAHU0ALSV5h47+OfgXwnerZy3U2oyh9kn2IKyxn0LEgE/TNbegeJPEeu2kOpR6Rb6XYXCCSAXEplndDyGIXCpkY4yxoAwPF8efF95LjjcoPv8oryL4mfCuTVJW1Xw7ILe4flwvUAA8ADqM9q931DTHuGmnkIaV2LMxHes6GMRZjcYFAHyVP4T+JFgy26200iyMHBWMj5geP65HTmuu8DfCfxprlxHJqckljGp5klBDL3yMV9IxFAu3A5Ocitm0jxEpHJI5oAwfCfhHTvDGkx2VgpZyAskzfefFdULYx23y5yuCKlhhDYyOlXEQbdpNAFlGDorg5DDIp1YmqtrUGnyDRRYvcAExpd7whPoSvI/I1534Q+NunPrFx4e8axW+jatb3LwO8DmS23KcEb+o+p4+lAHr9FMhkjmiSWGRJI3UMrqchgehBHUU+gAooooAKYacaa1AEb0Uj0UAIlTLUCGpVoAkFLSCo7u4gtLWW6uZVighQvI7HAVQMkmgCWo7ieG2hae4mjhiQZZ5GCqB7k8V4V8RP2hdN05Jbbw1b+e44+1zrhf+Ap1P1OPpXzp40+KXiLxFcMb2/uJ13ZAkkJA+i/dH4CgD6v8e/HHwj4dtpk0+f8AtW9UYRYsiLPu/cfTNfNXxC+NHi7xU8ts2pvbWbggwW5MaY9MDk/iTXmF3qEtyxMrsxPqaqiTnpmgCfxBI09tHIHZvJ+Y5/I19zfs6+MbXxj8K9KlR1+22EK2N7GDyskagA/Rlww+p9K+Ei+VNdP8IfiFq/wy8UjVNPH2nT5wI7yzLYWaPPTPZ15Kt+B4JoA/QOaH5SoAOfWsLUbKUSM+E2jGwKPzzT/APjPw7470OPV/Dt+lzEQPNiPE0Df3ZE6qffoexNbFxCDx60AcrFE75AyDnpW7pSybAG7UxrWOOTcAAKv2RiwApH4UAXrcYXn8qmYY5qIFVXJIFcx8R/iF4X8B6UbzxBqMcLlSYbVPmnmPoidfxOAPWgCx8SvF2n+CPBt94gv3XMCYt4s8zTH7iD6n9Aa/P9dUu9Q12fUriZnlaR5JJM8s7Elj+Zrc+MPxR1v4meIFnnVrXTrbIs7MNlIAersf4nPr+A4rnLBEjhCjnHc0Aen/AA7+MXinwa0dtb3ZubEHJtZ/njA74HVfwIr6K8AfHjwj4j8u31BzpF23H71t0RP+92/ED618VsO9EMxhkDo+0g5yKAP0qgminhWaCVJY3GVdGDKR7EVJXwn8O/ilr/ha6UWGoSLET80T/NE31Xp+I5r6L8E/HXRdVMdvrVs1lK2AZoTvj+pH3lH50AewGmtQkiSRrJGwdGAZWByCD0NNY0ARvRSOaKAGRmplNVozU6GgCYGvnn9qz4nRWFlJ4O0q4/fNg3zoencR/wBT+A9a9V+L3jGHwR4GvNYLL9qI8q0U95COD9AMn8K/PTxJrNzqupz3dxM8kkjlmZjkkk5JNAE1zdSTZdmJzyATVJz3qpbTyuGy24Lxj0qQOc89KAHOec0byB1qN2yaaHINADnkPbioZJSVO48e9KxJJNQNnBHWgC7oGvav4e1WPUdD1S6068j+7NBMUYD0yOo9jkV7D4d/ar+IOlxLDrNjpWvRqOZJomhlx/vR8H/vmvCSCGyad5KSAHODnjBoA+mv+GwdFnUJqPg6/tnHe3vUkGfowU0y3/a88P2YJh8K6pOf4RJdRIPxIzXzP9nycMysf9oZqaK1iBB8tAQeoUUAey+NP2pvHniFWg8PQW2gWzcZtVMs+P8Arq4wp/3QK8mnu9S1W/e+1S7muLiZsySSyNJIx92PNRFBnkCpFB7UAXo3SNRGigKDzip458cDpVKFe7Gp1Az0FAF3zsrioc8E8+1NHvS8GgCWEkMGFa9jeSxkMjkEHoKxojg/SrcLBQWJIHtQB9c/s7fEf7bZWvhjWJwZQoWzlY88f8sz/T8vSvbmNfn14b1aeyvYpo5GVlIIIOCMd6+2/hh4mHirwda6i7A3SfurkD++O/4jBoA6SQ0UyQ0UARRtVhDVKJqp+K9cg8O+GNR1y4I2WVu0uD/EwHyj8TgUAfLX7ZPjU6l4rTw9ay5ttMXY4B4Mrcv+XC/ga+bJZv3uCetbfjbV59W1i8vrmQvNLIZGYnqScn9TXH3U5H7z+6c0AaULyi5YQ45GTk4q9FN5qjsR1FYkdw0V8pUArsO4e1aif6wyIevb1oAs4paTIIowSKAEYY4FRyICvFS9D1prfSgCu6jHSoFQgnHAq3JuPIGKZs45HNACIMkZ61Yj5bGSaiVSORxUqHBwOaAJQvalA54FNB3NgcD61NGOSD1oAcoPFPBIPqaQDFOAHWgB4JPfmn4bGaRCB2p2fWgBuSvNWbaU+W7ADaoxk+9VXfPGKmZwlqik43tyPpQBfsJ910kYNfR/7K/iNo9YudElk/d3cW5AT/y0Tn9Rmvl/S5tusoVOVVSTntwa9L+EWtNpXi/TrsOAYZkc+65ww/LNAH23I1FQyOCMqcg9D7UUAQxPXiv7Ynif+y/ANposUm2XUbje4H/POP8A+yI/KvYYn96+OP2zvERvviPHpiPmPToEhwP7x+Zv1YflQB4Xqc+HLE8E4P41g3rsN8Z+gzWjqhJDLng8VkXD+ZCkmcsOGFAFvTZleaNnP/LIr17/AP6q37GQGID04rjYJCko7j0rodMnO0s33DwKAN1DxxUgPGcZqjHISBg8VOJDxzQBLyRnFAPFIrE8dDRtbHWgBD16UjgE5zUi46GmsAKAIwewpY3wTkUjdTxR7UAWEPQ8VLE24nJqsjYGKlj6gigCyxxx1xSoTnPao+tCHmgCypHQilfAHUCmKeeKdJFvXg8+1AEBkG7BNVdZ1FbdolHzNs+Rf7zEnH8qkmQqHUdexrEvWWXWHZjuMCJGo9DjJ/nQBtaW7RruY7pZDj6+v9K63Q7o22qW8w6Aha4rQpBNcedz5a8J7j1/E/0rdFwyuNvUGgD9BPDl59s8NaZdbs+baRMT6/KKK4r4Ea1/avw2skd90tmTbt9Byv6H9KKAO0jlCjcxwoGSfavz0+MOsNr3jzVtSZifPuZHH0LHH6YoooA4O4kDoyk/MvB96zR95oj/ABcg+9FFAFcnDA4xit2wnhjiijZgC3IoooA1Y5ATgYFTK2W4FFFAE6NjrU4b5M96KKADqOKaw4HFFFADcA01xtPWiigADDI71YRuKKKAHKcn8achIbk0UUALvIbii4uZoLfzhGWUdTRRQBSn1e3Nn9pXDEkAL/telcdFcSTSzsCd87ks3oDRRQB1mjkxQBSMeg9BWhDNuuV9AaKKAPpz9lPVSU1XS2fho0nVc9wdp/QiiiigD//Z       → Hosted URL of your photo (see email template for instructions)
+  [EDITION_02_URL]          → Ghost page URL for Edition 02 (e.g. /thumbstop-02)
+  [EDITION_01_URL]          → Ghost page URL for Edition 01 (e.g. /thumbstop-01)
+  https://storage.ghost.io/c/a6/a4/a6a4f9dc-809f-4eff-824f-202238c03565/content/images/size/w2000/2026/04/stop-scroll.png    → Feature image URL from the Edition 02 featured post
+  https://storage.ghost.io/c/a6/a4/a6a4f9dc-809f-4eff-824f-202238c03565/content/images/size/w2000/2026/04/organic.png    → Feature image URL from the Edition 01 featured post
+-->
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:           #0F172A;
+    --bg:            #FAFAFA;
+    --card:          #FFFFFF;
+    --muted:         #64748B;
+    --muted-light:   #94A3B8;
+    --border:        #E2E8F0;
+    --border-soft:   #F1F5F9;
+    --accent:        #2563EB;
+    --accent-dark:   #1D4ED8;
+    --accent-light:  #60A5FA;
+    --accent-bg:     #EFF6FF;
+    --accent-border: #BFDBFE;
+    --font-mono: "Geist Mono", "Courier New", monospace;
+  }
+
+  body {
+    font-family: 'Geist', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,250,250,0.92);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .logo-mark {
+    width: 30px; height: 30px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 600; font-size: 12px;
+    letter-spacing: -0.02em;
+  }
+  .logo-word {
+    font-size: 15px; font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .nav-links {
+    margin-left: 24px;
+    display: flex; gap: 4px; align-items: center;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--muted);
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link.active { color: var(--ink); font-weight: 500; }
+  .nav-gen { color: var(--accent-dark); background: var(--accent-bg); }
+  .nav-gen-pill {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    color: var(--accent);
+  }
+  .nav-right {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .nav-members { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .nav-members:hover { color: var(--ink); }
+  .nav-cta {
+    padding: 10px 18px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 500;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--ink-soft); }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    width: 38px; height: 38px;
+    align-items: center; justify-content: center;
+    margin-left: auto;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: var(--ink);
+    position: relative;
+  }
+  .hamburger span::before,
+  .hamburger span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px; height: 1.5px;
+    background: var(--ink);
+  }
+  .hamburger span::before { top: -7px; }
+  .hamburger span::after { top: 7px; }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg);
+    z-index: 100;
+    padding: 80px 24px 32px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    background: none;
+    border: none;
+    width: 38px; height: 38px;
+    font-size: 24px;
+    color: var(--ink);
+  }
+  .mobile-menu .nav-link { padding: 14px 16px; font-size: 16px; border-radius: 8px; }
+  .mobile-menu .nav-cta { margin-top: 20px; padding: 14px 18px; text-align: center; font-size: 15px; }
+  .mobile-menu .nav-members { padding: 14px 16px; font-size: 15px; }
+
+  /* ── THUMBSTOP HERO ── */
+  .ts-hero { background: var(--ink); padding: 80px 40px 72px; }
+  .ts-hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: center; }
+  .ts-hero-h1 { font-family: 'Geist', -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin: 0 0 24px; }
+  .ts-hero-fomo { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75; border-left: 2px solid #2563EB; padding-left: 16px; margin: 0 0 36px; }
+  .ts-hero-form { background: #fff; border-radius: 16px; padding: 36px; }
+  @media (max-width: 768px) {
+    .ts-hero { padding: 48px 20px 52px; }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 36px; }
+    .footer-brand { text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; }
+    .footer-brand .logo { width: fit-content; }
+    .footer-links { align-items: center; }
+    .footer-bottom { flex-direction: column; align-items: center; }
+    .ts-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .ts-hero-h1 { font-size: 30px; }
+    .ts-hero-form { padding: 28px 20px; }
+  }
+
+  /* Kit light */
+  .kit-light .formkit-form { background: transparent !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+  .kit-light .formkit-header, .kit-light .formkit-subheader, .kit-light .formkit-disclaimer, .kit-light .formkit-powered-by-convertkit-container { display: none !important; }
+  .kit-light .formkit-field { margin: 0 0 10px !important; }
+  .kit-light .formkit-input { width: 100% !important; padding: 12px 14px !important; background: var(--bg) !important; border: 1px solid var(--border) !important; border-radius: 8px !important; font-family: 'Geist', sans-serif !important; font-size: 14px !important; color: var(--ink) !important; box-sizing: border-box !important; transition: border-color 0.2s !important; }
+  .kit-light .formkit-input:focus { border-color: var(--accent) !important; outline: none !important; }
+  .kit-light .formkit-submit { width: 100% !important; padding: 12px !important; background: var(--accent) !important; color: #fff !important; border: none !important; border-radius: 8px !important; font-family: 'Geist', sans-serif !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important; transition: background 0.2s !important; margin-top: 2px !important; }
+  .kit-light .formkit-submit:hover { background: var(--accent-dark) !important; }
+  .kit-light .formkit-submit > span { padding: 0 !important; background: none !important; }
+  .form-note { margin-top: 12px; font-size: 11px; color: var(--muted-light); font-family: 'Geist Mono', monospace; text-align: center; }
+
+  /* ── WHAT YOU GET ── */
+  .section-wrap { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-mono { font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .section-heading { font-size: 32px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 12px; line-height: 1.15; }
+  .section-sub { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 48px; }
+
+  .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .benefit-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s; }
+  .benefit-card:hover { border-color: var(--accent); }
+
+  .benefit-icon-wrap { width: 48px; height: 48px; background: var(--accent-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .benefit-icon-wrap svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  .benefit-num { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .benefit-title { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; line-height: 1.3; }
+  .benefit-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--accent-bg); border-top: 1px solid var(--accent-border); border-bottom: 1px solid var(--accent-border); padding: 64px 40px; }
+  .pull-quote-inner { max-width: 860px; margin: 0 auto; display: flex; gap: 48px; align-items: center; }
+
+  .pull-quote-photo-wrap { flex-shrink: 0; }
+  .pull-quote-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; border: 3px solid var(--accent-border); }
+  .pull-quote-photo-fallback { width: 100px; height: 100px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; border: 3px solid var(--accent-border); flex-shrink: 0; font-size: 32px; font-weight: 500; color: #fff; }
+
+  .quote-mark { font-family: 'Geist', sans-serif; font-size: 64px; line-height: 0.75; color: var(--accent); font-weight: 500; margin-bottom: 16px; }
+  .quote-text { font-size: 20px; font-weight: 400; color: var(--ink); line-height: 1.6; letter-spacing: -0.01em; margin-bottom: 20px; }
+  .quote-sig-name { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .quote-sig-role { font-size: 11px; color: var(--muted); font-family: 'Geist Mono', monospace; margin-top: 2px; }
+
+  /* ── EDITIONS ── */
+  .editions-section { border-top: 1px solid var(--border); }
+  .editions-inner { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .editions-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; }
+  .editions-count { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--muted-light); }
+  .editions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  /* Edition card — email preview style */
+  .edition-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; text-decoration: none; display: block; color: inherit; transition: border-color 0.2s, transform 0.15s; }
+  .edition-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  /* Fake email chrome bar */
+  .edition-chrome { background: var(--border-soft); border-bottom: 1px solid var(--border); padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+  .edition-dots { display: flex; gap: 5px; flex-shrink: 0; }
+  .edition-dots span { width: 8px; height: 8px; border-radius: 50%; display: block; }
+  .edition-dots span:nth-child(1) { background: #FCA5A5; }
+  .edition-dots span:nth-child(2) { background: #FCD34D; }
+  .edition-dots span:nth-child(3) { background: #6EE7B7; }
+  .edition-from { font-family: 'Geist Mono', monospace; font-size: 10px; color: var(--muted-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .edition-from strong { color: var(--muted); font-weight: 500; }
+
+  /* Mini email sender bar */
+  .edition-sender-bar { padding: 12px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
+  .edition-sender-left { display: flex; align-items: center; gap: 8px; }
+  .edition-mark { width: 22px; height: 22px; background: var(--ink); border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .edition-mark span { color: #fff; font-size: 7px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+  .edition-sender-name { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .edition-date { font-family: 'Geist Mono', monospace; font-size: 10px; color: var(--muted-light); }
+
+  /* Thumbnail strip */
+  .edition-thumb { width: 100%; height: 120px; object-fit: cover; display: block; border-bottom: 1px solid var(--border-soft); }
+  .edition-thumb-fallback { width: 100%; height: 120px; background: var(--border-soft); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-soft); }
+  .edition-thumb-fallback span { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--muted-light); letter-spacing: 1px; }
+
+  /* Card body */
+  .edition-body { padding: 20px 20px 24px; }
+  .edition-num { font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .edition-title { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 10px; }
+  .edition-take { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 18px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .edition-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+  .edition-tag { font-family: 'Geist Mono', monospace; font-size: 10px; color: var(--muted); background: var(--border-soft); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; }
+  .edition-read { font-size: 13px; font-weight: 500; color: var(--accent); }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta { background: var(--ink); padding: 72px 40px; }
+  .bottom-cta-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center; }
+  .bottom-cta-tag { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .bottom-cta h2 { font-size: 32px; font-weight: 500; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px; }
+  .bottom-cta p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* Kit dark */
+  .kit-dark .formkit-form { background: transparent !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+  .kit-dark .formkit-header, .kit-dark .formkit-subheader, .kit-dark .formkit-disclaimer, .kit-dark .formkit-powered-by-convertkit-container { display: none !important; }
+  .kit-dark .formkit-field { margin: 0 0 10px !important; }
+  .kit-dark .formkit-input { width: 100% !important; padding: 12px 14px !important; background: rgba(255,255,255,0.07) !important; border: 1px solid rgba(255,255,255,0.15) !important; border-radius: 8px !important; font-family: 'Geist', sans-serif !important; font-size: 14px !important; color: #fff !important; box-sizing: border-box !important; }
+  .kit-dark .formkit-input::placeholder { color: rgba(255,255,255,0.35) !important; }
+  .kit-dark .formkit-input:focus { border-color: var(--accent-light) !important; outline: none !important; }
+  .kit-dark .formkit-submit { width: 100% !important; padding: 12px !important; background: var(--accent) !important; color: #fff !important; border: none !important; border-radius: 8px !important; font-family: 'Geist', sans-serif !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important; transition: background 0.2s !important; margin-top: 2px !important; }
+  .kit-dark .formkit-submit:hover { background: var(--accent-dark) !important; }
+  .kit-dark .formkit-submit > span { padding: 0 !important; background: none !important; }
+  .form-note-dark { margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.25); font-family: 'Geist Mono', monospace; }
+
+  /* ── FOOTER ── */
+.footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 56px 20px 28px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .footer-brand .logo-mark { background: var(--accent) !important; }
+  .footer-brand .logo-word { color: #F8FAFC !important; }
+  .footer-brand p {
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 320px;
+  }
+  .footer-resources h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .footer-bottom .copyright { color: rgba(255,255,255,0.4); }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { color: rgba(255,255,255,0.5); }
+  .footer-bottom-links a:hover { color: #fff; }
+
+
+  /* ===== HERO VISUAL (iPhone mockup) ===== */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy { width: 100%; }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .iphone {
+    position: relative;
+    width: 280px;
+    height: 560px;
+    background: #0B1220;
+    border-radius: 44px;
+    padding: 10px;
+    box-shadow: 0 40px 80px -20px rgba(15,23,42,0.35), 0 0 0 1px rgba(15,23,42,0.1);
+    flex-shrink: 0;
+  }
+  .iphone-notch {
+    position: absolute;
+    top: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 110px; height: 26px;
+    background: #0B1220;
+    border-radius: 20px;
+    z-index: 2;
+  }
+  .iphone-screen {
+    position: relative;
+    width: 100%; height: 100%;
+    background: #F8FAFC;
+    border-radius: 34px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+  }
+  /* Gmail status + toolbar */
+  .gmail-top {
+    background: #F6F8FC;
+    padding: 32px 14px 8px;
+    border-bottom: 1px solid #E8EAED;
+  }
+  .gmail-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 8px;
+    padding-top: 2px;
+  }
+  .gmail-status-icons { display: flex; align-items: center; gap: 4px; }
+  .gmail-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #5F6368;
+  }
+  .gmail-overflow { display: flex; gap: 2px; }
+  .gmail-overflow span {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: #5F6368;
+  }
+  /* Sender row */
+  .gmail-sender {
+    padding: 10px 14px 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid #F1F3F4;
+  }
+  .gmail-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .gmail-sender-info { flex: 1; min-width: 0; }
+  .gmail-sender-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .gmail-sender-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: #202124;
+  }
+  .gmail-time {
+    font-size: 8px;
+    color: #5F6368;
+    white-space: nowrap;
+  }
+  .gmail-to {
+    font-size: 8.5px;
+    color: #5F6368;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  /* Email body */
+  .gmail-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .gmail-subject {
+    padding: 10px 14px 6px;
+  }
+  .gmail-subject-line {
+    font-size: 12px;
+    font-weight: 600;
+    color: #202124;
+    line-height: 1.3;
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+  .gmail-subject-meta {
+    font-family: var(--font-mono);
+    font-size: 7.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5F6368;
+  }
+  .gmail-greeting {
+    padding: 2px 14px 6px;
+    font-size: 10px;
+    color: #202124;
+    line-height: 1.5;
+  }
+  .gmail-stats-card {
+    margin: 2px 14px 4px;
+    background: #fff;
+    border: 1px solid #E8EAED;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .gmail-stats-card.accent {
+    background: var(--accent);
+    color: #fff;
+    margin-top: 4px;
+  }
+  .gmail-stat-label {
+    font-family: var(--font-mono);
+    font-size: 6.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #5F6368;
+    margin-bottom: 2px;
+  }
+  .gmail-stats-card.accent .gmail-stat-label { color: rgba(255,255,255,0.75); }
+  .gmail-stat-value {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #202124;
+    line-height: 1;
+  }
+  .gmail-stats-card.accent .gmail-stat-value { color: #fff; }
+  .gmail-stat-delta {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+  .gmail-stat-delta.up { color: #059669; }
+  .gmail-stat-delta.flat { color: #5F6368; }
+  .gmail-stats-card.accent .gmail-stat-delta { color: rgba(255,255,255,0.85); }
+  .gmail-stat-divider { border-left: 1px solid #E8EAED; padding-left: 10px; }
+  .gmail-stats-card.accent .gmail-stat-divider { border-left-color: rgba(255,255,255,0.2); }
+  .gmail-insights {
+    padding: 4px 14px 10px;
+    font-size: 8.5px;
+    color: #202124;
+    line-height: 1.4;
+  }
+  .gmail-insight-section { margin-top: 8px; }
+  .gmail-insight-section:first-child { margin-top: 0; }
+  .gmail-insight-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .gmail-insight-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+  }
+  .gmail-insight-dot.green { background: #059669; }
+  .gmail-insight-dot.red { background: #DC2626; }
+  .gmail-insight-dot.blue { background: var(--accent); }
+  .gmail-insight-label {
+    font-family: var(--font-mono);
+    font-size: 7px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5F6368;
+    font-weight: 600;
+  }
+  .gmail-insight-bullet {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 2px;
+    align-items: flex-start;
+    padding-left: 9px;
+  }
+  .gmail-insight-bullet .dash {
+    color: #5F6368;
+    line-height: 1.4;
+    font-size: 7px;
+    padding-top: 1px;
+  }
+  /* Gmail bottom bar */
+  .gmail-bottom {
+    border-top: 1px solid #E8EAED;
+    background: #fff;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    gap: 6px;
+    align-items: center;
+  }
+  .gmail-action-circle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid #DADCE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gmail-action-pill {
+    height: 28px;
+    border-radius: 14px;
+    border: 1px solid #DADCE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 9px;
+    color: #202124;
+    font-weight: 500;
+  }
+
+  /* ============== DESKTOP ============== */
+  @media (min-width: 768px) {
+    .nav-inner { padding: 16px 32px; gap: 32px; }
+
+.hero { padding: 80px 32px 64px; text-align: left; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .hero-copy { min-width: 0; text-align: center; }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+    .hero h1 { font-size: 56px; line-height: 1.05; margin-bottom: 24px; }
+    .hero-sub { font-size: 20px; margin-bottom: 20px; }
+    .hero-desc { font-size: 16px; }
+    .proof-strip { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+    .proof-cell { border-top: none; border-left: 1px solid var(--border); padding: 28px 32px; text-align: left; }
+    .proof-cell:first-child { border-left: none; }
+    .proof-icon { margin: 0 0 16px 0; }
+
+    .problem { padding: 120px 32px; }
+    .problem-icon { width: 64px; height: 64px; margin-bottom: 28px; }
+    .problem-tag { margin-bottom: 20px; }
+    .problem h2 { font-size: 42px; margin-bottom: 22px; }
+    .problem p { font-size: 18px; }
+
+    .how { padding: 96px 32px 48px; }
+    .how-header { margin-bottom: 56px; max-width: 820px; }
+    .section-title { font-size: 36px; }
+    .how-step {
+      display: grid;
+      grid-template-columns: 180px 1fr 1.2fr;
+      gap: 40px;
+      padding: 44px 48px;
+      align-items: start;
+    }
+    .how-step-num { font-size: 88px; margin-bottom: 0; }
+    .how-step-title { font-size: 22px; }
+    .how-step-desc { font-size: 15px; }
+
+    .accelerate-section { padding: 48px 32px 96px; }
+    .accelerate-header { margin-bottom: 40px; max-width: 820px; }
+    .accelerate-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      border-radius: 16px;
+    }
+    .accelerate-left {
+      padding: 44px 44px 40px;
+      border-bottom: none;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .accelerate-price { font-size: 64px; }
+    .accelerate-right { padding: 44px 44px 40px; }
+
+    .ai-section { padding: 96px 32px; margin-top: 0; }
+    .ai-header { margin-bottom: 40px; }
+    .ai-section h2 { font-size: 36px; }
+    .ai-top {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .ai-paragraphs p { font-size: 16px; }
+    .ai-flywheel { margin: 0; }
+    .ai-flywheel-svg { max-width: 420px; }
+    .ai-tools-section {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .ai-tools-label { padding-top: 0; border-top: none; }
+    .ai-tools { grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .ai-addon {
+      display: grid;
+      grid-template-columns: 1.5fr auto;
+      gap: 40px;
+      align-items: center;
+      padding: 36px 40px;
+      margin-top: 56px;
+    }
+    .ai-addon-title { font-size: 24px; }
+    .ai-addon-num { font-size: 48px; }
+    .ai-addon-cta { width: auto; padding: 14px 22px; white-space: nowrap; }
+    .ai-addon-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+
+    .fit { padding: 96px 32px; }
+    .fit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .fit-header { margin-bottom: 0; }
+    .fit-header .section-title { font-size: 36px; }
+    .fit-item { font-size: 17px; padding: 20px 0; }
+
+    .testimonials-section { padding: 96px 32px; }
+    .testimonials-header { margin-bottom: 56px; }
+    .testimonials-header .section-title { font-size: 36px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial { padding: 28px 28px 26px; }
+
+    .about { padding: 96px 32px; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-photo-wrap { max-width: none; margin: 0; }
+    .about h2 { font-size: 36px; margin-bottom: 28px; }
+    .about p { font-size: 17px; }
+
+    .resources { padding: 96px 32px; }
+    .resources-header { margin-bottom: 48px; }
+    .resources-header .section-title { font-size: 36px; }
+    .resources-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .resource-card { padding: 28px 28px 26px; }
+    .resource-title { font-size: 19px; }
+
+    .faq { padding: 96px 32px; }
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .faq-header { margin-bottom: 0; position: sticky; top: 100px; }
+    .faq-header .section-title { font-size: 36px; }
+    .faq-question { font-size: 18px; padding: 22px 0; }
+    .faq-toggle { width: 28px; height: 28px; font-size: 16px; }
+
+    .final { padding: 120px 32px; }
+    .final h2 { font-size: 56px; margin-bottom: 22px; }
+    .final p { font-size: 19px; margin-bottom: 36px; }
+    .final .btn-primary { padding: 16px 28px; font-size: 17px; }
+
+    .footer { padding: 72px 32px 40px; }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: start;
+      text-align: left;
+      padding-bottom: 48px;
+    }
+    .footer-brand { display: block; }
+    .footer-resources { display: block; }
+    .footer-links { align-items: flex-start; }
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 24px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nav-links, .nav-right { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+
+    .hero { padding: 52px 20px 48px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .hero h1 { font-size: 30px; }
+    .section-wrap { padding: 52px 20px; }
+    .section-heading { font-size: 24px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .pull-quote { padding: 48px 20px; }
+    .pull-quote-inner { flex-direction: column; gap: 28px; }
+    .pull-quote-photo, .pull-quote-photo-fallback { width: 72px; height: 72px; }
+    .quote-text { font-size: 17px; }
+    .editions-inner { padding: 52px 20px; }
+    .editions-grid { grid-template-columns: 1fr; }
+    .bottom-cta { padding: 52px 20px; }
+    .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+    .bottom-cta h2 { font-size: 24px; }
+    .footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">hwc</div>
+      <div class="logo-word">how we convert</div>
+    </a>
+    <nav class="nav-links">
+      <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
+        Ad Generator <span class="nav-gen-pill">Free</span>
+      </a>
+      <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
+      <a href="/about" class="nav-link active">About</a>
+    </nav>
+    <div class="nav-right">
+      <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
+      <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.add('open')">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" aria-label="Close menu" onclick="document.getElementById('mobile-menu').classList.remove('open')">×</button>
+  <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
+    Ad Generator <span class="nav-gen-pill">Free</span>
+  </a>
+  <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
+  <a href="/about" class="nav-link active">About</a>
+  <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
+  <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
+</div>
+
+<!-- HERO -->
+<section class="ts-hero">
+  <div class="ts-hero-inner">
+
+    <div>
+      <!-- ThumbStop icon + tag — matches email template exactly -->
+      <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAFvklEQVR4nOyca2xTVRzA//fR3nZdu65r123dajUQ5LU5CoyHTMMQtrCQRalhiThRPvjJB37go36QD2oUNCQ+MCgJAgaBDyBsxoEiIQI+UDqNUEaxZVu7rq+t7b27fXjvhZUVyq7LqN5255fc3tNzdpbcX/7tOffc0z8JIqRSKdVT7S+sDvjDa+Lx+IJoLFbO0Iw+kUyqII8gcDxCKShfkVLplcnIn3VabefBA7u6MQwbmagfdq8Gq9UqKzPOeKVvYOBVmmYrOTnAH4UASZLASQKKkvWbjFXvdp3Y/z5XnfXisgnCrUuaN8op2Rter8/CMAwUMgqKgnKDvpeNs69fONv5BVeVGt9O3Nlh9dqnN4XCwx96PIP6RCIBhU6cu0buekvlMllLnXWp8+rlS5fGt2cIal7X3uFyDXwWCoVJmGbEaFo2yjBt9fUN7quOnl/H6tOCWttsi13uwUPTUc4YDDOKcYPPmvmPLO7udfS4+Tqcf7HZbIQ/QO8NBIIKmOb4OQexWOxzuOVGeAlF8C0er28mIAQ83sFZq1o2bOHL2LZtO4z7Dh2xh4LDekCk0WrVg+vXra0lcEq9aWgouL5Q5jj3CwzDVaFwyEmOMuwKJOduWDYOo4lEAwlYyowE3Q3vBEulZpKRSKwaEFmJRBk9yY39BkBkhbvNKie5iREFOQaXK2FBxwdQVFYDYXcP/HV8O8T8bpA63K2WBof/gJoGG2jN80Gu0oJ+1nJY9OJukBeXQT6Qc0EYQYJ52Qah7Dp/COjgAMiVGiif1wT5QM4FmRa2AVWsgwTLwNXuXRBwXhTqVbr8GBtye2OKE2Bp7BCKNy4cgXg0CEmWFt5jpBzygZwKqqxrBoXGAMlEHK6f2Qv5SM4E8ctyDz52M3r6Lh4HZtgH+UjOBJXPWckN62ZIJZPgPLUb8pWcCRqLHo+9G+jQQLp+bMG3elGbcIyH/yiODDi4L/OPYOjKjyAFcjKKlc1YApqqWULZeXpPRhs/iiXibNZ+ODcl0Jgehvpnd0CR3gJS4L5EUOWCVrA8+gyoDJbblVyoeC+fgRGPI+NvPb93Ckc2ZNxE0vrcTiiumAEVtaug9+Sn8H8z9QjihvKZzS9lyuHhHig5v98zqX/FRoIQ9btu9SdACkxZEKUqFWbGPKffaoUf3m5Nt9GBfpgsmqrZwjk25AIpIKknGGSRFhTaCqEcuvEHSAFJCSp9oE44s7ERiA46QQpISlBJ9RzhHO6TRvTwSEqQxjRXOIdcPSAVJCQIgxLzPKHEL6pJhfsuKJWxNyIF/xYjtz5EyG4+2A257SAVchpBjVu/hsniPndYmA9JhSkLYkb8MMpdEL+c2rj12O0GLnhS2AQ7tO4gxq00Bq79Ao7uj0FKTD2CUklwdO2EB1Zk3mrwK4in3lzJtef3HiNsdl1janh4BBB3o1YXS2uYlyJIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAhIkAg4geOF/cP4KUAQRBinKPkgILJCUZQXVyiUSNA9UBVRPpwkCTufywKRCe8EI8hLuKZEfYxP9IHIhHdSYTB+hfHpb+oWNp31B4K1gEijK9Xaf/upewmOYVjEYql+j8+CgriJQkGB2VzzDu8mvTtl+ePr7Nf/ds8FBFjMpj/PfHdU2DCZ3ietVCo3c2FFwzRHp9PSxeqijrH36e3sfLaT2vqGGyzLthV6UqV7UVKiTpqqjJu7jn15YqwuY79/7xX7xYWLlznibLyFz6cD0wg+cmpqTBs7j+7fN74+6w65pmbb0liU3uv1+R6i6QJP0cV9IRsM+mtqlar9m+MHzt3ZPtEWQvKJlvaX+z19rzEMW8nnsii0JG8KhbzfaDBs/7bz4HaYRJK3DLh5UvGTtuebAqFwcyKRsBZAmkAPISPOl2p1XYcPfHKSG8qjE/X7BwAA//9BiFyoAAAABklEQVQDACjGBbtnApgMAAAAAElFTkSuQmCC" width="36" height="36" alt="ThumbStop" style="display:block;width:36px;height:36px;border-radius:9px;flex-shrink:0;">
+        <span style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#60A5FA;">ThumbStop · by HWC</span>
+      </div>
+
+      <h1 class="ts-hero-h1">Keep up with paid social. Without the noise.</h1>
+
+      <p class="ts-hero-fomo">
+        What's changing, what's working, and what to do about it. Free. Once a month.
+      </p>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="data:image/jpeg;base64,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" alt="Michael" width="40" height="40" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;">
+        <div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.85);font-weight:500;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;">Michael Gayet</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);font-family:'Courier New',Courier,monospace;">Founder · How We Convert</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ts-hero-form">
+      <div style="font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#64748B;margin-bottom:10px;">Free monthly newsletter</div>
+      <p style="font-size:18px;font-weight:500;color:#0F172A;letter-spacing:-0.01em;margin:0 0 6px;line-height:1.3;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;">Join the list.</p>
+      <p style="font-size:13px;color:#64748B;margin:0 0 24px;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;">Free. Once a month. Easy to leave if it's not for you.</p>
+      <div class="kit-light">
+        <script async data-uid="a4cc819e70" src="https://how-we-convert.kit.com/a4cc819e70/index.js"></script>
+      </div>
+      <p style="margin:12px 0 0;font-size:11px;color:#94A3B8;font-family:'Courier New',Courier,monospace;text-align:center;">No spam. Leave whenever.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section style="border-bottom: 1px solid var(--border);">
+  <div class="section-wrap">
+    <div class="section-mono">What to expect</div>
+    <h2 class="section-heading">It's just a newsletter. A good one.</h2>
+    <p class="section-sub">I write it like I'd write a message to a friend who runs ads. No fluff, no filler, nothing you couldn't share with your team.</p>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="benefit-title">One clear take on what's shifting</div>
+        <div class="benefit-desc">One opinion per edition on something that's actually moving in paid social or AI. What it is, and whether it matters for your campaigns.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="benefit-title">News worth knowing about</div>
+        <div class="benefit-desc">Two or three things from paid social, AI, and ecommerce — with a quick honest reaction to each. Filtered so you don't have to.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="benefit-title">Fresh reading, already lined up</div>
+        <div class="benefit-desc">The latest from the HWC blog and one LinkedIn post worth reading. Context on why it matters, not just a link.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="benefit-title">The bigger picture, once a month</div>
+        <div class="benefit-desc">Paid social tactics change fast. Every edition steps back to ask what it all means for your business — not just your ad account.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUDIO CALLOUT -->
+<section style="background:var(--ink);padding:32px 40px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div style="width:44px;height:44px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:#fff;margin-bottom:3px;">Prefer to listen?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);font-family:'Geist Mono',monospace;">Each edition has an audio version. Good for the commute or the gym.</div>
+      </div>
+    </div>
+    <div style="font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.25);">Coming soon</div>
+  </div>
+</section>
+
+<section style="display:none;"><!-- benefits closing tag moved up -->
+  </div>
+</section>
+
+<!-- PULL QUOTE — Michael's photo here -->
+<section class="pull-quote">
+  <div class="pull-quote-inner">
+
+    <!--
+      Replace data:image/jpeg;base64,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 with your hosted photo URL.
+      Fallback if no URL yet: remove img and use the div below:
+      <div class="pull-quote-photo-fallback">M</div>
+    -->
+    <div class="pull-quote-photo-wrap">
+      <img src="data:image/jpeg;base64,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" alt="Michael Gayet" class="pull-quote-photo">
+    </div>
+
+    <div>
+      <div class="quote-mark">"</div>
+      <p class="quote-text">I started ThumbStop because I kept having the same conversations with business owners — people who were smart, working hard, but running blind on their ad accounts. I figured if I wrote down what I actually tell them, someone else might find it useful too. That's it. That's the whole thing.</p>
+      <div class="quote-sig-name">Michael Gayet</div>
+      <div class="quote-sig-role">Founder · How We Convert</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAST EDITIONS -->
+<section class="editions-section">
+  <div class="editions-inner">
+    <div class="editions-header">
+      <div class="section-mono">Previous editions</div>
+      <span class="editions-count">2 issues</span>
+    </div>
+
+    <div class="editions-grid">
+
+      <!-- Edition 02 -->
+      <a href="[EDITION_02_URL]" class="edition-card">
+        <div class="edition-chrome">
+          <div class="edition-dots"><span></span><span></span><span></span></div>
+          <div class="edition-from"><strong>Michael · ThumbStop</strong> &nbsp;·&nbsp; michael@howweconvert.com.au</div>
+        </div>
+        <!--
+          Replace https://storage.ghost.io/c/a6/a4/a6a4f9dc-809f-4eff-824f-202238c03565/content/images/size/w2000/2026/04/stop-scroll.png with the Ghost CDN URL of the featured post image.
+          How: open the post on Ghost → right-click feature image → Copy image address.
+          If no thumbnail yet, use the fallback div below and remove this img tag.
+        -->
+        <img src="https://storage.ghost.io/c/a6/a4/a6a4f9dc-809f-4eff-824f-202238c03565/content/images/size/w2000/2026/04/stop-scroll.png" alt="Edition 02 thumbnail" class="edition-thumb">
+        <!-- Fallback if no thumbnail: <div class="edition-thumb-fallback"><span>EDITION 02</span></div> -->
+        <div class="edition-sender-bar">
+          <div class="edition-sender-left">
+            <div class="edition-mark"><span>hwc</span></div>
+            <span class="edition-sender-name">Michael · ThumbStop</span>
+          </div>
+          <span class="edition-date">Feb 2026</span>
+        </div>
+        <div class="edition-body">
+          <div class="edition-num">Edition 02</div>
+          <div class="edition-title">Meta is building a machine that runs itself. I'm not sure that's a bad thing.</div>
+          <p class="edition-take">Everyone's panicking about automation. I get it. But my honest take is that the brands doing well right now aren't fighting the algorithm — they're feeding it better stuff and making smarter decisions about what to keep control of.</p>
+          <div class="edition-tags">
+            <span class="edition-tag">The Take</span>
+            <span class="edition-tag">On LinkedIn</span>
+            <span class="edition-tag">This Month's Read</span>
+            <span class="edition-tag">News in the Wild</span>
+          </div>
+          <span class="edition-read">Read this edition →</span>
+        </div>
+      </a>
+
+      <!-- Edition 01 -->
+      <a href="[EDITION_01_URL]" class="edition-card">
+        <div class="edition-chrome">
+          <div class="edition-dots"><span></span><span></span><span></span></div>
+          <div class="edition-from"><strong>Michael · ThumbStop</strong> &nbsp;·&nbsp; michael@howweconvert.com.au</div>
+        </div>
+        <img src="https://storage.ghost.io/c/a6/a4/a6a4f9dc-809f-4eff-824f-202238c03565/content/images/size/w2000/2026/04/organic.png" alt="Edition 01 thumbnail" class="edition-thumb">
+        <!-- Fallback if no thumbnail: <div class="edition-thumb-fallback"><span>EDITION 01</span></div> -->
+        <div class="edition-sender-bar">
+          <div class="edition-sender-left">
+            <div class="edition-mark"><span>hwc</span></div>
+            <span class="edition-sender-name">Michael · ThumbStop</span>
+          </div>
+          <span class="edition-date">Jan 2026</span>
+        </div>
+        <div class="edition-body">
+          <div class="edition-num">Edition 01</div>
+          <div class="edition-title">I spent years telling clients to ignore organic social. Turns out I was wrong about that.</div>
+          <p class="edition-take">I used to say: just run paid, use organic as a static showcase. Then I looked at the data for 2026 and had to admit that advice was getting stale. This edition is me working through what I got wrong and what I think now.</p>
+          <div class="edition-tags">
+            <span class="edition-tag">The Take</span>
+            <span class="edition-tag">This Month's Read</span>
+            <span class="edition-tag">News in the Wild</span>
+          </div>
+          <span class="edition-read">Read this edition →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div>
+      <div class="bottom-cta-tag">ThumbStop · by HWC</div>
+      <h2>If this sounds like your kind of thing, come join us.</h2>
+      <p>Free. Monthly. Written by a real person who works in paid social every day and is still figuring it out.</p>
+    </div>
+    <div class="kit-dark">
+      <script async data-uid="a4cc819e70" src="https://how-we-convert.kit.com/a4cc819e70/index.js"></script>
+      <p class="form-note-dark">Monthly · Free · Unsubscribe any time</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <div class="logo-mark">hwc</div>
+        <div class="logo-word">how we convert</div>
+      </a>
+      <p>Paid social consultancy for Australian businesses ready to take it in house.</p>
+    </div>
+    <div class="footer-resources">
+      <h4>Resources</h4>
+      <ul class="footer-links">
+        <li><a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a></li>
+        <li><a href="https://learn.howweconvert.com.au/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a></li>
+        <li><a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a></li>
+        <li><a href="/partners">Partner Program</a></li>
+        <li><a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/howweconvert/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copyright">© 2026 How We Convert</div>
+    <div class="footer-bottom-links">
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
