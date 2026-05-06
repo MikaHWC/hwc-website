@@ -51,7 +51,6 @@
     -webkit-backdrop-filter: saturate(140%) blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav a { text-decoration: none; }
   .nav-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -86,7 +85,6 @@
     color: var(--muted);
     display: inline-flex; align-items: center; gap: 8px;
     white-space: nowrap;
-    text-decoration: none;
   }
   .nav-link:hover { color: var(--ink); }
   .nav-link.active { color: var(--ink); font-weight: 500; }
@@ -488,8 +486,7 @@
 
   /* ============== DESKTOP ============== */
   @media (min-width: 768px) {
-    .nav a { text-decoration: none; }
-  .nav-inner { padding: 16px 32px; gap: 32px; }
+    .nav-inner { padding: 16px 32px; gap: 32px; }
 
     .hero { padding: 96px 32px 48px; }
     .hero h1 { font-size: 64px; line-height: 1.05; margin-bottom: 28px; }
@@ -550,96 +547,6 @@
     .nav-links, .nav-right { display: none; }
     .hamburger { display: flex; }
   }
-.footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.7);
-    padding: 56px 20px 28px;
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 36px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-brand .logo-mark { background: var(--accent); }
-  .footer-brand .logo-word { color: #F8FAFC; }
-  .footer-brand p {
-    margin-top: 16px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    max-width: 320px;
-  }
-  .footer-resources h4 {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 16px;
-  }
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-  .footer-links a {
-    color: rgba(255,255,255,0.8);
-    font-size: 14px;
-  }
-  .footer-links a:hover { color: #fff; }
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 24px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-  .footer-bottom .copyright { color: rgba(255,255,255,0.4); }
-  .footer-bottom-links { display: flex; gap: 20px; }
-  .footer-bottom-links a { color: rgba(255,255,255,0.5); }
-  .footer-bottom-links a:hover { color: #fff; }
-  @media (min-width: 768px) {
-    .footer { padding: 72px 32px 40px; }
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 64px;
-      align-items: start;
-      text-align: left;
-      padding-bottom: 48px;
-    }
-    .footer-brand { display: block; }
-    .footer-resources { display: block; }
-    .footer-links { align-items: flex-start; }
-    .footer-bottom {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 24px;
-    }
-  
-  }
-  @media (max-width: 767px) {
-    .footer-inner { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 36px !important; }
-    .footer-brand { display: flex !important; flex-direction: column !important; align-items: center !important; }
-    .footer-brand .logo { width: fit-content !important; }
-    .footer-links { align-items: center !important; }
-    .footer-bottom { flex-direction: column !important; align-items: center !important; }
-  }
 </style>
 </head>
 <body>
@@ -655,9 +562,8 @@
       <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
         Ad Generator <span class="nav-gen-pill">Free</span>
       </a>
-      <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
-      <a href="/thumbstop" class="nav-link">ThumbStop</a>
-    <a href="/about" class="nav-link active">About</a>
+      <a href="https://learn.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link">Insights</a>
+      <a href="/about" class="nav-link active">About</a>
     </nav>
     <div class="nav-right">
       <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
@@ -675,14 +581,11 @@
   <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
     Ad Generator <span class="nav-gen-pill">Free</span>
   </a>
-  <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
-  <a href="/thumbstop" class="nav-link">ThumbStop</a>
-    <a href="/about" class="nav-link active">About</a>
+  <a href="https://learn.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link">Insights</a>
+  <a href="/about" class="nav-link active">About</a>
   <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
   <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
 </div>
-
-
 
 <!-- HERO -->
 <section class="hero">
@@ -796,7 +699,7 @@
       <ul class="footer-links">
         <li><a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a></li>
         <li><a href="https://learn.howweconvert.com.au/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a></li>
-        <li><a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a></li>
+        <li><a href="https://learn.howweconvert.com.au" target="_blank" rel="noopener">Insights</a></li>
         <li><a href="/partners">Partner Program</a></li>
         <li><a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://www.instagram.com/howweconvert/" target="_blank" rel="noopener">Instagram</a></li>
