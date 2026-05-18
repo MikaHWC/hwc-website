@@ -37,7 +37,7 @@
         '<a class="hwc-nav-link hwc-nav-gen" href="https://app.howweconvert.com.au" target="_blank" rel="noopener">' +
           'Ad Generator <span class="hwc-nav-gen-pill">Free</span>' +
         '</a>' +
-        '<a class="hwc-nav-link" href="learn.howweconvert.com.au" target="_blank" rel="noopener">Insights</a>' +
+        '<a class="hwc-nav-link" href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a>' +
         '<a class="hwc-nav-link" href="/thumbstop">ThumbStop</a>' +
         '<a class="hwc-nav-link' + active('/about') + '" href="/about">About</a>' +
       '</nav>' +
