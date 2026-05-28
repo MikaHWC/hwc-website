@@ -49,127 +49,6 @@
   img { max-width: 100%; display: block; }
   .mono { font-family: var(--font-mono); }
 
-  /* ===== NAV ===== */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(250,250,250,0.92);
-    backdrop-filter: saturate(140%) blur(12px);
-    -webkit-backdrop-filter: saturate(140%) blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-  .logo-mark {
-    width: 30px; height: 30px;
-    background: var(--accent);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 600; font-size: 12px;
-    letter-spacing: -0.02em;
-  }
-  .logo-word {
-    font-size: 15px; font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-  }
-  .nav-links {
-    margin-left: 24px;
-    display: flex; gap: 4px; align-items: center;
-  }
-  .nav-link {
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    color: var(--muted);
-    display: inline-flex; align-items: center; gap: 8px;
-    white-space: nowrap;
-  }
-  .nav-link:hover { color: var(--ink); }
-  .nav-link.active { color: var(--ink); font-weight: 500; }
-  .nav-gen { color: var(--accent-dark); background: var(--accent-bg); }
-  .nav-gen-pill {
-    font-family: var(--font-mono);
-    font-size: 9px; letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 1px 5px;
-    border: 1px solid var(--accent);
-    border-radius: 10px;
-    color: var(--accent);
-  }
-  .nav-right {
-    margin-left: auto;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .nav-members { font-size: 14px; color: var(--muted); white-space: nowrap; }
-  .nav-members:hover { color: var(--ink); }
-  .nav-cta {
-    padding: 10px 18px;
-    background: var(--ink);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px; font-weight: 500;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--ink-soft); }
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    width: 38px; height: 38px;
-    align-items: center; justify-content: center;
-    margin-left: auto;
-  }
-  .hamburger span {
-    display: block;
-    width: 22px; height: 1.5px;
-    background: var(--ink);
-    position: relative;
-  }
-  .hamburger span::before,
-  .hamburger span::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 22px; height: 1.5px;
-    background: var(--ink);
-  }
-  .hamburger span::before { top: -7px; }
-  .hamburger span::after { top: 7px; }
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--bg);
-    z-index: 100;
-    padding: 80px 24px 32px;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu-close {
-    position: absolute;
-    top: 18px; right: 18px;
-    background: none;
-    border: none;
-    width: 38px; height: 38px;
-    font-size: 24px;
-    color: var(--ink);
-  }
-  .mobile-menu .nav-link { padding: 14px 16px; font-size: 16px; border-radius: 8px; }
-  .mobile-menu .nav-cta { margin-top: 20px; padding: 14px 18px; text-align: center; font-size: 15px; }
-  .mobile-menu .nav-members { padding: 14px 16px; font-size: 15px; }
-
   /* ===== BUTTONS ===== */
   .btn-primary {
     display: inline-block;
@@ -644,98 +523,8 @@
     margin-right: auto;
   }
 
-  /* ===== FOOTER ===== */
-  .footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.7);
-    padding: 56px 20px 28px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 36px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-brand .logo-mark { background: var(--accent); }
-  .footer-brand .logo-word { color: #F8FAFC; }
-  .footer-brand p {
-    margin-top: 16px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    max-width: 320px;
-  }
-  .footer-resources h4 {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 16px;
-  }
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-  }
-  .footer-links a {
-    color: rgba(255,255,255,0.8);
-    font-size: 14px;
-  }
-  .footer-links a:hover { color: #fff; }
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 24px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-  .footer-bottom .copyright { color: rgba(255,255,255,0.4); }
-  .footer-bottom-links { display: flex; gap: 20px; }
-  .footer-bottom-links a { color: rgba(255,255,255,0.5); }
-  .footer-bottom-links a:hover { color: #fff; }
-
-  /* ============== DESKTOP ============== */
-  @media (min-width: 768px) {
-    .nav-inner { padding: 16px 32px; gap: 32px; }
-
-    .footer { padding: 72px 32px 40px; }
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 64px;
-      align-items: start;
-      text-align: left;
-      padding-bottom: 48px;
-    }
-    .footer-links { align-items: flex-start; }
-    .footer-bottom {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 24px;
-    }
-  }
-
   /* ============== MOBILE ============== */
   @media (max-width: 767px) {
-    .nav-links, .nav-right { display: none; }
-    .hamburger { display: flex; }
-
     .hero { padding: 48px 20px 40px; }
     .hero h1 { font-size: 30px; }
     .hero-sub { font-size: 15px; }
@@ -752,47 +541,10 @@
     .final-cta h2 { font-size: 28px; }
     .hero-cta-row { flex-direction: column; gap: 10px; }
     .btn-primary, .btn-ghost { width: 100%; }
-    .footer-brand .logo { justify-content: center; }
   }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<header class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <div class="logo-mark">hwc</div>
-      <div class="logo-word">how we convert</div>
-    </a>
-    <nav class="nav-links">
-      <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
-        Ad Generator <span class="nav-gen-pill">Free</span>
-      </a>
-      <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
-      <a href="/about" class="nav-link">About</a>
-    </nav>
-    <div class="nav-right">
-      <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
-      <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
-    </div>
-    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.add('open')">
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" aria-label="Close menu" onclick="document.getElementById('mobile-menu').classList.remove('open')">×</button>
-  <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">
-    Ad Generator <span class="nav-gen-pill">Free</span>
-  </a>
-  <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
-  <a href="/about" class="nav-link">About</a>
-  <a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>
-  <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
-</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -923,29 +675,8 @@
 
     <div class="form-wrap">
       <div class="form-card">
-        <form>
-          <div class="form-group">
-            <label class="form-label" for="name">Your name</label>
-            <input class="form-input" id="name" type="text" placeholder="Alex Carter">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="company">Company or agency</label>
-            <input class="form-input" id="company" type="text" placeholder="Your company name">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" id="email" type="email" placeholder="you@company.com">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="situation">Tell me about your referral situation</label>
-            <textarea class="form-textarea" id="situation" placeholder="A few sentences about the kind of leads you'd send my way, and what you're looking for in a partnership."></textarea>
-          </div>
-
-          <button class="form-submit" type="submit">Apply to partner</button>
-        </form>
+        <iframe data-tally-src="https://tally.so/embed/pbvbbJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="320" frameborder="0" marginheight="0" marginwidth="0" title="Partner application"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)v();else if(null==d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
         <div class="form-divider">Or</div>
 
@@ -1000,36 +731,8 @@
   <a href="#apply" class="btn-primary">Apply to partner</a>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="logo">
-        <div class="logo-mark">hwc</div>
-        <div class="logo-word">how we convert</div>
-      </a>
-      <p>Paid social consultancy for Australian businesses ready to take it in house.</p>
-    </div>
-    <div class="footer-resources">
-      <h4>Resources</h4>
-      <ul class="footer-links">
-        <li><a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a></li>
-        <li><a href="https://learn.howweconvert.com.au/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a></li>
-        <li><a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a></li>
-        <li><a href="/partners">Partner Program</a></li>
-        <li><a href="https://www.linkedin.com/in/michaelgayet/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://www.instagram.com/howweconvert/" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="copyright">© 2026 How We Convert</div>
-    <div class="footer-bottom-links">
-      <a href="/terms">Terms</a>
-      <a href="/privacy">Privacy</a>
-    </div>
-  </div>
-</footer>
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
 
 </body>
 </html>
