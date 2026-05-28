@@ -1,51 +1,84 @@
 (function () {
+  var css =
+    '.nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--border);}' +
+    '.nav a{text-decoration:none;}' +
+    '.nav-inner{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;}' +
+    '.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}' +
+    '.logo-mark{width:30px;height:30px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:12px;letter-spacing:-0.02em;}' +
+    '.logo-word{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;white-space:nowrap;}' +
+    '.nav-links{margin-left:24px;display:flex;gap:4px;align-items:center;}' +
+    '.nav-link{padding:8px 12px;border-radius:6px;font-size:14px;color:var(--muted);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}' +
+    '.nav-link:hover{color:var(--ink);}' +
+    '.nav-link.active{color:var(--ink);font-weight:500;}' +
+    '.nav-gen{color:var(--accent-dark);background:var(--accent-bg);}' +
+    '.nav-gen-pill{font-family:var(--font-mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:1px 5px;border:1px solid var(--accent);border-radius:10px;color:var(--accent);}' +
+    '.nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;}' +
+    '.nav-members{font-size:14px;color:var(--muted);white-space:nowrap;}' +
+    '.nav-members:hover{color:var(--ink);}' +
+    '.nav-cta{padding:10px 18px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap;}' +
+    '.nav-cta:hover{background:var(--ink-soft);}' +
+    '.hamburger{display:none;background:none;border:none;width:38px;height:38px;align-items:center;justify-content:center;margin-left:auto;cursor:pointer;}' +
+    '.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);position:relative;}' +
+    '.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:22px;height:1.5px;background:var(--ink);}' +
+    '.hamburger span::before{top:-7px;}' +
+    '.hamburger span::after{top:7px;}' +
+    '.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:100;padding:80px 24px 32px;flex-direction:column;gap:4px;}' +
+    '.mobile-menu.open{display:flex;}' +
+    '.mobile-menu-close{position:absolute;top:18px;right:18px;background:none;border:none;width:38px;height:38px;font-size:24px;color:var(--ink);cursor:pointer;}' +
+    '.mobile-menu .nav-link{padding:14px 16px;font-size:16px;border-radius:8px;}' +
+    '.mobile-menu .nav-cta{margin-top:20px;padding:14px 18px;text-align:center;font-size:15px;}' +
+    '.mobile-menu .nav-members{padding:14px 16px;font-size:15px;}' +
+    '@media (min-width:768px){.nav-inner{padding:16px 32px;gap:32px;}}' +
+    '@media (max-width:767px){.nav-links,.nav-right{display:none;}.hamburger{display:flex;}}';
+
   var style = document.createElement('style');
-  style.textContent =
-    ':root{--ink:#0F172A;--muted:#64748B;--border:#E2E8F0;--accent:#2563EB;--accent-dark:#1D4ED8;--accent-light:#EFF6FF;}' +
-    '#hwc-nav{position:sticky;top:0;z-index:30;background:rgba(250,250,250,0.85);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--border);font-family:"Geist",-apple-system,"Segoe UI",sans-serif;}' +
-    '#hwc-nav-inner{max-width:1200px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;gap:32px;}' +
-    '#hwc-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}' +
-    '#hwc-logo-mark{width:30px;height:30px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:12px;letter-spacing:-0.02em;flex-shrink:0;}' +
-    '#hwc-logo-word{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;white-space:nowrap;}' +
-    '#hwc-nav-links{display:flex;gap:4px;margin-left:32px;align-items:center;flex-shrink:0;}' +
-    '.hwc-nav-link{padding:8px 12px;border-radius:6px;font-size:14px;color:var(--muted);font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:transparent;white-space:nowrap;}' +
-    '.hwc-nav-link:hover{color:var(--ink);}' +
-    '.hwc-nav-link.active{color:var(--ink);font-weight:500;}' +
-    '.hwc-nav-gen{color:var(--accent-dark);background:var(--accent-light);}' +
-    '.hwc-nav-gen:hover{color:var(--accent-dark);}' +
-    '.hwc-nav-gen-pill{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);padding:1px 5px;border:1px solid var(--accent);border-radius:10px;font-weight:500;}' +
-    '#hwc-nav-right{margin-left:auto;display:flex;align-items:center;gap:14px;flex-shrink:0;}' +
-    '#hwc-members-link{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;}' +
-    '#hwc-members-link:hover{color:var(--ink);}' +
-    '#hwc-cta-btn{padding:10px 18px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block;}' +
-    '#hwc-cta-btn:hover{background:#1E293B;}' +
-    '@media(max-width:768px){.hwc-nav-link,#hwc-members-link{display:none!important;}#hwc-nav-inner{padding:14px 20px;gap:16px;}#hwc-nav-links{margin-left:8px;}}';
+  style.textContent = css;
   document.head.appendChild(style);
 
   var path = window.location.pathname;
-  function active(p) { return path === p || path === p + '.html' ? ' active' : ''; }
+  function active(p) {
+    return (path === p || path === p + '/' || path === p + '.html') ? ' active' : '';
+  }
 
-  var nav = document.createElement('header');
-  nav.id = 'hwc-nav';
-  nav.innerHTML =
-    '<div id="hwc-nav-inner">' +
-      '<a id="hwc-logo" href="https://www.howweconvert.com.au">' +
-        '<div id="hwc-logo-mark">hwc</div>' +
-        '<div id="hwc-logo-word">how we convert</div>' +
+  var linksMarkup =
+    '<a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">Ad Generator <span class="nav-gen-pill">Free</span></a>' +
+    '<a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>' +
+    '<a href="/about" class="nav-link' + active('/about') + '">About</a>';
+
+  var header = document.createElement('header');
+  header.className = 'nav';
+  header.innerHTML =
+    '<div class="nav-inner">' +
+      '<a href="/" class="logo">' +
+        '<div class="logo-mark">hwc</div>' +
+        '<div class="logo-word">how we convert</div>' +
       '</a>' +
-      '<nav id="hwc-nav-links">' +
-        '<a class="hwc-nav-link hwc-nav-gen" href="https://app.howweconvert.com.au" target="_blank" rel="noopener">' +
-          'Ad Generator <span class="hwc-nav-gen-pill">Free</span>' +
-        '</a>' +
-        '<a class="hwc-nav-link" href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a>' +
-        '<a class="hwc-nav-link" href="/thumbstop">ThumbStop</a>' +
-        '<a class="hwc-nav-link' + active('/about') + '" href="/about">About</a>' +
-      '</nav>' +
-      '<div id="hwc-nav-right">' +
-        '<a id="hwc-members-link" href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener">Members login</a>' +
-        '<a id="hwc-cta-btn" href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener">Book an intro call</a>' +
+      '<nav class="nav-links">' + linksMarkup + '</nav>' +
+      '<div class="nav-right">' +
+        '<a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>' +
+        '<a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>' +
       '</div>' +
+      '<button class="hamburger" aria-label="Open menu"><span></span></button>' +
     '</div>';
 
-  document.body.insertBefore(nav, document.body.firstChild);
+  var menu = document.createElement('div');
+  menu.className = 'mobile-menu';
+  menu.innerHTML =
+    '<button class="mobile-menu-close" aria-label="Close menu">\u00D7</button>' +
+    linksMarkup +
+    '<a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>' +
+    '<a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>';
+
+  document.body.insertBefore(header, document.body.firstChild);
+  header.parentNode.insertBefore(menu, header.nextSibling);
+
+  header.querySelector('.hamburger').addEventListener('click', function () {
+    menu.classList.add('open');
+  });
+  menu.querySelector('.mobile-menu-close').addEventListener('click', function () {
+    menu.classList.remove('open');
+  });
+  Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) {
+    a.addEventListener('click', function () { menu.classList.remove('open'); });
+  });
 })();
