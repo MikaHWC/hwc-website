@@ -1138,6 +1138,116 @@
     font-weight: 500;
   }
 
+  /* ===== DELIVERABLES ===== */
+  .deliverables {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .deliverables-header { margin-bottom: 36px; max-width: 760px; }
+  .deliverables-header .section-title { margin-top: 0; }
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .deliverable-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .deliverable-title {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .deliverable-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ===== PROFIT FRAMING ===== */
+  .profit {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .profit-inner { max-width: 820px; margin: 0 auto; }
+  .profit h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+  .profit p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ===== COMPARISON ===== */
+  .compare {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  .compare-header { margin-bottom: 32px; max-width: 760px; }
+  .compare-header p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .compare-table {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .compare-head { display: none; }
+  .compare-row {
+    border-top: 1px solid var(--border);
+    padding: 8px 0 14px;
+  }
+  .compare-row:first-child { border-top: none; }
+  .compare-rowlabel {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 24px 4px;
+  }
+  .compare-cell {
+    padding: 8px 24px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .compare-cell.out { color: var(--muted); }
+  .compare-celltag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 4px;
+  }
+  .compare-cta { margin-top: 28px; }
+  .compare-cta .btn-primary { width: 100%; text-align: center; }
+
   /* ============== DESKTOP ============== */
   @media (min-width: 768px) {
     .nav-inner { padding: 16px 32px; gap: 32px; }
@@ -1288,6 +1398,55 @@
     .final p { font-size: 19px; margin-bottom: 36px; }
     .final .btn-primary { padding: 16px 28px; font-size: 17px; }
 
+    .deliverables { padding: 96px 32px; }
+    .deliverables-header { margin-bottom: 48px; }
+    .deliverables-header .section-title { font-size: 36px; }
+    .deliverables-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .deliverable-card { padding: 32px 28px; }
+    .deliverable-title { font-size: 20px; }
+    .deliverable-body { font-size: 15px; }
+
+    .profit { padding: 120px 32px; }
+    .profit h2 { font-size: 42px; margin-bottom: 22px; }
+    .profit p { font-size: 18px; }
+
+    .compare { padding: 96px 32px; }
+    .compare-header { margin-bottom: 48px; }
+    .compare-header .section-title { font-size: 36px; }
+    .compare-head {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+    }
+    .compare-head-spacer { padding: 22px 28px; }
+    .compare-head-col {
+      padding: 22px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      border-left: 1px solid var(--border);
+    }
+    .compare-head-col.in { background: var(--accent-bg); color: var(--accent-dark); }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      align-items: stretch;
+      border-top: 1px solid var(--border);
+      padding: 0;
+    }
+    .compare-rowlabel {
+      padding: 24px 28px;
+      align-self: center;
+    }
+    .compare-cell {
+      padding: 24px 28px;
+      font-size: 15px;
+      border-left: 1px solid var(--border);
+    }
+    .compare-cell.in { background: var(--accent-bg); }
+    .compare-celltag { display: none; }
+    .compare-cta { margin-top: 32px; text-align: center; }
+    .compare-cta .btn-primary { width: auto; padding: 15px 26px; font-size: 16px; }
+
     .footer { padding: 72px 32px 40px; }
     .footer-inner {
       display: grid;
@@ -1372,7 +1531,7 @@
               <div class="gmail-subject-meta">L'Epicerie · 18–24 Nov</div>
             </div>
 
-            <div class="gmail-greeting">Hi Lea — MER is up to <strong>3.42×</strong> this week.</div>
+            <div class="gmail-greeting">Hi Lea — ROAS is up to <strong>3.42×</strong> this week.</div>
 
             <!-- Revenue + Spend -->
             <div class="gmail-stats-card">
@@ -1409,7 +1568,7 @@
                   <span class="gmail-insight-dot green"></span>
                   <span class="gmail-insight-label">What's working</span>
                 </div>
-                <div class="gmail-insight-bullet"><span class="dash">—</span><span>UGC angle #3 hitting 4.1× MER, highest of any angle this quarter.</span></div>
+                <div class="gmail-insight-bullet"><span class="dash">—</span><span>UGC angle #3 hitting 4.1× ROAS, highest of any angle this quarter.</span></div>
                 <div class="gmail-insight-bullet"><span class="dash">—</span><span>Retargeting cart abandoners driving record revenue at $12 CAC.</span></div>
               </div>
               <div class="gmail-insight-section">
@@ -1450,24 +1609,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="proof-strip">
-    <div class="proof-cell">
-      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      <div class="proof-num">+30%</div>
-      <div class="proof-label">MER improvement by month 3</div>
-    </div>
-    <div class="proof-cell">
-      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
-      <div class="proof-num">+50%</div>
-      <div class="proof-label">revenue scale by month 6</div>
-    </div>
-    <div class="proof-cell">
-      <svg class="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <div class="proof-num">$5–10k</div>
-      <div class="proof-label">typical monthly ad spend</div>
     </div>
   </div>
 </section>
@@ -1515,9 +1656,9 @@
       <div class="how-step-num">03</div>
       <div>
         <div class="how-step-tag">Optimisation · Months 2 to 3</div>
-        <div class="how-step-title">Weekly MER reports</div>
+        <div class="how-step-title">Weekly ROAS reports</div>
       </div>
-      <div class="how-step-desc">Monthly calls to review results and strategy, then we keep optimising together. Every Monday you get a MER report with what's working, what's not, and what we're testing next.</div>
+      <div class="how-step-desc">Weekly calls to review results and strategy, then we keep optimising together. Every Monday you get a ROAS report with what's working, what's not, and what we're testing next.</div>
     </div>
     <div class="how-step">
       <div class="how-step-num">04</div>
@@ -1525,46 +1666,7 @@
         <div class="how-step-tag">Scale · Month 3+</div>
         <div class="how-step-title">You own the system</div>
       </div>
-      <div class="how-step-desc">Your MER is stable and growing. You own the system, the data, and the decisions. Run it yourself from here on, most clients do, or stay in touch for ongoing sparring if you want a copilot.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ACCELERATE -->
-<section class="accelerate-section">
-  <div class="accelerate-header">
-    <div class="section-tag">The Accelerate Program</div>
-    <h2 class="section-title">Ready to start? Here's the deal.</h2>
-  </div>
-  <div class="accelerate-card">
-    <div class="accelerate-left">
-      <div>
-        <div class="accelerate-title">Accelerate Program</div>
-        <div class="accelerate-price-row">
-          <div class="accelerate-price">$950</div>
-          <div class="accelerate-period">/mo · 3 months</div>
-        </div>
-        <div class="accelerate-total">Total: $2,850 over 3 months</div>
-      </div>
-      <div class="accelerate-desc">For businesses ready to bring paid social in-house and build the system from the ground up, in 90 days.</div>
-      <div class="accelerate-outcome-block">
-        <div class="accelerate-outcome-label">Outcome</div>
-        <div class="accelerate-outcome">+30% MER by month 3, documented system you fully own.</div>
-        <button class="accelerate-cta" onclick="startCheckout('accelerate')">Subscribe — $950/mo</button>
-        <div class="accelerate-secure">Secure checkout via Stripe</div>
-      </div>
-    </div>
-    <div class="accelerate-right">
-      <div class="accelerate-includes-label">What's included</div>
-      <ul class="accelerate-list">
-        <li>Full account audit and Creative Flywheel implementation</li>
-        <li>Custom course modules, basics through to the most advanced systems</li>
-        <li>Weekly strategic email reporting with AI task tracker</li>
-        <li>Full MER / CAC / ROAS dashboard</li>
-        <li>CAPI and tracking setup if not already in place</li>
-        <li>Monthly 1:1 strategy calls</li>
-        <li>Direct email access to me for urgent questions</li>
-      </ul>
+      <div class="how-step-desc">Your ROAS is stable and growing. You own the system, the data, and the decisions. Run it yourself from here on, most clients do, or stay in touch for ongoing sparring if you want a copilot.</div>
     </div>
   </div>
 </section>
@@ -1695,22 +1797,6 @@
           <svg class="ai-tool-glyph" viewBox="0 0 40 40" fill="none"><path d="M22 4L8 22h8l-2 14 14-18h-8l2-14z" fill="currentColor"/></svg>
           <div class="ai-tool-name">Pika</div>
         </div>
-      </div>
-    </div>
-
-    <div class="ai-addon">
-      <div>
-        <div class="ai-addon-tag">Optional add on</div>
-        <div class="ai-addon-title">AI Creative Production</div>
-        <div class="ai-addon-price">
-          <div class="ai-addon-num">$850</div>
-          <div class="ai-addon-period">/ month</div>
-        </div>
-        <div class="ai-addon-desc">Three new ad creatives per month, built using the stack above and directed by me. Indistinguishable from traditional production at a fraction of agency cost. Because creative is 70% of paid social performance, and running out of fresh creative kills campaigns faster than anything else.</div>
-      </div>
-      <div class="ai-addon-actions">
-        <button class="ai-addon-cta" onclick="startCheckout('ai')">Add to my program</button>
-        <div class="ai-addon-secure">Secure checkout via Stripe</div>
       </div>
     </div>
   </div>
@@ -1877,7 +1963,7 @@ That said, I also take on a small number of freelance account management clients
           <span>What happens after three months?</span>
           <span class="faq-toggle">+</span>
         </button>
-        <div class="faq-answer">Your MER is stable and growing, and you own the system. Most clients take it over from there and run it themselves. If you want a copilot, I'm available ad hoc, no retainer, no lock ins.</div>
+        <div class="faq-answer">Your ROAS is stable and growing, and you own the system. Most clients take it over from there and run it themselves. If you want a copilot, I'm available ad hoc, no retainer, no lock ins.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
@@ -1897,23 +1983,74 @@ That said, I also take on a small number of freelance account management clients
   <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
 </section>
 
-<script>
-  async function startCheckout(product) {
-    try {
-      const resp = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product })
-      });
-      const data = await resp.json();
-      if (data.url) { window.location.href = data.url; }
-      else { alert('Could not start checkout. Please try again.'); }
-    } catch (err) {
-      console.error(err);
-      alert('Could not start checkout. Please try again.');
-    }
-  }
-</script>
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="deliverables-header">
+    <div class="section-tag">What you get</div>
+    <h2 class="section-title">Everything you need to run paid social profitably, in house.</h2>
+  </div>
+  <div class="deliverables-grid">
+    <div class="deliverable-card">
+      <div class="deliverable-title">Your live performance dashboard, set up in week one</div>
+      <div class="deliverable-body">Spend, revenue, ROAS and CAC across every campaign, updated daily. No spreadsheets, no waiting for a report. You see exactly what we see on every call.</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-title">Your account, built right in month one</div>
+      <div class="deliverable-body">We design your media plan and build the campaign structure in your account, paused and ready. Tracking verified, catalogue connected, budgets and naming set. You load the creative and launch. From there, you run everything.</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-title">A private coaching call, every week</div>
+      <div class="deliverable-body">Just you and me, every week for 90 days. No group rooms, no shared calls. We work through your account, your numbers and your next move, in order, for twelve weeks.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIT FRAMING -->
+<section class="profit">
+  <div class="profit-inner">
+    <h2>You run the ads. We make sure they're profitable.</h2>
+    <p>Revenue from ads is easy to buy. Profit is what we coach for. Every decision in the program runs through one filter: your cost to acquire a customer against what that customer is worth. We set your break even ROAS and max CAC in week one, and every call after that measures against them.</p>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare">
+  <div class="compare-header">
+    <div class="section-tag">The alternative</div>
+    <h2 class="section-title">What this replaces.</h2>
+    <p>A good agency is the right move at scale. Until then, you're paying retainer prices for a service built for bigger budgets.</p>
+  </div>
+  <div class="compare-table">
+    <div class="compare-head">
+      <div class="compare-head-spacer"></div>
+      <div class="compare-head-col out">Outsourced, 12 months</div>
+      <div class="compare-head-col in">In house with HWC, 12 months</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-rowlabel">Cost</div>
+      <div class="compare-cell out"><span class="compare-celltag">Outsourced, 12 months</span>$24,000 to $36,000</div>
+      <div class="compare-cell in"><span class="compare-celltag">In house with HWC, 12 months</span>Less than half the monthly cost, and the program ends</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-rowlabel">Month 13</div>
+      <div class="compare-cell out"><span class="compare-celltag">Outsourced, 12 months</span>Retainer continues</div>
+      <div class="compare-cell in"><span class="compare-celltag">In house with HWC, 12 months</span>Light touch support or fully independent</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-rowlabel">When you leave</div>
+      <div class="compare-cell out"><span class="compare-celltag">Outsourced, 12 months</span>The capability leaves with them</div>
+      <div class="compare-cell in"><span class="compare-celltag">In house with HWC, 12 months</span>The skills, account structure and dashboard are yours</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-rowlabel">Who runs your ads</div>
+      <div class="compare-cell out"><span class="compare-celltag">Outsourced, 12 months</span>Their team</div>
+      <div class="compare-cell in"><span class="compare-celltag">In house with HWC, 12 months</span>Your team</div>
+    </div>
+  </div>
+  <div class="compare-cta">
+    <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+  </div>
+</section>
 
 <script src="/nav.js"></script>
 <script src="/footer.js"></script>
