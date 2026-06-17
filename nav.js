@@ -43,6 +43,7 @@
   var linksMarkup =
     '<a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">Ad Generator <span class="nav-gen-pill">Free</span></a>' +
     '<a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>' +
+    '<a href="/creative" class="nav-link' + active('/creative') + '">Creative Production</a>' +
     '<a href="/about" class="nav-link' + active('/about') + '">About</a>';
 
   var header = document.createElement('header');
