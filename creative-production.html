@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HWC Creative Production — How We Convert</title>
+<meta name="description" content="A steady stream of test ready ad creative, produced with AI and run on the Creative Flywheel, so your Meta account never runs out of winners to scale.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="How We Convert">
+<meta property="og:title" content="HWC Creative Production">
+<meta property="og:description" content="Creative is the new targeting. We build the machine that feeds it. AI creative production on the Creative Flywheel. Book an intro call.">
+<meta property="og:url" content="https://howweconvert.com.au/creative-production">
+<meta property="og:image" content="https://howweconvert.com.au/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HWC Creative Production">
+<meta name="twitter:description" content="AI creative production on the Creative Flywheel, so your account never runs out of winners to scale.">
+<meta name="twitter:image" content="https://howweconvert.com.au/og-default.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0F172A;
+    --ink-soft: #1E293B;
+    --bg: #FAFAFA;
+    --card: #FFFFFF;
+    --muted: #64748B;
+    --muted-light: #94A3B8;
+    --border: #E2E8F0;
+    --border-soft: #F1F5F9;
+    --accent: #2563EB;
+    --accent-dark: #1D4ED8;
+    --accent-light: #EFF6FF;
+  }
+
+  body {
+    font-family: 'Geist', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: white;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  .logo-wordmark {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-cta {
+    padding: 7px 14px;
+    background: var(--ink);
+    color: white;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border-radius: 20px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 .accent {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    padding: 12px 22px;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .btn-ghost {
+    padding: 12px 22px;
+    background: transparent;
+    color: var(--ink);
+    border-radius: 8px;
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  /* ============ PRINCIPLE CARD ============ */
+  .principle {
+    max-width: 720px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+  }
+
+  .principle-card {
+    background: var(--ink);
+    color: white;
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .principle-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+
+  .principle-headline {
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .principle-headline .accent { color: #60A5FA; }
+
+  .principle-detail {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+  }
+
+  .principle-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .principle-tag .accent { color: #60A5FA; font-weight: 500; }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 16px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .section-title.tight { margin-bottom: 48px; }
+
+  /* ============ CONTRAST GRID ============ */
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .contrast-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 28px;
+  }
+
+  .contrast-card.featured {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  .contrast-who {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .contrast-card.featured .contrast-who { color: #60A5FA; }
+
+  .contrast-list { list-style: none; }
+
+  .contrast-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    padding: 11px 0;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .contrast-list li:first-child { border-top: none; padding-top: 0; }
+
+  .contrast-card.featured .contrast-list li {
+    color: rgba(255,255,255,0.85);
+    border-top-color: rgba(255,255,255,0.08);
+  }
+
+  .contrast-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contrast-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contrast-card .contrast-icon svg { stroke: var(--muted-light); }
+  .contrast-card.featured .contrast-icon svg { stroke: #60A5FA; }
+
+  /* ============ STACK GRID ============ */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .stack-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .stack-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .stack-tool {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+
+  .stack-role {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .stack-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 28px auto 0;
+    line-height: 1.6;
+  }
+
+  /* ============ FLYWHEEL ============ */
+  .flywheel {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .flywheel-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .step-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .step-title {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .flywheel-loop {
+    max-width: 1040px;
+    margin: 36px auto 0;
+    padding: 16px 20px;
+    background: var(--accent-light);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--accent-dark);
+    line-height: 1.6;
+  }
+
+  /* ============ WHO IT'S FOR ============ */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .who-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .who-check {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .who-check svg {
+    width: 11px;
+    height: 11px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .who-content { flex: 1; }
+
+  .who-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .who-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .faq-q {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .faq-a {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    background: var(--ink);
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    padding: 32px 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-link { display: none; }
+    .hero { padding: 48px 20px 40px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 15px; }
+    .principle { padding: 0 20px 60px; }
+    .principle-card { padding: 32px 24px; }
+    .principle-headline { font-size: 27px; }
+    .section { padding: 48px 20px; }
+    .section-title { font-size: 28px; }
+    .contrast-grid { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .flywheel-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .final-cta { padding: 60px 20px; }
+    .final-cta h2 { font-size: 28px; }
+    .footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
+    .hero-cta-row { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-ghost { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="logo">
+    <div class="logo-mark">hwc</div>
+    <div class="logo-wordmark">how we convert</div>
+  </a>
+  <div class="nav-links">
+    <a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link">Ad Generator</a>
+    <a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">HWC Creative Production</div>
+  <h1>Creative is the new targeting. <span class="accent">We build the machine that feeds it.</span></h1>
+  <p class="hero-sub">A steady stream of test ready ad concepts, produced with AI and run on the Creative Flywheel. So your Meta account always has fresh winners to scale, without hiring a designer or a videographer.</p>
+  <div class="hero-cta-row">
+    <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+    <a href="#flywheel" class="btn-ghost">See how it works</a>
+  </div>
+</section>
+
+<!-- PRINCIPLE CARD -->
+<div class="principle">
+  <div class="principle-card">
+    <div class="principle-label">The principle</div>
+    <div class="principle-headline">Meta's algorithm finds the buyers. <span class="accent">Your creative decides how fast.</span></div>
+    <div class="principle-detail">Targeting is mostly automated now. The lever you still control is creative volume and quality. The brands that win are the ones feeding the algorithm enough strong concepts to learn from.</div>
+    <div class="principle-tag">
+      <span>More concepts.</span>
+      <span class="accent">More tests.</span>
+      <span>More winners.</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE BOTTLENECK -->
+<section class="section">
+  <div class="section-eyebrow">Why brands stall</div>
+  <h2 class="section-title">Most brands don't have an ad problem. They have a creative supply problem.</h2>
+  <p class="section-sub">You can only test what you can produce. When production is slow and expensive, testing slows down, and so does growth.</p>
+
+  <div class="contrast-grid">
+    <div class="contrast-card">
+      <div class="contrast-who">The bottleneck</div>
+      <ul class="contrast-list">
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          <span>You run out of fresh creative ideas within weeks.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          <span>Designers and videographers are slow and expensive.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          <span>You keep testing the same handful of angles.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          <span>You can't produce fast enough to feed the spend.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contrast-card featured">
+      <div class="contrast-who">With Creative Production</div>
+      <ul class="contrast-list">
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Generate concepts in minutes, not weeks.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Produce ad ready images and video with AI, in house.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Test many more angles across every audience.</span>
+        </li>
+        <li>
+          <span class="contrast-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Scale production with the brand, not your headcount.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- THE CREATIVE STACK -->
+<section class="section">
+  <div class="section-eyebrow">The Creative Stack</div>
+  <h2 class="section-title">A production stack that runs on tools you already have.</h2>
+  <p class="section-sub">No agency retainer. No licence sprawl. A simple, reliable stack that takes a product brief and turns it into test ready ads.</p>
+
+  <div class="stack-grid">
+    <div class="stack-item">
+      <div class="stack-num">01</div>
+      <div>
+        <div class="stack-tool">Google AI Studio</div>
+        <div class="stack-role">Strategy, creative angles, ad copy, headlines, and calls to action.</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-num">02</div>
+      <div>
+        <div class="stack-tool">Google Veo 3</div>
+        <div class="stack-role">Video generation for product demos, before and after, and lifestyle.</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-num">03</div>
+      <div>
+        <div class="stack-tool">Shopify AI</div>
+        <div class="stack-role">Product imagery, where it applies, straight from your catalogue.</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-num">04</div>
+      <div>
+        <div class="stack-tool">Meta Ads Manager</div>
+        <div class="stack-role">Campaign deployment, structured for clean testing and fast reads.</div>
+      </div>
+    </div>
+  </div>
+  <p class="stack-note">We set the stack up in your account, build the prompt library around your brand, and hand you a repeatable workflow your team can run.</p>
+</section>
+
+<!-- THE CREATIVE FLYWHEEL -->
+<section class="flywheel" id="flywheel">
+  <div class="section">
+    <div class="section-eyebrow">The Creative Flywheel</div>
+    <h2 class="section-title tight">The system that turns volume into winners.</h2>
+
+    <div class="flywheel-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Spy</div>
+        <div class="step-desc">Source proven concepts from brands a step above yours. A $1M brand studies the $10M players and the ads they have run the longest.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Produce</div>
+        <div class="step-desc">Recreate and adapt those concepts as video, statics, and carousels with the stack. Batch four to eight fresh creatives per ad set.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Force spend</div>
+        <div class="step-desc">Launch into a prospecting CBO and set a daily minimum equal to one times your target CPA. Let it run for exactly seven days.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Analyse</div>
+        <div class="step-desc">Sort by spend, compare incremental attribution, and find the concepts that command budget above your ROAS threshold.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title">Diversify</div>
+        <div class="step-desc">Duplicate, vary, and merge the winners. Run every profitable concept, because each one matches a different audience.</div>
+      </div>
+    </div>
+
+    <div class="flywheel-loop">
+      Then it loops. Every winner becomes the seed for the next batch, and the machine keeps growing as your spend grows.
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section">
+  <div class="section-eyebrow">Who this is for</div>
+  <h2 class="section-title tight">Built for ecommerce brands ready to scale on Meta.</h2>
+
+  <div class="who-grid">
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Brands spending $5k to $10k a month on paid social</div>
+        <div class="who-desc">Enough spend that creative supply is now the thing holding back your results.</div>
+      </div>
+    </div>
+
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Teams that keep running out of creative</div>
+        <div class="who-desc">You feel the drop every time the latest batch fatigues and there is nothing fresh to launch.</div>
+      </div>
+    </div>
+
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Founders who can't justify a full time creative hire</div>
+        <div class="who-desc">You want studio output without a studio payroll, produced with AI instead.</div>
+      </div>
+    </div>
+
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Brands bringing paid social in house</div>
+        <div class="who-desc">You want to own the creative engine, not rent it from an agency every month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-eyebrow">Questions</div>
+  <h2 class="section-title tight">Common questions.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Do you run the ads for me?</div>
+      <div class="faq-a">No. We build the creative production system and the Flywheel inside your account, then hand it over so your team runs it. That is the How We Convert model. You own the engine, we get it built and working.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need a designer or a videographer?</div>
+      <div class="faq-a">No. The whole point is to produce ad ready images and video with AI. We set up the tools, build the prompts around your brand, and teach the workflow so anyone on your team can produce.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What tools does this use?</div>
+      <div class="faq-a">Google AI Studio for strategy and copy, Google Veo 3 for video, Shopify AI for product imagery, and Meta Ads Manager for deployment. Most of the stack is free, so there are no heavy monthly subscriptions or credit limits to manage.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How quickly do we see results?</div>
+      <div class="faq-a">The Flywheel runs on seven day test cycles. You start producing and launching in the first cycle, then read the data and scale winners from there. The system compounds as you feed it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Will this work for my brand?</div>
+      <div class="faq-a">It fits ecommerce brands spending around $5k to $10k a month on Meta who are ready to take creative in house. The best way to know is a quick call where we look at your account and your current creative.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Stop running out of creative.</h2>
+  <p>Book a call and we will map the production system your brand needs to keep the Flywheel turning.</p>
+  <a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>© 2026 How We Convert</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/partners">Partners</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
