@@ -20,9 +20,7 @@
     --accent: #2563EB;
     --accent-dark: #1D4ED8;
     --accent-light: #EFF6FF;
-    --accent-bg: #EFF6FF;
     --accent-blue: #60A5FA;
-    --font-mono: 'Geist Mono', 'SF Mono', Menlo, monospace;
   }
 
   body {
@@ -32,6 +30,15 @@
     line-height: 1.6;
     font-size: 15px;
   }
+
+  /* ============ NAV ============ */
+  .nav { display: flex; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; text-decoration: none; }
+  .logo-mark { width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600; letter-spacing: -0.02em; flex-shrink: 0; }
+  .logo-wordmark { font-size: 15px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
+  .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+  .nav-link { font-size: 13px; color: var(--ink); text-decoration: none; }
+  .nav-cta { padding: 7px 14px; background: var(--ink); color: white; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; }
 
   /* ============ HERO ============ */
   .hero { max-width: 1100px; margin: 0 auto; padding: 80px 40px 60px; text-align: center; }
@@ -142,8 +149,16 @@
   .final-cta h2 { font-size: 40px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; color: white; margin-bottom: 16px; max-width: 620px; margin-left: auto; margin-right: auto; }
   .final-cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
+  /* ============ FOOTER ============ */
+  .footer { padding: 32px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: var(--muted); text-decoration: none; }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width: 768px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-link { display: none; }
     .hero { padding: 48px 20px 40px; }
     .hero h1 { font-size: 34px; }
     .hero-sub { font-size: 15px; }
@@ -172,6 +187,8 @@
 
     .final-cta { padding: 60px 20px; }
     .final-cta h2 { font-size: 28px; }
+
+    .footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
   }
 
   @media (min-width: 769px) and (max-width: 1040px) {
@@ -182,13 +199,27 @@
 </head>
 <body>
 
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="logo">
+    <div class="logo-mark">hwc</div>
+    <div class="logo-wordmark">how we convert</div>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
+  </div>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow">Performance Creative Production</div>
   <h1>Performance creative, <span class="accent">produced for you.</span></h1>
   <p class="hero-sub">You already know paid social needs a constant stream of fresh creative to find your buyers. This produces it for you, built to perform, on top of the program you are already on. No agency retainer, no $4k shoot.</p>
   <div class="hero-cta-row">
-    <a href="/book-a-call" class="btn-primary">Book an intro call</a>
+    <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
     <a href="#how-it-works" class="btn-ghost">See how it works</a>
   </div>
 </section>
@@ -409,11 +440,19 @@
 <section class="final-cta">
   <h2>Stop letting your campaigns run out of creative.</h2>
   <p>Book a call and I will show you what a month of performance creative looks like for your brand.</p>
-  <a href="/book-a-call" class="btn-primary">Book an intro call</a>
+  <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
 </section>
 
-<script src="/nav.js"></script>
-<script src="/footer.js"></script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div>© 2026 How We Convert</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
 
 </body>
 </html>
