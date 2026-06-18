@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Creative Production — How We Convert</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0F172A;
+    --ink-soft: #1E293B;
+    --bg: #FAFAFA;
+    --card: #FFFFFF;
+    --muted: #64748B;
+    --muted-light: #94A3B8;
+    --border: #E2E8F0;
+    --border-soft: #F1F5F9;
+    --accent: #2563EB;
+    --accent-dark: #1D4ED8;
+    --accent-light: #EFF6FF;
+    --accent-blue: #60A5FA;
+  }
+
+  body {
+    font-family: 'Geist', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ============ NAV ============ */
+  .nav { display: flex; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; text-decoration: none; }
+  .logo-mark { width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600; letter-spacing: -0.02em; flex-shrink: 0; }
+  .logo-wordmark { font-size: 15px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
+  .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+  .nav-link { font-size: 13px; color: var(--ink); text-decoration: none; }
+  .nav-cta { padding: 7px 14px; background: var(--ink); color: white; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; }
+
+  /* ============ HERO ============ */
+  .hero { max-width: 1100px; margin: 0 auto; padding: 80px 40px 60px; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--accent-light); color: var(--accent-dark); border-radius: 20px; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-size: 52px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub { font-size: 17px; color: var(--muted); max-width: 620px; margin: 0 auto 36px; line-height: 1.6; }
+  .hero-cta-row { display: flex; gap: 10px; justify-content: center; }
+
+  .btn-primary { padding: 12px 22px; background: var(--accent); color: white; border-radius: 8px; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-ghost { padding: 12px 22px; background: transparent; color: var(--ink); border-radius: 8px; font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 500; border: 1px solid var(--border); cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  /* ============ SECTIONS ============ */
+  .section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+  .section-eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; text-align: center; }
+  .section-title { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .section-lead { font-size: 17px; color: var(--muted); max-width: 640px; margin: -28px auto 44px; text-align: center; line-height: 1.6; }
+
+  /* ============ PROBLEM + FLYWHEEL (dark) ============ */
+  .fw { background: var(--ink); color: white; border-top: 1px solid var(--ink); }
+  .fw-inner { max-width: 1100px; margin: 0 auto; padding: 76px 40px; }
+  .fw-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .fw-eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+  .fw h2 { font-size: 38px; font-weight: 500; letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 24px; }
+  .fw h2 .accent { color: var(--accent-blue); }
+  .fw p { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 16px; }
+  .fw p:last-child { margin-bottom: 0; }
+
+  .wheel-wrap { display: flex; align-items: center; justify-content: center; }
+  .wheel { width: 100%; max-width: 400px; height: auto; }
+  .wheel .seg-a { fill: #1D4ED8; }
+  .wheel .seg-b { fill: #2563EB; }
+  .wheel .seg-c { fill: #3B82F6; }
+  .wheel .seg-div { stroke: var(--ink); stroke-width: 2; }
+  .wheel .seg-num { fill: rgba(255,255,255,0.55); font-family: 'Geist Mono', monospace; font-size: 11px; }
+  .wheel .seg-n { fill: rgba(255,255,255,0.65); font-family: 'Geist Mono', monospace; font-size: 7px; letter-spacing: 0.5px; }
+  .wheel .seg-w { fill: #fff; font-family: 'Geist', sans-serif; font-size: 8px; font-weight: 500; }
+  .wheel .hub { fill: var(--ink); stroke: rgba(255,255,255,0.12); stroke-width: 1; }
+  .wheel .hub-top { fill: rgba(255,255,255,0.55); font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 1px; }
+  .wheel .hub-main { fill: var(--accent-blue); font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1px; }
+
+  .fw-legend { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1100px; margin: 48px auto 0; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .fw-legend-item { }
+  .fw-legend-num { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--accent-blue); margin-bottom: 6px; }
+  .fw-legend-name { font-size: 13.5px; font-weight: 500; color: white; line-height: 1.3; }
+
+  /* ============ DELIVERABLES (light) ============ */
+  .deliv { max-width: 760px; margin: 0 auto; }
+  .deliv-row { display: flex; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .deliv-row:first-child { border-top: 1px solid var(--border); }
+  .deliv-icon { color: var(--accent); width: 26px; height: 26px; min-width: 26px; padding-top: 2px; }
+  .deliv-icon svg { width: 100%; height: 100%; display: block; }
+  .deliv-title { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .deliv-tag { font-family: 'Geist Mono', monospace; font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); background: var(--accent-light); border: 1px solid #BFDBFE; border-radius: 5px; padding: 2px 7px; font-weight: 500; }
+  .deliv-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .ugc-callout { max-width: 760px; margin: 28px auto 0; background: var(--accent-light); border: 1px solid #BFDBFE; border-radius: 14px; padding: 26px 30px; }
+  .ugc-label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .ugc-title { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .ugc-text { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ============ SHOWCASE (light) ============ */
+  .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+  .shot { position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+  .shot img, .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .shot.highlight { border: 2px solid var(--accent); box-shadow: 0 0 0 5px rgba(37,99,235,0.12); }
+  .shot-fig { margin: 0; }
+  .shot-fig figcaption { text-align: center; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+  .shot-badge { position: absolute; top: 10px; left: 10px; z-index: 2; font-family: 'Geist Mono', monospace; font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; background: rgba(15,23,42,0.78); color: #fff; }
+  .shot-badge.src { background: var(--accent); }
+  .rotator img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: xfade 9s infinite; }
+  .rotator img:nth-of-type(1) { animation-delay: 0s; }
+  .rotator img:nth-of-type(2) { animation-delay: 3s; }
+  .rotator img:nth-of-type(3) { animation-delay: 6s; }
+  @keyframes xfade { 0% { opacity: 0; } 6% { opacity: 1; } 30% { opacity: 1; } 38% { opacity: 0; } 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .rotator img { animation: none; } .rotator img:nth-of-type(1) { opacity: 1; } }
+  .showcase-caption { text-align: center; font-size: 12.5px; color: var(--muted-light); margin-top: 20px; }
+
+  /* ============ HOW IT WORKS (white) ============ */
+  .how-it-works { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .steps-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 920px; margin: 0 auto; }
+  .step-num { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--accent); margin-bottom: 16px; }
+  .step-gate { display: inline-block; font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: white; background: var(--accent); border-radius: 6px; padding: 4px 9px; margin-bottom: 14px; }
+  .step-gate.soft { background: var(--ink); }
+  .step-title { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .step-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ============ CREATIVE STACK (dark) ============ */
+  .stack { background: var(--ink); color: white; }
+  .stack-inner { max-width: 1100px; margin: 0 auto; padding: 72px 40px; }
+  .stack-eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 12px; text-align: center; }
+  .stack h2 { font-size: 34px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; text-align: center; max-width: 680px; margin: 0 auto 40px; }
+  .stack-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .stack-card { border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 26px 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .stack-icon { width: 26px; height: 26px; color: rgba(255,255,255,0.9); }
+  .stack-icon svg { width: 100%; height: 100%; display: block; }
+  .stack-name { font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,0.92); }
+  .stack-caption { text-align: center; font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 32px; }
+
+  /* ============ FAQ (light) ============ */
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  .faq-q { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--ink); }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ============ FINAL CTA (dark) ============ */
+  .final-cta { background: var(--ink); color: white; padding: 80px 40px; text-align: center; }
+  .final-cta h2 { font-size: 40px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; color: white; margin-bottom: 16px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .final-cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+  /* ============ FOOTER ============ */
+  .footer { padding: 32px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: var(--muted); text-decoration: none; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-link { display: none; }
+    .hero { padding: 48px 20px 40px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 15px; }
+    .hero-cta-row { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-ghost { width: 100%; }
+    .section { padding: 48px 20px; }
+    .section-title { font-size: 28px; }
+    .section-lead { font-size: 15px; margin: -20px auto 36px; }
+
+    .fw-inner { padding: 52px 20px; }
+    .fw-grid { grid-template-columns: 1fr; gap: 36px; }
+    .fw h2 { font-size: 28px; }
+    .wheel { max-width: 260px; }
+    .fw-legend { grid-template-columns: repeat(2, 1fr); gap: 18px 14px; margin-top: 36px; }
+
+    .deliv-row { gap: 16px; }
+    .ugc-callout { padding: 22px 20px; }
+
+    .steps-3 { grid-template-columns: 1fr; gap: 24px; }
+
+    .showcase-grid { grid-template-columns: 1fr; max-width: 360px; }
+
+    .stack-inner { padding: 52px 20px; }
+    .stack h2 { font-size: 26px; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .final-cta { padding: 60px 20px; }
+    .final-cta h2 { font-size: 28px; }
+
+    .footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1040px) {
+    .fw-legend { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .stack-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="logo">
+    <div class="logo-mark">hwc</div>
+    <div class="logo-wordmark">how we convert</div>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Performance Creative Production</div>
+  <h1>Performance creative, <span class="accent">produced for you.</span></h1>
+  <p class="hero-sub">You already know paid social needs a constant stream of fresh creative to find your buyers. This produces it for you, built to perform, on top of the program you are already on. No agency retainer, no $4k shoot.</p>
+  <div class="hero-cta-row">
+    <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works</a>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="section">
+  <div class="section-eyebrow">See it in action</div>
+  <h2 class="section-title">From a flat product shot to creative that performs.</h2>
+  <p class="section-lead">One catalogue image, turned into scroll stopping lifestyle ads and short form video. Same product, new context, ready for the feed. No studio, no shoot.</p>
+
+  <div class="showcase-grid">
+    <figure class="shot-fig">
+      <div class="shot">
+        <div class="shot-badge src">Source</div>
+        <img src="/images/showcase/veja-product.jpg" alt="Original product catalogue shot">
+      </div>
+      <figcaption>Your catalogue product image</figcaption>
+    </figure>
+    <figure class="shot-fig">
+      <div class="shot highlight">
+        <div class="shot-badge">AI lifestyle</div>
+        <img src="/images/showcase/veja-lifestyle.gif" alt="AI generated lifestyle creative cycling through scenes">
+      </div>
+      <figcaption>HWC lifestyle catalogue ads</figcaption>
+    </figure>
+    <figure class="shot-fig">
+      <div class="shot highlight">
+        <div class="shot-badge">AI video</div>
+        <video src="/images/showcase/veja-video.mp4" poster="/images/showcase/veja-video-poster.jpg" autoplay loop muted playsinline></video>
+      </div>
+      <figcaption>Static to AI short form video</figcaption>
+    </figure>
+  </div>
+  <p class="showcase-caption">Demonstration produced with AI. Veja shown as an example, not affiliated with How We Convert.</p>
+</section>
+
+<!-- PROBLEM + FLYWHEEL -->
+<section class="fw">
+  <div class="fw-inner">
+    <div class="fw-grid">
+      <div class="fw-text">
+        <div class="fw-eyebrow">Creative is the new targeting</div>
+        <h2>You can't feed the algorithm with two polished videos any more.</h2>
+        <p>Meta and TikTok have taken targeting off your hands. Your job now is to feed them a constant stream of fresh creative so the algorithm can find your buyers. Volume and diversity are the new levers.</p>
+        <p>That is what the Creative Flywheel does. A steady cycle of concepts, images, video and UGC, each one built to perform and tested against what is working. Not creative to fill the feed, creative to move the numbers.</p>
+      </div>
+      <div class="wheel-wrap">
+        <svg class="wheel" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- segments -->
+          <path class="seg-b" d="M130,20 A110,110 0 0 1 225.26,75 L180.23,101 A58,58 0 0 0 130,72 Z"/>
+          <path class="seg-a" d="M225.26,75 A110,110 0 0 1 225.26,185 L180.23,159 A58,58 0 0 0 180.23,101 Z"/>
+          <path class="seg-c" d="M225.26,185 A110,110 0 0 1 130,240 L130,188 A58,58 0 0 0 180.23,159 Z"/>
+          <path class="seg-b" d="M130,240 A110,110 0 0 1 34.74,185 L79.77,159 A58,58 0 0 0 130,188 Z"/>
+          <path class="seg-c" d="M34.74,185 A110,110 0 0 1 34.74,75 L79.77,101 A58,58 0 0 0 79.77,159 Z"/>
+          <path class="seg-a" d="M34.74,75 A110,110 0 0 1 130,20 L130,72 A58,58 0 0 0 79.77,101 Z"/>
+          <!-- dividers -->
+          <g class="seg-div" fill="none">
+            <line x1="130" y1="20" x2="130" y2="72"/>
+            <line x1="225.26" y1="75" x2="180.23" y2="101"/>
+            <line x1="225.26" y1="185" x2="180.23" y2="159"/>
+            <line x1="130" y1="240" x2="130" y2="188"/>
+            <line x1="34.74" y1="185" x2="79.77" y2="159"/>
+            <line x1="34.74" y1="75" x2="79.77" y2="101"/>
+          </g>
+          <!-- labels -->
+          <text class="seg-n" x="171" y="51" text-anchor="middle">01</text>
+          <text class="seg-w" x="171" y="60" text-anchor="middle">Spy</text>
+          <text class="seg-w" x="171" y="69" text-anchor="middle">competitors</text>
+
+          <text class="seg-n" x="212" y="122" text-anchor="middle">02</text>
+          <text class="seg-w" x="212" y="131" text-anchor="middle">Research</text>
+          <text class="seg-w" x="212" y="140" text-anchor="middle">personas</text>
+
+          <text class="seg-n" x="171" y="193" text-anchor="middle">03</text>
+          <text class="seg-w" x="171" y="202" text-anchor="middle">Generate</text>
+          <text class="seg-w" x="171" y="211" text-anchor="middle">hooks</text>
+
+          <text class="seg-n" x="89" y="193" text-anchor="middle">04</text>
+          <text class="seg-w" x="89" y="202" text-anchor="middle">Force</text>
+          <text class="seg-w" x="89" y="211" text-anchor="middle">spend</text>
+
+          <text class="seg-n" x="48" y="122" text-anchor="middle">05</text>
+          <text class="seg-w" x="48" y="131" text-anchor="middle">Analyse</text>
+          <text class="seg-w" x="48" y="140" text-anchor="middle">results</text>
+
+          <text class="seg-n" x="89" y="51" text-anchor="middle">06</text>
+          <text class="seg-w" x="89" y="60" text-anchor="middle">Diversify</text>
+          <text class="seg-w" x="89" y="69" text-anchor="middle">winners</text>
+          <!-- hub -->
+          <circle class="hub" cx="130" cy="130" r="56"/>
+          <text class="hub-top" x="130" y="124" text-anchor="middle">CREATIVE</text>
+          <text class="hub-main" x="130" y="140" text-anchor="middle">FLYWHEEL</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="section">
+  <div class="section-eyebrow">What you get</div>
+  <h2 class="section-title">Custom creative, built to perform.</h2>
+  <p class="section-lead">Produced to perform within the Creative Flywheel methodology, over a three month cycle. Every asset is built around the personas, angles and hooks your data says are working.</p>
+
+  <div class="deliv">
+    <div class="deliv-row">
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.7h5.4c.1-.7.4-1.3.9-1.7A6 6 0 0 0 12 3Z"/></svg></div>
+      <div>
+        <div class="deliv-title">3 creative concepts</div>
+        <div class="deliv-desc">Each defines the persona, angle, hook and format. The strategic direction, and where the custom thinking lives.</div>
+      </div>
+    </div>
+    <div class="deliv-row">
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></div>
+      <div>
+        <div class="deliv-title">9 performance AI images and gifs</div>
+        <div class="deliv-desc">Three per concept. Built to look like production, not like AI. Anything that reads as AI generated does not ship.</div>
+      </div>
+    </div>
+    <div class="deliv-row">
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 8 18 9.5 13.6 11 12 15.5 10.4 11 6 9.5 10.4 8Z"/><path d="M18.5 14.5v3M17 16h3"/></svg></div>
+      <div>
+        <div class="deliv-title">Catalogue asset enhancements <span class="deliv-tag">Ecom only</span></div>
+        <div class="deliv-desc">Up to 6 per cycle. Lifestyle images, background swaps, and simple motion added to existing product stills.</div>
+      </div>
+    </div>
+    <div class="deliv-row">
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v7a5 5 0 0 0 10 0V4"/><line x1="4" y1="4" x2="10" y2="4"/><line x1="14" y1="4" x2="20" y2="4"/><line x1="7" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="17" y2="11"/></svg></div>
+      <div>
+        <div class="deliv-title">Lead magnet production <span class="deliv-tag">Lead gen only</span></div>
+        <div class="deliv-desc">One to two per cycle. The designed downloadable plus the visuals to promote it.</div>
+      </div>
+    </div>
+    <div class="deliv-row">
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></div>
+      <div>
+        <div class="deliv-title">UGC videos</div>
+        <div class="deliv-desc">Through a creator partnership I source, vet and manage for you. The single hardest piece to do yourself, handled.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ugc-callout">
+    <div class="ugc-label">On the UGC partnership</div>
+    <div class="ugc-title">I run one long term creator relationship for you.</div>
+    <div class="ugc-text">Typically a six month partnership, one post a month, in exchange for product rather than a cash fee. Creator product and gifting are not included. You provide the product, I handle everything else.</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-title">Trust is earned before the work, not after.</h2>
+
+    <div class="steps-3">
+      <div class="step">
+        <div class="step-gate">Gate 1</div>
+        <div class="step-title">You approve the direction</div>
+        <div class="step-desc">Before anything is produced, you sign off the concept: persona, angle, hook, format. You always see where it is going first.</div>
+      </div>
+      <div class="step">
+        <div class="step-gate soft">Build</div>
+        <div class="step-title">I produce the assets</div>
+        <div class="step-desc">Concepts, AI images and gifs, enhancements and the UGC for the cycle, all built to your brand.</div>
+      </div>
+      <div class="step">
+        <div class="step-gate">Gate 2</div>
+        <div class="step-title">One revision, then live</div>
+        <div class="step-desc">One focused revision on the finished assets. The job is to feed the system with volume and diversity, not to build a beautiful TV ad.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE STACK -->
+<section class="stack">
+  <div class="stack-inner">
+    <div class="stack-eyebrow">The creative stack</div>
+    <h2>Built with the best of the AI creative stack.</h2>
+    <div class="stack-grid">
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24" fill="none"><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/><line x1="18.4" y1="5.6" x2="5.6" y2="18.4"/></g></svg></div><div class="stack-name">Claude</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><path d="M12 3 L19 7 L19 17 L12 21 L5 17 L5 7 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/></svg></div><div class="stack-name">ChatGPT</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><path d="M12 5 L17 15 L7 15 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="5" y1="18" x2="19" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="stack-name">Midjourney</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 9 L15 12 L10 15 Z" fill="currentColor"/></svg></div><div class="stack-name">Runway</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.3" fill="currentColor"/></svg></div><div class="stack-name">Veo 3</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"><line x1="8" y1="5" x2="8" y2="19"/><line x1="8" y1="12" x2="15" y2="5"/><line x1="8" y1="12" x2="15" y2="19"/></g><circle cx="18.5" cy="6" r="1.2" fill="currentColor"/></svg></div><div class="stack-name">Kling</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 17 L9 20 L13 17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="11" r="1.3" fill="currentColor"/></svg></div><div class="stack-name">HeyGen</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="6" y1="10" x2="6" y2="14"/><line x1="9" y1="7" x2="9" y2="17"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="15" y1="8" x2="15" y2="16"/><line x1="18" y1="10" x2="18" y2="14"/></g></svg></div><div class="stack-name">ElevenLabs</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><div class="stack-name">Flux</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><path d="M5.5 6.5 C5.5 6.5 7 7.5 7 9.5 C7 14.5 11 18.5 18 18 C12.5 16.5 9.5 13 9.5 9 C9.5 7.5 8.5 6.8 7.2 6.6 C6.4 6.5 5.9 6.4 5.5 6.5 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="stack-name">Nano Banana</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><path d="M12 3 C12 3 6 9 6 14 a6 6 0 0 0 12 0 C18 9 12 3 12 3 Z" fill="currentColor"/></svg></div><div class="stack-name">Seedance</div></div>
+      <div class="stack-card"><div class="stack-icon"><svg viewBox="0 0 24 24"><path d="M13 3 L6 13 L11 13 L10 21 L18 10 L13 10 Z" fill="currentColor"/></svg></div><div class="stack-name">Pika</div></div>
+    </div>
+    <div class="stack-caption">The tools change as the field moves. The strategy does not.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-eyebrow">Questions</div>
+  <h2 class="section-title">Common questions.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Is this a standalone service?</div>
+      <div class="faq-a">No. Performance Creative Production is an add on to the Accelerate Program or Ongoing Scale. It runs alongside the coaching, feeding the system you are learning to run.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How custom is it?</div>
+      <div class="faq-a">The direction is fully custom every cycle, built around your personas, offers and what your data says is working. The deliverable volume is fixed, so you always know exactly what you are getting.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many revisions do I get?</div>
+      <div class="faq-a">You approve the concept direction before any asset is produced, then get one revision on the finished work. Agreeing the direction upfront is what keeps the quality high without endless rounds.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who finds the UGC creators?</div>
+      <div class="faq-a">I do. I source, vet and manage one long term micro creator partnership for you. Creator product and gifting are not included, you provide the product.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will it look like AI?</div>
+      <div class="faq-a">No. Everything is reviewed before delivery, and anything that reads as AI generated does not ship. Built to perform, not to fill the feed with slop.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the commitment?</div>
+      <div class="faq-a">A three month cycle to protect the setup work, then month to month, cancel anytime.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Stop letting your campaigns run out of creative.</h2>
+  <p>Book a call and I will show you what a month of performance creative looks like for your brand.</p>
+  <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>© 2026 How We Convert</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
