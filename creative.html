@@ -71,12 +71,14 @@
   .fw p:last-child { margin-bottom: 0; }
 
   .wheel-wrap { display: flex; align-items: center; justify-content: center; }
-  .wheel { width: 100%; max-width: 320px; height: auto; }
+  .wheel { width: 100%; max-width: 400px; height: auto; }
   .wheel .seg-a { fill: #1D4ED8; }
   .wheel .seg-b { fill: #2563EB; }
   .wheel .seg-c { fill: #3B82F6; }
   .wheel .seg-div { stroke: var(--ink); stroke-width: 2; }
   .wheel .seg-num { fill: rgba(255,255,255,0.55); font-family: 'Geist Mono', monospace; font-size: 11px; }
+  .wheel .seg-n { fill: rgba(255,255,255,0.65); font-family: 'Geist Mono', monospace; font-size: 7px; letter-spacing: 0.5px; }
+  .wheel .seg-w { fill: #fff; font-family: 'Geist', sans-serif; font-size: 8px; font-weight: 500; }
   .wheel .hub { fill: var(--ink); stroke: rgba(255,255,255,0.12); stroke-width: 1; }
   .wheel .hub-top { fill: rgba(255,255,255,0.55); font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 1px; }
   .wheel .hub-main { fill: var(--accent-blue); font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1px; }
@@ -90,7 +92,8 @@
   .deliv { max-width: 760px; margin: 0 auto; }
   .deliv-row { display: flex; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--border); }
   .deliv-row:first-child { border-top: 1px solid var(--border); }
-  .deliv-num { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--accent); min-width: 28px; padding-top: 3px; }
+  .deliv-icon { color: var(--accent); width: 26px; height: 26px; min-width: 26px; padding-top: 2px; }
+  .deliv-icon svg { width: 100%; height: 100%; display: block; }
   .deliv-title { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
   .deliv-tag { font-family: 'Geist Mono', monospace; font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); background: var(--accent-light); border: 1px solid #BFDBFE; border-radius: 5px; padding: 2px 7px; font-weight: 500; }
   .deliv-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
@@ -101,9 +104,9 @@
   .ugc-text { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
 
   /* ============ SHOWCASE (light) ============ */
-  .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; margin: 0 auto; }
+  .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
   .shot { position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
-  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .shot img, .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .shot.highlight { border: 2px solid var(--accent); box-shadow: 0 0 0 5px rgba(37,99,235,0.12); }
   .shot-fig { margin: 0; }
   .shot-fig figcaption { text-align: center; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
@@ -179,7 +182,7 @@
 
     .steps-3 { grid-template-columns: 1fr; gap: 24px; }
 
-    .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid { grid-template-columns: 1fr; max-width: 360px; }
 
     .stack-inner { padding: 52px 20px; }
     .stack h2 { font-size: 26px; }
@@ -220,8 +223,39 @@
   <p class="hero-sub">You already know paid social needs a constant stream of fresh creative to find your buyers. This produces it for you, built to perform, on top of the program you are already on. No agency retainer, no $4k shoot.</p>
   <div class="hero-cta-row">
     <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
-    <a href="#how-it-works" class="btn-ghost">See how it works</a>
   </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="section">
+  <div class="section-eyebrow">See it in action</div>
+  <h2 class="section-title">From a flat product shot to creative that performs.</h2>
+  <p class="section-lead">One catalogue image, turned into scroll stopping lifestyle ads and short form video. Same product, new context, ready for the feed. No studio, no shoot.</p>
+
+  <div class="showcase-grid">
+    <figure class="shot-fig">
+      <div class="shot">
+        <div class="shot-badge src">Source</div>
+        <img src="/images/showcase/veja-product.jpg" alt="Original product catalogue shot">
+      </div>
+      <figcaption>Your catalogue product image</figcaption>
+    </figure>
+    <figure class="shot-fig">
+      <div class="shot highlight">
+        <div class="shot-badge">AI lifestyle</div>
+        <img src="/images/showcase/veja-lifestyle.gif" alt="AI generated lifestyle creative cycling through scenes">
+      </div>
+      <figcaption>HWC lifestyle catalogue ads</figcaption>
+    </figure>
+    <figure class="shot-fig">
+      <div class="shot highlight">
+        <div class="shot-badge">AI video</div>
+        <video src="/images/showcase/veja-video.mp4" poster="/images/showcase/veja-video-poster.jpg" autoplay loop muted playsinline></video>
+      </div>
+      <figcaption>Static to AI short form video</figcaption>
+    </figure>
+  </div>
+  <p class="showcase-caption">Demonstration produced with AI. Veja shown as an example, not affiliated with How We Convert.</p>
 </section>
 
 <!-- PROBLEM + FLYWHEEL -->
@@ -230,10 +264,9 @@
     <div class="fw-grid">
       <div class="fw-text">
         <div class="fw-eyebrow">Creative is the new targeting</div>
-        <h2>You can't feed the algorithm with <span class="accent">two polished videos</span> any more.</h2>
-        <p>Meta and TikTok have taken targeting off your hands. Your job now is to feed their algorithms a constant stream of creative so they can find your buyers for you. Diversity and volume are the new levers.</p>
-        <p>Which is why paying $4k for a single old school video shoot no longer makes sense. You need several fresh concepts every month, testing angles, hooks and formats for every persona. Only AI production is fast and cheap enough to keep up.</p>
-        <p>I build performance creative for ecommerce and lead gen campaigns with a strategic mindset: personas, emotional purchase drivers, hook testing. Built to perform, not just to fill the feed.</p>
+        <h2>You can't feed the algorithm with two polished videos any more.</h2>
+        <p>Meta and TikTok have taken targeting off your hands. Your job now is to feed them a constant stream of fresh creative so the algorithm can find your buyers. Volume and diversity are the new levers.</p>
+        <p>That is what the Creative Flywheel does. A steady cycle of concepts, images, video and UGC, each one built to perform and tested against what is working. Not creative to fill the feed, creative to move the numbers.</p>
       </div>
       <div class="wheel-wrap">
         <svg class="wheel" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
@@ -253,27 +286,36 @@
             <line x1="34.74" y1="185" x2="79.77" y2="159"/>
             <line x1="34.74" y1="75" x2="79.77" y2="101"/>
           </g>
-          <!-- numbers -->
-          <text class="seg-num" x="172" y="61" text-anchor="middle">01</text>
-          <text class="seg-num" x="214" y="134" text-anchor="middle">02</text>
-          <text class="seg-num" x="172" y="206" text-anchor="middle">03</text>
-          <text class="seg-num" x="88" y="206" text-anchor="middle">04</text>
-          <text class="seg-num" x="46" y="134" text-anchor="middle">05</text>
-          <text class="seg-num" x="88" y="61" text-anchor="middle">06</text>
+          <!-- labels -->
+          <text class="seg-n" x="171" y="51" text-anchor="middle">01</text>
+          <text class="seg-w" x="171" y="60" text-anchor="middle">Spy</text>
+          <text class="seg-w" x="171" y="69" text-anchor="middle">competitors</text>
+
+          <text class="seg-n" x="212" y="122" text-anchor="middle">02</text>
+          <text class="seg-w" x="212" y="131" text-anchor="middle">Research</text>
+          <text class="seg-w" x="212" y="140" text-anchor="middle">personas</text>
+
+          <text class="seg-n" x="171" y="193" text-anchor="middle">03</text>
+          <text class="seg-w" x="171" y="202" text-anchor="middle">Generate</text>
+          <text class="seg-w" x="171" y="211" text-anchor="middle">hooks</text>
+
+          <text class="seg-n" x="89" y="193" text-anchor="middle">04</text>
+          <text class="seg-w" x="89" y="202" text-anchor="middle">Force</text>
+          <text class="seg-w" x="89" y="211" text-anchor="middle">spend</text>
+
+          <text class="seg-n" x="48" y="122" text-anchor="middle">05</text>
+          <text class="seg-w" x="48" y="131" text-anchor="middle">Analyse</text>
+          <text class="seg-w" x="48" y="140" text-anchor="middle">results</text>
+
+          <text class="seg-n" x="89" y="51" text-anchor="middle">06</text>
+          <text class="seg-w" x="89" y="60" text-anchor="middle">Diversify</text>
+          <text class="seg-w" x="89" y="69" text-anchor="middle">winners</text>
           <!-- hub -->
           <circle class="hub" cx="130" cy="130" r="56"/>
           <text class="hub-top" x="130" y="124" text-anchor="middle">CREATIVE</text>
           <text class="hub-main" x="130" y="140" text-anchor="middle">FLYWHEEL</text>
         </svg>
       </div>
-    </div>
-    <div class="fw-legend">
-      <div class="fw-legend-item"><div class="fw-legend-num">01</div><div class="fw-legend-name">Spy competitors</div></div>
-      <div class="fw-legend-item"><div class="fw-legend-num">02</div><div class="fw-legend-name">Research personas</div></div>
-      <div class="fw-legend-item"><div class="fw-legend-num">03</div><div class="fw-legend-name">Generate hooks</div></div>
-      <div class="fw-legend-item"><div class="fw-legend-num">04</div><div class="fw-legend-name">Force spend</div></div>
-      <div class="fw-legend-item"><div class="fw-legend-num">05</div><div class="fw-legend-name">Analyse results</div></div>
-      <div class="fw-legend-item"><div class="fw-legend-num">06</div><div class="fw-legend-name">Diversify winners</div></div>
     </div>
   </div>
 </section>
@@ -286,35 +328,35 @@
 
   <div class="deliv">
     <div class="deliv-row">
-      <div class="deliv-num">01</div>
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.7h5.4c.1-.7.4-1.3.9-1.7A6 6 0 0 0 12 3Z"/></svg></div>
       <div>
         <div class="deliv-title">3 creative concepts</div>
         <div class="deliv-desc">Each defines the persona, angle, hook and format. The strategic direction, and where the custom thinking lives.</div>
       </div>
     </div>
     <div class="deliv-row">
-      <div class="deliv-num">02</div>
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></div>
       <div>
         <div class="deliv-title">9 performance AI images and gifs</div>
         <div class="deliv-desc">Three per concept. Built to look like production, not like AI. Anything that reads as AI generated does not ship.</div>
       </div>
     </div>
     <div class="deliv-row">
-      <div class="deliv-num">03</div>
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 8 18 9.5 13.6 11 12 15.5 10.4 11 6 9.5 10.4 8Z"/><path d="M18.5 14.5v3M17 16h3"/></svg></div>
       <div>
         <div class="deliv-title">Catalogue asset enhancements <span class="deliv-tag">Ecom only</span></div>
         <div class="deliv-desc">Up to 6 per cycle. Lifestyle images, background swaps, and simple motion added to existing product stills.</div>
       </div>
     </div>
     <div class="deliv-row">
-      <div class="deliv-num">04</div>
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v7a5 5 0 0 0 10 0V4"/><line x1="4" y1="4" x2="10" y2="4"/><line x1="14" y1="4" x2="20" y2="4"/><line x1="7" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="17" y2="11"/></svg></div>
       <div>
         <div class="deliv-title">Lead magnet production <span class="deliv-tag">Lead gen only</span></div>
         <div class="deliv-desc">One to two per cycle. The designed downloadable plus the visuals to promote it.</div>
       </div>
     </div>
     <div class="deliv-row">
-      <div class="deliv-num">05</div>
+      <div class="deliv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></div>
       <div>
         <div class="deliv-title">UGC videos</div>
         <div class="deliv-desc">Through a creator partnership I source, vet and manage for you. The single hardest piece to do yourself, handled.</div>
@@ -327,31 +369,6 @@
     <div class="ugc-title">I run one long term creator relationship for you.</div>
     <div class="ugc-text">Typically a six month partnership, one post a month, in exchange for product rather than a cash fee. Creator product and gifting are not included. You provide the product, I handle everything else.</div>
   </div>
-</section>
-
-<!-- SHOWCASE -->
-<section class="section">
-  <div class="section-eyebrow">See it in action</div>
-  <h2 class="section-title">From a flat product shot to lifestyle that performs.</h2>
-  <p class="section-lead">One catalogue image, turned into scroll stopping lifestyle creative. Same product, new context, ready for the feed. No studio, no shoot.</p>
-
-  <div class="showcase-grid">
-    <figure class="shot-fig">
-      <div class="shot">
-        <div class="shot-badge src">Source</div>
-        <img src="/images/showcase/veja-product.jpg" alt="Original product catalogue shot">
-      </div>
-      <figcaption>Your catalogue product image</figcaption>
-    </figure>
-    <figure class="shot-fig">
-      <div class="shot highlight">
-        <div class="shot-badge">AI lifestyle</div>
-        <img src="/images/showcase/veja-lifestyle.gif" alt="AI generated lifestyle creative cycling through three scenes">
-      </div>
-      <figcaption>HWC lifestyle catalogue ads</figcaption>
-    </figure>
-  </div>
-  <p class="showcase-caption">Demonstration produced with AI. Veja shown as an example, not affiliated with How We Convert.</p>
 </section>
 
 <!-- HOW IT WORKS -->
