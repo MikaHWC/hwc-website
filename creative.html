@@ -248,7 +248,9 @@
     <figure class="shot-fig">
       <div class="shot highlight">
         <div class="shot-badge">AI video</div>
-        <video src="/images/showcase/veja-video.mp4" poster="/images/showcase/veja-video-poster.jpg" autoplay loop muted playsinline></video>
+        <video poster="/images/showcase/veja-video-poster.jpg" autoplay loop muted playsinline preload="auto">
+          <source src="/images/showcase/veja-video.mp4" type="video/mp4">
+        </video>
       </div>
       <figcaption>Static to AI short form video</figcaption>
     </figure>
@@ -457,6 +459,14 @@
   <p>Book a call and I will show you what a month of performance creative looks like for your brand.</p>
   <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
 </section>
+
+<script>
+  document.querySelectorAll('video[autoplay]').forEach(function(v){
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) { p.catch(function(){}); }
+  });
+</script>
 
 <script src="/nav.js"></script>
 <script src="/footer.js"></script>
