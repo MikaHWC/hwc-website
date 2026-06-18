@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSYL2P0SV3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NSYL2P0SV3');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Performance Creative Production — How We Convert</title>
+<meta name="description" content="Done for you performance creative on top of your program. Concepts, AI images and video, and managed UGC, built to perform.">
+
+<!-- Open Graph / link preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="How We Convert">
+<meta property="og:title" content="Performance Creative Production">
+<meta property="og:description" content="Done for you performance creative on top of your program. Built to perform, not just to fill the feed.">
+<meta property="og:url" content="https://howweconvert.com.au/creative">
+<meta property="og:image" content="https://howweconvert.com.au/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Performance Creative Production">
+<meta name="twitter:description" content="Done for you performance creative on top of your program.">
+<meta name="twitter:image" content="https://howweconvert.com.au/og-default.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,14 +55,7 @@
     font-size: 15px;
   }
 
-  /* ============ NAV ============ */
-  .nav { display: flex; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 50; }
-  .logo { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; flex-shrink: 0; text-decoration: none; }
-  .logo-mark { width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 600; letter-spacing: -0.02em; flex-shrink: 0; }
-  .logo-wordmark { font-size: 15px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
-  .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
-  .nav-link { font-size: 13px; color: var(--ink); text-decoration: none; }
-  .nav-cta { padding: 7px 14px; background: var(--ink); color: white; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; }
+  /* Nav and footer are injected by /nav.js and /footer.js (shared site chrome) */
 
   /* ============ HERO ============ */
   .hero { max-width: 1100px; margin: 0 auto; padding: 80px 40px 60px; text-align: center; }
@@ -153,15 +170,12 @@
   .final-cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
   /* ============ FOOTER ============ */
-  .footer { padding: 32px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: var(--muted); text-decoration: none; }
+  /* injected by /footer.js */
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 768px) {
-    .nav { padding: 14px 20px; }
-    .nav-links { gap: 16px; }
-    .nav-link { display: none; }
+    .nav-links, .nav-right { display: none; }
+    .hamburger { display: flex; }
     .hero { padding: 48px 20px 40px; }
     .hero h1 { font-size: 34px; }
     .hero-sub { font-size: 15px; }
@@ -190,8 +204,6 @@
 
     .final-cta { padding: 60px 20px; }
     .final-cta h2 { font-size: 28px; }
-
-    .footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
   }
 
   @media (min-width: 769px) and (max-width: 1040px) {
@@ -201,20 +213,6 @@
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="nav">
-  <a href="/" class="logo">
-    <div class="logo-mark">hwc</div>
-    <div class="logo-wordmark">how we convert</div>
-  </a>
-  <div class="nav-links">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/blog" class="nav-link">Blog</a>
-    <a href="/about" class="nav-link">About</a>
-    <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>
-  </div>
-</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -460,16 +458,8 @@
   <a href="https://calendly.com/michael-howweconvert/consulting-call-with-michael-creative" target="_blank" rel="noopener" class="btn-primary">Book an intro call</a>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div>© 2026 How We Convert</div>
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/about">About</a>
-    <a href="/terms">Terms</a>
-  </div>
-</footer>
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
 
 </body>
 </html>
