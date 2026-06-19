@@ -132,6 +132,12 @@
   .ov-arrow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 3; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 2px 8px rgba(37,99,235,0.4); }
   .ov-cap { position: absolute; bottom: 8px; left: 8px; z-index: 2; font-family: 'Geist Mono', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; border-radius: 5px; background: rgba(15,23,42,0.7); color: #fff; }
 
+  /* phone mockup (UGC) */
+  .phone { width: 212px; max-width: 70%; margin: 0 auto; aspect-ratio: 9 / 19; background: var(--ink); border-radius: 30px; padding: 7px; box-shadow: 0 14px 34px rgba(15,23,42,0.20); }
+  .phone-screen { position: relative; width: 100%; height: 100%; border-radius: 23px; overflow: hidden; background: #000; }
+  .phone-screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .phone-notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 44px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.3); z-index: 2; }
+
   /* concept mock (no asset) */
   .mock-concept { aspect-ratio: 4 / 3; border-radius: 14px; border: 1px solid var(--border); background: var(--bg); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
   .mc-row { display: flex; gap: 10px; align-items: center; }
@@ -240,9 +246,8 @@
           <video poster="/images/showcase/veja-video-poster.jpg" loop muted playsinline preload="none">
             <source src="/images/showcase/veja-video.mp4" type="video/mp4"></video>
         </div>
-        <div class="tile tall has-video" data-poster="/images/showcase/veja-lifestyle-poster.jpg">
-          <video poster="/images/showcase/veja-lifestyle-poster.jpg" loop muted playsinline preload="none">
-            <source src="/images/showcase/veja-lifestyle.mp4" type="video/mp4"></video>
+        <div class="tile tall">
+          <img src="/images/showcase/veja-outdoor.jpg" alt="Veja outdoor lifestyle creative on a sunlit garden bench" loading="lazy">
         </div>
         <div class="tile sq">
           <img src="/images/showcase/converse-source.jpg" alt="Original Converse product catalogue shot" loading="lazy">
@@ -374,11 +379,11 @@
         <div class="ov-split">
           <div class="ov-frame">
             <span class="ov-cap">Source</span>
-            <img src="/images/showcase/converse-source.jpg" alt="Original Converse catalogue shot" loading="lazy">
+            <img src="/images/showcase/veja-product.jpg" alt="Original Veja catalogue product shot" loading="lazy">
           </div>
           <div class="ov-frame">
             <span class="ov-cap">Output</span>
-            <img src="/images/showcase/converse-lifestyle.jpg" alt="AI generated Converse lifestyle creative" loading="lazy">
+            <img src="/images/showcase/veja-outdoor.jpg" alt="AI generated Veja outdoor lifestyle creative" loading="lazy">
           </div>
           <div class="ov-arrow">→</div>
         </div>
@@ -411,9 +416,12 @@
         <div class="offer-sub">One long term creator relationship, typically a six month partnership, one post a month, in exchange for product rather than a cash fee. You provide the product, I handle everything else. Creator product and gifting are not included.</div>
       </div>
       <div class="offer-visual">
-        <div class="ov-frame has-video" data-poster="/images/showcase/veja-unboxing-poster.jpg">
-          <video poster="/images/showcase/veja-unboxing-poster.jpg" loop muted playsinline preload="none">
-            <source src="/images/showcase/veja-unboxing.mp4" type="video/mp4"></video>
+        <div class="phone">
+          <div class="phone-screen">
+            <span class="phone-notch"></span>
+            <video poster="/images/showcase/veja-unboxing-poster.jpg" loop muted playsinline preload="none">
+              <source src="/images/showcase/veja-unboxing.mp4" type="video/mp4"></video>
+          </div>
         </div>
       </div>
     </div>
