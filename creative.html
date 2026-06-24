@@ -124,11 +124,13 @@
   .offer-visual { position: relative; }
   .ov-frame { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--ink); aspect-ratio: 4 / 3; }
   .ov-frame video, .ov-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #ovRotator img { transition: opacity 0.4s ease; }
+  #ovRotator.is-fading img { opacity: 0; }
   .ov-badge { position: absolute; top: 10px; left: 10px; z-index: 2; font-family: 'Geist Mono', monospace; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; background: rgba(15,23,42,0.78); color: #fff; }
 
   /* before/after split */
   .ov-split { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .ov-split .ov-frame { aspect-ratio: 1 / 1; }
+  .ov-split .ov-frame { aspect-ratio: 4 / 5; }
   .ov-arrow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 3; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 2px 8px rgba(37,99,235,0.4); }
   .ov-cap { position: absolute; bottom: 8px; left: 8px; z-index: 2; font-family: 'Geist Mono', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; border-radius: 5px; background: rgba(15,23,42,0.7); color: #fff; }
 
@@ -247,7 +249,7 @@
             <source src="/images/showcase/veja-video.mp4" type="video/mp4"></video>
         </div>
         <div class="tile tall">
-          <img src="/images/showcase/veja-outdoor.jpg" alt="Veja outdoor lifestyle creative on a sunlit garden bench" loading="lazy">
+          <img src="/images/showcase/hero-short.jpg" alt="AI generated activewear shorts lifestyle creative in a gym" loading="lazy">
         </div>
         <div class="tile sq">
           <img src="/images/showcase/veja-lifestyle-photo.jpg" alt="Veja lifestyle creative, lacing trainers on stadium steps" loading="lazy">
@@ -376,14 +378,14 @@
         <div class="offer-desc">Up to 6 per cycle. One flat catalogue image, turned into scroll stopping lifestyle and simple motion. Same product, new context, ready for the feed.</div>
       </div>
       <div class="offer-visual">
-        <div class="ov-split">
+        <div class="ov-split" id="ovRotator">
           <div class="ov-frame">
             <span class="ov-cap">Source</span>
-            <img src="/images/showcase/veja-product.jpg" alt="Original Veja catalogue product shot" loading="lazy">
+            <img id="ovSource" src="/images/showcase/veja-product.jpg" alt="Original Veja catalogue product shot" loading="lazy">
           </div>
           <div class="ov-frame">
             <span class="ov-cap">Output</span>
-            <img src="/images/showcase/veja-outdoor.jpg" alt="AI generated Veja outdoor lifestyle creative" loading="lazy">
+            <img id="ovOutput" src="/images/showcase/veja-outdoor.jpg" alt="AI generated Veja outdoor lifestyle creative" loading="lazy">
           </div>
           <div class="ov-arrow">→</div>
         </div>
@@ -539,6 +541,34 @@
       });
     }, { rootMargin: '100px', threshold: 0.25 });
     vids.forEach(function(v){ io.observe(v); });
+  })();
+</script>
+
+<script>
+  // Rotate the 03 Ecommerce Source/Output pair between examples. Respects reduced motion.
+  (function(){
+    var rotator = document.getElementById('ovRotator');
+    if (!rotator) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    var src = document.getElementById('ovSource');
+    var out = document.getElementById('ovOutput');
+    var pairs = [
+      { s:'/images/showcase/veja-product.jpg', sa:'Original Veja catalogue product shot', o:'/images/showcase/veja-outdoor.jpg', oa:'AI generated Veja outdoor lifestyle creative' },
+      { s:'/images/showcase/ecom-source-lskd.jpg', sa:'Original flat catalogue shorts product shot', o:'/images/showcase/ecom-output-lskd.jpg', oa:'AI generated shorts lifestyle creative in a gym' }
+    ];
+    pairs.forEach(function(p){ [p.s, p.o].forEach(function(u){ var i = new Image(); i.src = u; }); });
+    var idx = 0;
+    setInterval(function(){
+      idx = (idx + 1) % pairs.length;
+      var p = pairs[idx];
+      rotator.classList.add('is-fading');
+      setTimeout(function(){
+        src.src = p.s; src.alt = p.sa;
+        out.src = p.o; out.alt = p.oa;
+        rotator.classList.remove('is-fading');
+      }, 400);
+    }, 3500);
   })();
 </script>
 
