@@ -107,160 +107,106 @@
     gap: 10px;
   }
 
-  /* ---- hero report preview ---- */
-  .report {
-    background: var(--ink);
-    border-radius: 16px;
-    padding: 26px;
-    min-width: 0;
-    box-shadow: 0 20px 50px rgba(15,23,42,0.16);
+  /* ---- hero deck preview ---- */
+  .deck-wrap { min-width: 0; }
+
+  .deck {
+    position: relative;
+    padding-bottom: 10px;
   }
 
-  .report-head {
+  .deck::before,
+  .deck::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    top: 0;
+    border-radius: 12px;
+    background: var(--ink-soft);
+    border: 1px solid rgba(255,255,255,0.08);
+    z-index: 1;
+  }
+
+  .deck::before {
+    width: 96%;
+    transform: translate(-50%, 8px);
+    opacity: 0.5;
+  }
+
+  .deck::after {
+    width: 92%;
+    transform: translate(-50%, 16px);
+    opacity: 0.28;
+  }
+
+  .deck-img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(15,23,42,0.12);
+    box-shadow: 0 24px 60px rgba(15,23,42,0.24);
+  }
+
+  .deck-caption {
+    position: relative;
+    z-index: 2;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 20px;
-  }
-
-  .report-head-label {
+    justify-content: center;
+    gap: 8px;
+    margin-top: 26px;
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 10.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: var(--muted);
   }
 
-  .report-dot {
-    width: 7px;
-    height: 7px;
+  .deck-caption::before {
+    content: '';
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--accent-light);
+    background: var(--accent);
+    flex-shrink: 0;
   }
 
-  .report-score-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 22px;
+  .deck-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 18px;
   }
 
-  .report-score {
+  .deck-stat {
+    background: var(--card);
+    padding: 16px 10px;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .deck-stat-value {
     font-family: var(--font-mono);
-    font-size: 46px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: -0.02em;
-    color: var(--accent-light);
+    color: var(--accent);
     line-height: 1;
+    margin-bottom: 6px;
   }
 
-  .report-score span {
-    font-size: 18px;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .report-score-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.5;
-    min-width: 0;
-  }
-
-  .report-bars {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin-bottom: 20px;
-  }
-
-  .report-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-  }
-
-  .report-bar-name {
-    flex: 1;
-    font-size: 12px;
-    color: rgba(255,255,255,0.65);
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .report-bar {
-    width: 74px;
-    height: 5px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .report-bar-fill {
-    height: 100%;
-    background: var(--accent-light);
-    border-radius: 3px;
-  }
-
-  .report-actions {
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .report-actions-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 12px;
-  }
-
-  .report-action {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 7px 0;
-    min-width: 0;
-  }
-
-  .report-action-num {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--accent-light);
-    flex-shrink: 0;
-  }
-
-  .report-action-text {
-    font-size: 12.5px;
-    color: rgba(255,255,255,0.8);
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .report-chip {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 3px 7px;
-    border-radius: 4px;
-    flex-shrink: 0;
-    background: rgba(96,165,250,0.15);
-    color: var(--accent-light);
-  }
-
-  .report-chip.high {
-    background: rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.85);
+  .deck-stat-label {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.4;
   }
 
   /* ---- pain hook (inside findings) ---- */
@@ -694,39 +640,9 @@
 
 
 
-  /* ============ DEPTH STRIP ============ */
-  .depth {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    max-width: 900px;
-    margin: 44px auto 0;
-  }
 
-  .depth-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 20px;
-    text-align: center;
-    min-width: 0;
-  }
 
-  .depth-value {
-    font-family: var(--font-mono);
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
 
-  .depth-label {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
 
   /* ============ TESTIMONIALS ============ */
   .quotes-grid {
@@ -1015,8 +931,10 @@
     .hero-sub { font-size: 15px; }
     .hero-cta-row { flex-direction: column; gap: 10px; }
     .btn-primary, .btn-ghost { width: 100%; text-align: center; }
-    .report { padding: 22px 18px; }
-    .report-score { font-size: 38px; }
+    .deck-stats { grid-template-columns: repeat(2, 1fr); }
+    .deck-stat { padding: 14px 8px; }
+    .deck-stat-value { font-size: 18px; }
+    .deck-caption { margin-top: 22px; }
     .pain-answer { font-size: 15px; margin-bottom: 30px; }
     .steps-cta { margin-top: 32px; }
     .section { padding: 48px 20px; }
@@ -1030,13 +948,9 @@
     .expert-photo-wrap { margin: 0 auto; width: 220px; }
     .expert-points { align-items: flex-start; text-align: left; max-width: 340px; margin: 0 auto; }
     .get-grid { grid-template-columns: 1fr; }
-    .depth { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
     .offer { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; border-radius: 14px; }
     .offer-divider { width: 100%; height: 1px; }
     .offer-price { font-size: 52px; }
-    .depth-card { padding: 18px 14px; }
-    .depth-value { font-size: 24px; }
-    .depth-label { font-size: 12.5px; }
     .quotes-grid { grid-template-columns: 1fr; }
     .quote-card { padding: 24px 20px; }
     .obj-grid { grid-template-columns: 1fr; }
@@ -1066,64 +980,29 @@
       </div>
     </div>
 
-    <div class="report">
-      <div class="report-head">
-        <div class="report-head-label">Audit report</div>
-        <div class="report-dot"></div>
+    <div class="deck-wrap">
+      <div class="deck">
+        <img src="/hwc_audit_sample_light.gif" alt="Sample pages from a How We Convert paid social audit report" class="deck-img" width="900" height="506" loading="eager">
       </div>
 
-      <div class="report-score-row">
-        <div class="report-score">3.0<span>/5</span></div>
-        <div class="report-score-label">Overall account score, evidence for every number</div>
-      </div>
+      <div class="deck-caption">Sample report</div>
 
-      <div class="report-bars">
-        <div class="report-bar-row">
-          <div class="report-bar-name">Tracking and data</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 40%;"></div></div>
+      <div class="deck-stats">
+        <div class="deck-stat">
+          <div class="deck-stat-value">11</div>
+          <div class="deck-stat-label">Sections</div>
         </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Account structure</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 80%;"></div></div>
+        <div class="deck-stat">
+          <div class="deck-stat-value">28</div>
+          <div class="deck-stat-label">Checkpoints</div>
         </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Budget allocation</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 60%;"></div></div>
+        <div class="deck-stat">
+          <div class="deck-stat-value">90</div>
+          <div class="deck-stat-label">Days of data</div>
         </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Audiences and targeting</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 60%;"></div></div>
-        </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Creative</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 80%;"></div></div>
-        </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Offer and landing alignment</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 60%;"></div></div>
-        </div>
-        <div class="report-bar-row">
-          <div class="report-bar-name">Measurement and judgment</div>
-          <div class="report-bar"><div class="report-bar-fill" style="width: 40%;"></div></div>
-        </div>
-      </div>
-
-      <div class="report-actions">
-        <div class="report-actions-label">Fix first</div>
-        <div class="report-action">
-          <div class="report-action-num">01</div>
-          <div class="report-action-text">Exclude existing customers</div>
-          <div class="report-chip high">High</div>
-        </div>
-        <div class="report-action">
-          <div class="report-action-num">02</div>
-          <div class="report-action-text">Consolidate 9 ad sets into 3</div>
-          <div class="report-chip high">High</div>
-        </div>
-        <div class="report-action">
-          <div class="report-action-num">03</div>
-          <div class="report-action-text">Fix event deduplication</div>
-          <div class="report-chip">Medium</div>
+        <div class="deck-stat">
+          <div class="deck-stat-value">7</div>
+          <div class="deck-stat-label">Areas scored</div>
         </div>
       </div>
     </div>
@@ -1160,24 +1039,6 @@
     </div>
   </div>
 
-  <div class="depth">
-    <div class="depth-card">
-      <div class="depth-value">28</div>
-      <div class="depth-label">Checkpoints worked through, one by one</div>
-    </div>
-    <div class="depth-card">
-      <div class="depth-value">90</div>
-      <div class="depth-label">Days of account data reviewed, minimum</div>
-    </div>
-    <div class="depth-card">
-      <div class="depth-value">3</div>
-      <div class="depth-label">Levels read: campaign, ad set, and ad</div>
-    </div>
-    <div class="depth-card">
-      <div class="depth-value">Top 3</div>
-      <div class="depth-label">Fixes ranked by impact, not by area order</div>
-    </div>
-  </div>
 </section>
 
 <!-- OFFER CARD -->
