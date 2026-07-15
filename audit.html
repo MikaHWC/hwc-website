@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paid Social Audit — How We Convert</title>
+<meta name="description" content="A fixed fee Meta ads audit by a paid social expert with 15 years of experience. Scored report across 7 areas, a prioritised action plan, and a walkthrough call.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSYL2P0SV3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NSYL2P0SV3');
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0F172A;
+    --ink-soft: #1E293B;
+    --bg: #FAFAFA;
+    --card: #FFFFFF;
+    --muted: #64748B;
+    --muted-light: #94A3B8;
+    --border: #E2E8F0;
+    --border-soft: #F1F5F9;
+    --accent: #2563EB;
+    --accent-dark: #1D4ED8;
+    --accent-light: #60A5FA;
+    --accent-bg: #EFF6FF;
+    --font-sans: 'Geist', -apple-system, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px 50px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    padding: 12px 22px;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .btn-ghost {
+    padding: 12px 22px;
+    background: transparent;
+    color: var(--ink);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  /* ============ PRICE CARD ============ */
+  .price {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    padding: 0 40px;
+  }
+
+  .price-card {
+    background: var(--ink);
+    color: white;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .price-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .price-value {
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-detail {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+  }
+
+  .price-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .price-chip-num {
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  /* ============ EXPERT ============ */
+  .expert {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .expert-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 70px 40px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .expert-photo-wrap {
+    position: relative;
+    min-width: 0;
+  }
+
+  .expert-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--border);
+  }
+
+  .expert-badge {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .expert-badge .accent { color: var(--accent-light); }
+
+  .expert-content { min-width: 0; }
+
+  .expert-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .expert-title {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .expert-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .expert-points {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .expert-point {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .expert-point svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    fill: none;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ============ WHAT YOU GET ============ */
+  .get-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .get-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    min-width: 0;
+  }
+
+  .get-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .get-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--accent);
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .get-title {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .get-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ============ FINDINGS ============ */
+  .findings {
+    background: var(--ink);
+  }
+
+  .findings .section-eyebrow { color: rgba(255,255,255,0.5); }
+  .findings .section-title { color: white; }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .finding-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 28px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .finding-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 12px;
+  }
+
+  .finding-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: white;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .finding-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .finding-needle {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .finding-needle svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--accent-light);
+    stroke-width: 2.5;
+    fill: none;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .finding-needle-text {
+    font-size: 13.5px;
+    color: white;
+    line-height: 1.6;
+  }
+
+  .findings-caption {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ============ SCORECARD ============ */
+  .scorecard-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .scorecard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+  }
+
+  .scorecard-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .scorecard-head-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .scorecard-head-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted-light);
+  }
+
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    min-width: 0;
+  }
+
+  .score-name {
+    flex: 1;
+    font-size: 14px;
+    color: var(--ink-soft);
+    min-width: 0;
+  }
+
+  .score-bar {
+    width: 160px;
+    height: 6px;
+    background: var(--border-soft);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .score-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  .score-val {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+    width: 34px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .scorecard-foot {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scorecard-foot-label {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .scorecard-foot-score {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .scorecard-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted-light);
+    margin-top: 16px;
+  }
+
+  /* ============ WHO IT'S FOR ============ */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .who-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 0;
+  }
+
+  .who-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .who-check svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--accent);
+    stroke-width: 3;
+    fill: none;
+  }
+
+  .who-content { min-width: 0; }
+
+  .who-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .who-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ============ HOW IT WORKS ============ */
+  .how-it-works {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .step { min-width: 0; }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    font-size: 15.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .faq-a {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    background: var(--ink);
+    padding: 90px 40px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 16px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .hero { padding: 48px 20px 36px; }
+    .hero h1 { font-size: 36px; }
+    .hero-sub { font-size: 15px; }
+    .hero-cta-row { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    .price { padding: 0 20px; margin-bottom: 20px; }
+    .price-card { padding: 28px 20px; }
+    .price-value { font-size: 56px; }
+    .section { padding: 48px 20px; }
+    .section-title { font-size: 28px; }
+    .expert-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 48px 20px;
+      text-align: center;
+    }
+    .expert-photo-wrap { margin: 0 auto; width: 220px; }
+    .expert-points { align-items: flex-start; text-align: left; max-width: 340px; margin: 0 auto; }
+    .get-grid { grid-template-columns: 1fr; }
+    .findings-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .scorecard { padding: 24px 18px; }
+    .score-bar { width: 90px; }
+    .final-cta { padding: 60px 20px; }
+    .final-cta h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Paid social audit</div>
+  <h1>Find out exactly where your ad account is <span class="accent">leaving money on the table.</span></h1>
+  <p class="hero-sub">A fixed fee Meta ads audit by a paid social expert with 15 years of experience. Your account scored across 7 areas, a prioritised action plan, and a walkthrough call. Delivered within 5 business days.</p>
+  <div class="hero-cta-row">
+    <a href="https://tally.so/r/LZNEKy" class="btn-primary">Get your audit</a>
+    <a href="#how-it-works" class="btn-ghost">See how it works</a>
+  </div>
+</section>
+
+<!-- PRICE CARD -->
+<div class="price">
+  <div class="price-card">
+    <div class="price-label">Fixed fee</div>
+    <div class="price-value">$950</div>
+    <div class="price-detail">One time payment. Fixed scope. No contracts, no retainer, no obligation.</div>
+    <div class="price-chip">
+      <span>Delivered within</span>
+      <span class="price-chip-num">5 business days</span>
+      <span>of account access</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERT -->
+<section class="expert">
+  <div class="expert-inner">
+    <div class="expert-photo-wrap">
+      <img src="/michael.jpg" alt="Michael Gayet, founder of How We Convert" class="expert-photo">
+      <div class="expert-badge"><span class="accent">15 years</span> in paid social</div>
+    </div>
+    <div class="expert-content">
+      <div class="expert-eyebrow">Audited by a human</div>
+      <div class="expert-title">Every audit is done by Michael. Not a scan, not a template.</div>
+      <p class="expert-desc">Michael Gayet has spent 15 years running paid social for ecommerce and lead generation businesses, agency side and in house. Every account gets his eyes, his judgment, and findings written in plain English with the evidence to back them.</p>
+      <div class="expert-points">
+        <div class="expert-point">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Every finding cites your actual campaigns, numbers, and dates</span>
+        </div>
+        <div class="expert-point">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>No stake in the answer. Independent of your agency and of Meta</span>
+        </div>
+        <div class="expert-point">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>What's working gets called out too. An audit is not a sales doc</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="section-eyebrow">What you get</div>
+  <h2 class="section-title">Three deliverables. Zero fluff.</h2>
+
+  <div class="get-grid">
+    <div class="get-card">
+      <div class="get-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+      </div>
+      <div class="get-title">A scored report</div>
+      <div class="get-desc">Your account assessed across 7 areas, each scored out of 5, with every finding backed by evidence from your actual campaigns. Real numbers, real campaign names, real dates.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </div>
+      <div class="get-title">A prioritised action plan</div>
+      <div class="get-desc">Every issue ranked by severity and effort, with a clear owner for each fix. You'll know the top 3 things to fix first and why they matter more than the rest.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <div class="get-title">A walkthrough call</div>
+      <div class="get-desc">We go through the findings together, live. Ask anything. You leave knowing exactly what to do next, whether you do it with us or on your own.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT AUDITS FIND -->
+<section class="findings">
+  <div class="section">
+    <div class="section-eyebrow">What audits find</div>
+    <h2 class="section-title">The problems hiding in plain sight.</h2>
+
+    <div class="findings-grid">
+      <div class="finding-card">
+        <div class="finding-label">Attribution laundering</div>
+        <div class="finding-title">Your "best" campaign might be taking credit, not creating sales.</div>
+        <div class="finding-desc">Retargeting shows a stellar ROAS by claiming sales from people who were going to buy anyway. On the dashboard it looks like your winner. In reality it's borrowing credit from the campaigns doing the real work.</div>
+        <div class="finding-needle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="finding-needle-text">Shift that budget to spend that creates new customers. Same budget, more growth.</div>
+        </div>
+      </div>
+
+      <div class="finding-card">
+        <div class="finding-label">The learning phase trap</div>
+        <div class="finding-title">Ten ad sets starving where one would thrive.</div>
+        <div class="finding-desc">Meta needs roughly 50 conversions a week per ad set to optimise properly. Split your budget across too many ad sets and none of them ever get there, so the algorithm guesses instead of learns. The account looks busy and performs beneath its potential.</div>
+        <div class="finding-needle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="finding-needle-text">Consolidate and the same spend buys cheaper customers. No new budget required.</div>
+        </div>
+      </div>
+
+      <div class="finding-card">
+        <div class="finding-label">Missing exclusions</div>
+        <div class="finding-title">Paying to acquire customers you already have.</div>
+        <div class="finding-desc">When existing customers aren't excluded from acquisition campaigns, part of every day's budget goes to people who already bought. It inflates your ROAS and quietly shrinks the share of spend reaching genuinely new buyers.</div>
+        <div class="finding-needle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="finding-needle-text">Exclude them and every acquisition dollar works on actual new customers.</div>
+        </div>
+      </div>
+
+      <div class="finding-card">
+        <div class="finding-label">Profitable restraint</div>
+        <div class="finding-title">Beating targets while spending 39% of the budget.</div>
+        <div class="finding-desc">A recent audit found an account beating its CPA target by $2 while spending just 39% of its stated monthly budget. Nothing was broken, which is exactly why nobody was looking. The growth was sitting there unclaimed.</div>
+        <div class="finding-needle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <div class="finding-needle-text">Scale what's already working. The cheapest growth is the budget you're not spending.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="findings-caption">Real finding patterns from HWC audits. Your report shows what's true for your account, good or bad.</div>
+  </div>
+</section>
+
+<!-- THE 7 AREAS -->
+<section class="section">
+  <div class="section-eyebrow">The 7 areas</div>
+  <h2 class="section-title">Every part of the account that moves the needle.</h2>
+
+  <div class="scorecard-wrap">
+    <div class="scorecard">
+      <div class="scorecard-head">
+        <div class="scorecard-head-label">Sample scorecard</div>
+        <div class="scorecard-head-note">scored 1 to 5</div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-name">Tracking and data foundation</div>
+        <div class="score-bar"><div class="score-fill" style="width: 40%;"></div></div>
+        <div class="score-val">2/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Account structure</div>
+        <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+        <div class="score-val">4/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Budget allocation</div>
+        <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+        <div class="score-val">3/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Audiences and targeting</div>
+        <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+        <div class="score-val">3/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Creative</div>
+        <div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div>
+        <div class="score-val">4/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Offer and landing alignment</div>
+        <div class="score-bar"><div class="score-fill" style="width: 60%;"></div></div>
+        <div class="score-val">3/5</div>
+      </div>
+      <div class="score-row">
+        <div class="score-name">Measurement and judgment</div>
+        <div class="score-bar"><div class="score-fill" style="width: 40%;"></div></div>
+        <div class="score-val">2/5</div>
+      </div>
+
+      <div class="scorecard-foot">
+        <div class="scorecard-foot-label">Overall account score</div>
+        <div class="scorecard-foot-score">3.0/5</div>
+      </div>
+    </div>
+    <div class="scorecard-caption">Illustrative example. Your report scores your account, with evidence for every number.</div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section">
+  <div class="section-eyebrow">Who this is for</div>
+  <h2 class="section-title">Built for brands spending $3k+ a month on paid social.</h2>
+
+  <div class="who-grid">
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Ecommerce brands</div>
+        <div class="who-desc">You're running Meta ads in house or through an agency, and you suspect the results could be better but can't point to why.</div>
+      </div>
+    </div>
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Lead generation businesses</div>
+        <div class="who-desc">You're paying for leads but you're not sure the account is optimising for the leads that actually become customers.</div>
+      </div>
+    </div>
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Founders taking ads in house</div>
+        <div class="who-desc">You're about to take over your own account and want an honest map of what you're inheriting before you touch anything.</div>
+      </div>
+    </div>
+    <div class="who-item">
+      <div class="who-check">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="who-content">
+        <div class="who-title">Teams sanity checking an agency</div>
+        <div class="who-desc">You want an independent second opinion on the account your agency runs, from someone with no stake in the answer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section">
+    <div class="section-eyebrow">The process</div>
+    <h2 class="section-title">Three steps. Five business days.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Pay and complete the intake</div>
+        <div class="step-desc">One form covers payment and the context we need: your targets, budget, margins, and where it hurts. Takes about 5 minutes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Grant read only access</div>
+        <div class="step-desc">You give How We Convert view only access to your Meta ad account. We never touch settings, budgets, or campaigns. The clock starts when access is confirmed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Get your report and call</div>
+        <div class="step-desc">Within 5 business days you get the scored report, the action plan, and a booking link for your walkthrough call.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-eyebrow">Questions</div>
+  <h2 class="section-title">Common questions.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Is this a sales pitch in disguise?</div>
+      <div class="faq-a">No. The audit is a standalone product with a fixed scope: report, action plan, walkthrough call. You can action everything in it yourself, hand it to your agency, or ask us about working together. All three are fine outcomes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who actually does the audit?</div>
+      <div class="faq-a">Michael, personally. AI tools help pull and organise the data, but every score, finding, and recommendation is his judgment, built on 15 years of running paid social accounts.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What access do you need?</div>
+      <div class="faq-a">Read only. You grant view performance access through Meta Business Settings, which lets us see the data without any ability to change anything. Instructions are in the intake form.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this work for lead generation, or just ecommerce?</div>
+      <div class="faq-a">Both. The 7 areas are the same, but what good looks like changes. Lead gen accounts get assessed on lead quality feedback loops and cost per customer, not just cost per form fill.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if my account is too small to audit?</div>
+      <div class="faq-a">The audit is designed for accounts spending $3k or more a month. If your account genuinely doesn't have enough data to audit properly, we'll tell you before starting and refund you in full.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you keep access to my account afterwards?</div>
+      <div class="faq-a">No. Once the walkthrough call is done, remove our partner access in Business Settings. We'll remind you on the call.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What do you need from me during the 5 days?</div>
+      <div class="faq-a">Usually nothing beyond the intake and access. If something material is missing, like a landing page URL or a tracking screenshot, we'll ask once, in one message.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Know exactly where your account stands.</h2>
+  <p>Fixed fee, fixed scope, delivered in 5 business days. No contracts, no obligation, no sales dance.</p>
+  <a href="https://tally.so/r/LZNEKy" class="btn-primary">Get your audit</a>
+</section>
+
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+
+</body>
+</html>
