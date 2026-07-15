@@ -18,11 +18,9 @@
     '.footer-bottom-links a:hover{color:#fff;}' +
     '@media (min-width:768px){.footer{padding:72px 32px 40px;}.footer-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;text-align:left;padding-bottom:48px;}.footer-links{align-items:flex-start;}.footer-bottom{flex-direction:row;justify-content:space-between;padding-top:24px;}}' +
     '@media (max-width:767px){.footer-brand .logo{justify-content:center;}}';
-
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
-
   var footer = document.createElement('footer');
   footer.className = 'footer';
   footer.innerHTML =
@@ -34,6 +32,7 @@
       '<div class="footer-resources">' +
         '<h4>Resources</h4>' +
         '<ul class="footer-links">' +
+          '<li><a href="/audit">Paid Social Audit</a></li>' +
           '<li><a href="https://app.howweconvert.com.au" target="_blank" rel="noopener">Ad Idea Generator</a></li>' +
           '<li><a href="https://learn.howweconvert.com.au/pre-flight-checklist/" target="_blank" rel="noopener">Pre-Flight Checklist</a></li>' +
           '<li><a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener">Insights</a></li>' +
@@ -50,6 +49,5 @@
         '<a href="/privacy">Privacy</a>' +
       '</div>' +
     '</div>';
-
   document.body.appendChild(footer);
 })();
