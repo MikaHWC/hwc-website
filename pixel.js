@@ -45,9 +45,10 @@
       }, { eventID: eid() });
     }
 
-    // Intro call click on Calendly. Audience signal only.
-    // The real Schedule conversion fires server side from the Calendly webhook.
-    if (href.indexOf('calendly.com/michael-howweconvert') !== -1) {
+    // Intro call click on /book (redirects to the Google booking page). Audience signal only.
+    // The real Schedule conversion fires server side from the booking bridge.
+    var path = (a.pathname || '').toLowerCase();
+    if ((a.hostname === location.hostname && (path === '/book' || path === '/book/')) || href.indexOf('calendar.app.google/xjpaweojhfdbabcz9') !== -1) {
       fbq('trackCustom', 'ClickBookCall', {}, { eventID: eid() });
     }
   }, true);
