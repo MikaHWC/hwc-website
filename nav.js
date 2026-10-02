@@ -57,7 +57,7 @@
       '<nav class="nav-links">' + linksMarkup + '</nav>' +
       '<div class="nav-right">' +
         '<a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>' +
-        '<a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>' +
+        '<a href="/book" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>' +
       '</div>' +
       '<button class="hamburger" aria-label="Open menu"><span></span></button>' +
     '</div>';
@@ -68,7 +68,7 @@
     '<button class="mobile-menu-close" aria-label="Close menu">\u00D7</button>' +
     linksMarkup +
     '<a href="https://portal.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-members">Members login</a>' +
-    '<a href="https://calendly.com/michael-howweconvert/book-your-introduction-call" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>';
+    '<a href="/book" target="_blank" rel="noopener" class="nav-cta">Book an intro call</a>';
 
   document.body.insertBefore(header, document.body.firstChild);
   header.parentNode.insertBefore(menu, header.nextSibling);
