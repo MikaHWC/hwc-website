@@ -24,12 +24,13 @@
     '.hamburger span::after{top:7px;}' +
     '.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:100;padding:80px 24px 32px;flex-direction:column;gap:4px;}' +
     '.mobile-menu.open{display:flex;}' +
+    '.mobile-menu a{text-decoration:none;}' +
     '.mobile-menu-close{position:absolute;top:18px;right:18px;background:none;border:none;width:38px;height:38px;font-size:24px;color:var(--ink);cursor:pointer;}' +
     '.mobile-menu .nav-link{padding:14px 16px;font-size:16px;border-radius:8px;}' +
     '.mobile-menu .nav-cta{margin-top:20px;padding:14px 18px;text-align:center;font-size:15px;}' +
     '.mobile-menu .nav-members{padding:14px 16px;font-size:15px;}' +
     '@media (min-width:768px){.nav-inner{padding:16px 32px;gap:32px;}}' +
-    '@media (max-width:767px){.nav-links,.nav-right{display:none;}.hamburger{display:flex;}}';
+    '@media (max-width:1199px){.nav-links,.nav-right{display:none;}.hamburger{display:flex;}}';
 
   var style = document.createElement('style');
   style.textContent = css;
@@ -44,6 +45,7 @@
     '<a href="https://app.howweconvert.com.au" target="_blank" rel="noopener" class="nav-link nav-gen">Ad Generator <span class="nav-gen-pill">Free</span></a>' +
     '<a href="https://learn.howweconvert.com.au/" target="_blank" rel="noopener" class="nav-link">Insights</a>' +
     '<a href="/creative" class="nav-link' + active('/creative') + '">Creative Production</a>' +
+    '<a href="/audit" class="nav-link' + active('/audit') + '">Audit</a>' +
     '<a href="/about" class="nav-link' + active('/about') + '">About</a>';
 
   var header = document.createElement('header');
